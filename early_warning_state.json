@@ -1,1 +1,16 @@
-{}
+{
+  "the riverside company|2027 summer analyst, riverside micro-cap fund strategy|new york, ny / cleveland, oh / los angeles, ca|2027": {
+    "verification_status": "UNCHECKED",
+    "urls": [
+      "https://job-boards.greenhouse.io/theriversidecompany/jobs/8099028002",
+      "https://careerservices.fas.harvard.edu/jobs/the-riverside-company-2027-summer-analyst-riverside-micro-cap-fund-strategy/",
+      "https://ocs.yale.edu/jobs/the-riverside-company-2027-summer-analyst-riverside-micro-cap-fund-strategy/",
+      "https://careerservices.upenn.edu/jobs/the-riverside-company-8099028002-2027-riverside-micro-cap-summer-analyst/",
+      "https://career.ucla.edu/jobs/the-riverside-company-8099028002-2027-riverside-micro-cap-summer-analyst-3/"
+    ],
+    "discovery_source": "WebSearch named-firm/university-board sweep; direct Greenhouse posting confirmed via search",
+    "fit_score": 85,
+    "notes": "The Riverside Company, global private equity firm (~$14B+ AUM), Riverside Micro-Cap Fund strategy (small/micro-cap buyouts). Posting explicitly states 'Only undergraduate students from the Class of 2028 will be considered' -- exact eligibility match for candidate. Locations: Cleveland, OH / Los Angeles, CA / New York, NY. One mirror lists $20/hour comp, unconfirmed. Firm was not previously on the Monitored Companies list; added this run.",
+    "date_logged": "2026-09-01"
+  }
+}
