@@ -71,7 +71,7 @@
       "https://job-boards.greenhouse.io/alpineinternships/jobs/8344152002"
     ],
     "verification_status": "DEAD",
-    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01); this run's re-check attempt failed with EGRESS_BLOCKED (network policy) so the prior DEAD verdict stands unchanged (checked 2026-09-02)",
     "verify_alerted": true
   },
   "aqr capital management|2027 portfolio implementation summer analyst|greenwich, ct|2027": {
@@ -200,7 +200,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "University board sweep (St. John's mirror)",
     "fit_score": 65,
-    "notes": "Distinct role from Barclays' Credit Research Analyst posting already in this ledger, which is marked CLOSED (human-confirmed dead). This is Equity Research, a separate posting — not a resurrection of the closed one.",
+    "notes": "Distinct role from Barclays' Credit Research Analyst posting already in this ledger, which is marked CLOSED (human-confirmed dead). This is Equity Research, a separate posting \u2014 not a resurrection of the closed one.",
     "urls": [
       "https://careerservices.stjohns.edu/jobs/barclays-equity-research-analyst-summer-internship-program-2027-new-york/"
     ],
@@ -537,7 +537,7 @@
     "verification_status": "UNCHECKED",
     "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
   },
-  "graham partners|2027 summer analyst – investment team|newtown square, pa|2027": {
+  "graham partners|2027 summer analyst \u2013 investment team|newtown square, pa|2027": {
     "date_logged": "2026-08-21",
     "discovery_source": "carried over (source not recorded pre-schema-change)",
     "fit_score": null,
@@ -809,7 +809,7 @@
     "date_logged": "2026-08-31",
     "discovery_source": "WebSearch: fixed income intern summer 2027 Boston query",
     "fit_score": 82,
-    "notes": "Distinct from already-logged Morgan Stanley entries (NYC Fixed Income Research; IM Private Equity Solutions; IM Private Credit and Equity) — this is the IM Fixed Income High Yield desk in Boston. Only source found was a third-party blog mirror, not Morgan Stanley's own careers site.",
+    "notes": "Distinct from already-logged Morgan Stanley entries (NYC Fixed Income Research; IM Private Equity Solutions; IM Private Credit and Equity) \u2014 this is the IM Fixed Income High Yield desk in Boston. Only source found was a third-party blog mirror, not Morgan Stanley's own careers site.",
     "urls": [
       "https://econugblog.wordpress.com/2026/08/26/2027-investment-management-summer-analyst-program-fixed-income-morgan-stanley/"
     ],
@@ -1114,7 +1114,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "Greenhouse dork (fixed income/asset management sweep)",
     "fit_score": 55,
-    "notes": "Fixed-income focused (Liquid Corporate Credit, Short-Dated Assets) — strong skill match, but firm and program appear UK/London-based, outside candidate's priority geography. New firm, not yet in Monitored Companies before this run.",
+    "notes": "Fixed-income focused (Liquid Corporate Credit, Short-Dated Assets) \u2014 strong skill match, but firm and program appear UK/London-based, outside candidate's priority geography. New firm, not yet in Monitored Companies before this run.",
     "urls": [
       "https://job-boards.greenhouse.io/rothesaygraduates/jobs/8390555002"
     ],
@@ -1213,7 +1213,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "Named-firm growth equity sweep",
     "fit_score": 78,
-    "notes": "Growth/buyout multi-stage investing; min GPA 3.6 cited in one source (candidate is 3.66). One source titles the program '2026' rather than '2027' – cycle year is unclear from search snippets alone, flagging rather than resolving it.",
+    "notes": "Growth/buyout multi-stage investing; min GPA 3.6 cited in one source (candidate is 3.66). One source titles the program '2026' rather than '2027' \u2013 cycle year is unclear from search snippets alone, flagging rather than resolving it.",
     "urls": [
       "https://job-boards.greenhouse.io/summitpartnerslp",
       "https://www.summitpartners.com/summit-careers",
@@ -1331,7 +1331,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "Cornell career board sweep",
     "fit_score": 55,
-    "notes": "New firm not previously in Monitored Companies. Search snippet gives no explicit summer-2027/class-year confirmation — cycle year and eligibility unconfirmed; logging for firm-tracking completeness.",
+    "notes": "New firm not previously in Monitored Companies. Search snippet gives no explicit summer-2027/class-year confirmation \u2014 cycle year and eligibility unconfirmed; logging for firm-tracking completeness.",
     "urls": [
       "https://career.cornell.edu/jobs/valhalla-holdings-llc-quantitative-investment-intern/"
     ],
@@ -1458,5 +1458,19 @@
     ],
     "verification_status": "UNCHECKED",
     "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "bracebridge capital|summer 2027 investment analyst|boston, ma|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: private credit/fixed income greenhouse dork + Harvard FAS career-hub mirror + company careers page",
+    "fit_score": 78,
+    "notes": "New firm, not in monitored_companies.txt. ~$12B AUM global fixed-income/macro hedge fund (Emerging Markets, Corporate Credit, Rates, Structured Products) - strong fit for fixed-income coursework / Bloomberg Terminal profile. Two greenhouse job ids found that both appear to describe the same Summer 2027 Investment Analyst posting; listing both as variants.",
+    "urls": [
+      "https://job-boards.greenhouse.io/bracebridgecapital/jobs/4647728005",
+      "https://job-boards.greenhouse.io/bracebridgecapital/jobs/4596910005",
+      "https://www.bracebridgecapital.com/careers/students-recent-grads/",
+      "https://careerservices.fas.harvard.edu/jobs/bracebridge-capital-llc-summer-2027-investment-analyst/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy), same as prior runs (checked 2026-09-02)"
   }
 }
