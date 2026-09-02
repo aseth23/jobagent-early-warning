@@ -49,6 +49,7 @@ Barings
 Baron Capital
 Bayview Asset Management
 Beach Point Capital Management
+Belvedere Trading
 Benefit Street Partners
 BentallGreenOak
 Berkshire Partners
@@ -104,6 +105,7 @@ Corebridge Financial
 Corient
 Creative Planning
 Crescent Capital Group
+D.A. Davidson
 D. E. Shaw
 DRW
 DWS
@@ -217,6 +219,7 @@ MFS Investment Management
 MGG Investment Group
 MIT Investment Management Company
 Macquarie Group
+Mainsail Partners
 Makena Capital Management
 Man Group
 Manning & Napier
@@ -281,6 +284,7 @@ Principal Asset Management
 PrizePicks
 Pro Football Focus
 ProShares
+Providence Equity
 Prudential / PGIM
 Putnam Investments
 RBC Capital Markets
@@ -304,10 +308,12 @@ Schwab Asset Management
 Segall Bryant & Hamill
 Silver Lake
 Silver Point Capital
+Silversmith Capital Partners
 Simplify Asset Management
 Sixth Street
 Sound Point Capital Management
 Southeastern Asset Management
+Spectrum Equity
 Sportradar
 Squarepoint Capital
 Starwood Capital Group

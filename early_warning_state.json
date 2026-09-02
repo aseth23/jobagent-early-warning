@@ -1472,5 +1472,90 @@
     ],
     "verification_status": "UNCHECKED",
     "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy), same as prior runs (checked 2026-09-02)"
+  },
+  "cf private equity (commonfund)|summer intern 2027 - buyouts & growth equity team|new york, ny|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: NYU Stern career-board sweep / broad private equity sweep",
+    "fit_score": 82,
+    "notes": "New firm not previously monitored. CF Private Equity is Commonfund's private-markets affiliate serving endowments/foundations/pensions; this req covers buyout, growth equity, secondaries, and co-investment fund-of-funds exposure. 10-week program. Grad-year eligibility not explicit in snippets (framed as 'consideration for full-time upon graduation').",
+    "urls": [
+      "https://bebee.com/us/jobs/summer-intern-2027-buyouts-growth-equity-team-cf-private-equity-new-york-ny--jooble--3611612497540099018",
+      "https://www.cfprivateequity.com/careers",
+      "https://www.linkedin.com/jobs/view/summer-intern-2027-at-cf-private-equity-4438680798"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
+  },
+  "cf private equity (commonfund)|summer intern 2027 - real assets & sustainability|not confirmed (norwalk, ct / new york, ny)|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: Tulane career-board follow-up on CF Private Equity firm search",
+    "fit_score": 78,
+    "notes": "Distinct req from the Buyouts & Growth Equity CF Private Equity entry above. Sits within CF PE's Sustainability/Natural Resources program (~$3.5B+ raised) covering renewable energy, food/agriculture/water, resource efficiency -- real-assets/infrastructure-adjacent.",
+    "urls": [
+      "https://careerengagement.tulane.edu/jobs/commonfund-cf-private-equity-summer-intern-2027-real-assets-sustainability/",
+      "https://www.linkedin.com/jobs/view/summer-intern-2027-real-assets-sustainability-at-cf-private-equity-4447543756"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
+  },
+  "millennium management|2027 quantitative researcher intern|new york, ny|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: quant investing broad sweep (university career-board mirrors)",
+    "fit_score": 78,
+    "notes": "Millennium is a top-tier multi-strategy hedge fund (~$70B+ AUM); interns partner with quantitative researchers and investment professionals on live strategies. Also live in London and Paris -- NY is the priority-geography listing. Eligibility stated as grad between Dec 2027 and July 2028, matching candidate's Class of 2028 window. Firm was already on Monitored Companies list; this is the first specific posting logged for it.",
+    "urls": [
+      "https://careers.centre.edu/jobs/millennium-management-llc-2027-quantitative-researcher-intern-new-york/",
+      "https://capd.mit.edu/jobs/millennium-management-llc-2027-quantitative-researcher-intern-new-york/",
+      "https://career.kean.edu/jobs/millennium-management-llc-2027-quantitative-researcher-intern-new-york/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
+  },
+  "citadel|equities - citadel associate program - summer internship 2027|new york, ny / greenwich, ct / miami, fl|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: named-firm quant/investing search",
+    "fit_score": 80,
+    "notes": "Citadel (the hedge fund, distinct from the Citadel Securities market-maker already on Monitored Companies). Equities Associate Program is more discretionary-investing-adjacent than the PhD/Securities quant tracks. Posted since July 2026, rolling admits. Greenwich CT and Miami both hit priority geography list. Distinct req from the Quantitative Research Analyst Intern entry below.",
+    "urls": [
+      "https://www.builtinnyc.com/job/equities-citadel-associate-program-summer-internship-2027/7780065"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
+  },
+  "citadel|quantitative research analyst intern (us)|new york, ny / greenwich, ct / miami, fl|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: named-firm quant/investing search",
+    "fit_score": 80,
+    "notes": "Distinct req from the Equities - Citadel Associate Program entry above. Firm's own careers page link found alongside a BuiltIn NYC mirror.",
+    "urls": [
+      "https://www.citadel.com/careers/details/quantitative-research-analyst-intern-us/",
+      "https://www.builtinnyc.com/job/quantitative-research-analyst-intern-us/10075465"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
+  },
+  "fidelity investments|equity research associate internship - summer 2027|boston, ma|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: equity research broad sweep",
+    "fit_score": 65,
+    "notes": "Interns conduct autonomous research on three stocks, working with PMs/analysts. Firm already on Monitored Companies list; this is the first specific posting logged for it. Fidelity's equity-research internships have historically targeted rising seniors (Class of 2027-equivalent) aiming at full-time conversion the following year, which may be a year ahead of candidate's Class of 2028 timeline -- eligibility flagged for verification, not confirmed a mismatch. A Tokyo variant of this same title also exists (not logged, wrong geography).",
+    "urls": [
+      "https://builtin.com/job/equity-research-associate-internship-summer-2027/8099668",
+      "https://www.themuse.com/jobs/fidelityinvestments/equity-research-associate-internship-summer-2027"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
+  },
+  "d.a. davidson|class of 2028 equity capital markets research intern|new york, ny|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: Lever ATS dork",
+    "fit_score": 60,
+    "notes": "New firm, not previously monitored. Regional boutique investment bank; ECM research is closer to sell-side capital markets support than buy-side investing, so lower investment-responsibility score, but title explicitly targets Class of 2028 (exact match) and NY is priority geography. Firm's own Lever ATS link.",
+    "urls": [
+      "https://jobs.lever.co/dadavidson/18eacdf7-ac6b-4111-a815-9d4afd5259e3",
+      "https://builtin.com/job/equity-capital-markets-research-intern/7246284"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); confirmed via curl (job-boards.greenhouse.io) and WebFetch (www.deshaw.com) same-run test (checked 2026-09-02)"
   }
 }
