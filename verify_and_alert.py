@@ -41,8 +41,36 @@ TODAY = date.today().isoformat()
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36")
 
-# statuses we treat as "already resolved, leave alone"
-TERMINAL = {"LIVE", "DEAD", "APPLIED", "CLOSED", "ALREADY_REPORTED"}
+# University career-hub mirrors + job aggregators. A 200 from these means nothing
+# about whether the underlying posting is still open, so we never call them LIVE.
+MIRROR_HOSTS = (
+    "careers.kelley.iu.edu", "career.cornell.edu", "careerhub.students.duke.edu",
+    "careerservices.", "careercenter.", "careers.amherst.edu", "careers.uw.edu",
+    "connections.villanova.edu", "capd.mit.edu", "ocs.yale.edu", "capd.mit.edu",
+    "careers.rhsmith.umd.edu", "elevate.iit.edu", "career.ucla.edu",
+    "careerdevelopment.morehouse.edu", "harvardvarsityclub.org",
+    ".edu/jobs", "builtin.com", "builtinnyc.com", "builtinboston.com",
+    "builtinchicago.org", "ziprecruiter.com", "linkedin.com", "simplify.jobs",
+    "talent.com", "talents.vaia.com", "wallstreetfriends.org", "jobs.anitab.org",
+    "econugblog.wordpress.com", "canarywharfian.co.uk", "intern-list.com",
+    "selectleaders.com", "themuse.com", "prosple.com", "adzuna.com", "indeed.com",
+    "glassdoor.com", "jobright.ai", "bebee.com", "adventiscg.com", "grabjobs.co",
+    "tealhq.com", "joinrunway.io", "applyblast.com", "jobrapido.com", "jobleads.com",
+    "heysuccess.com", "weekday.works", "extern.com", "finbound.org",
+    "growthequityinterviewguide.com", "the-trackr.com", "interninsider.me",
+    "haystackapp.io", "joinhandshake.com", "startup.jobs", "wellfound.com",
+    "getsmartresume.com", "jobrapido", "ourcareerplace", "opportunitiesforyouth",
+    "scholarships.af", "kabulscholarship", "skillsire.com", "jobs.wallstreet",
+)
+
+# Direct-from-employer ATS URL shapes we can actually verify.
+ATS_HOSTS = ("job-boards.greenhouse.io", "boards.greenhouse.io", "jobs.lever.co",
+             "myworkdayjobs.com", "jobs.ashbyhq.com", ".icims.com", "gr8people.com",
+             "careers.sig.com", "deshaw.com/careers", "ats.rippling.com",
+             "recruiting.paylocity.com", "apply.workable.com", "eightfold.ai")
+
+# statuses we skip: already resolved, or intentionally parked by the routine
+SKIP_STATUS = {"LIVE", "DEAD", "APPLIED", "CLOSED", "ALREADY_REPORTED", "CARRIED_OVER"}
 
 
 def run_git(*args: str) -> str:
@@ -69,14 +97,18 @@ def classify(url: str, title: str = "") -> tuple[str, str]:
         return "UNREACHABLE", "no usable URL"
 
     # Greenhouse: query the single job on the board API (200 = live, 404 = gone)
-    m = re.search(r"greenhouse\.io/(?:embed/job_app\?token=|([^/?]+)/jobs/)(\d+)", url)
-    if "greenhouse.io" in url and m and m.group(1):
-        token, job_id = m.group(1), m.group(2)
-        code, _, _ = fetch(f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs/{job_id}")
-        if code == 200:
-            return "LIVE", "greenhouse job API returns 200"
-        if code in (404, 410):
-            return "DEAD", f"greenhouse job API returns {code}"
+    if "greenhouse.io" in url:
+        m = re.search(r"greenhouse\.io/(?:embed/job_app\?token=|([^/?]+)/jobs/)(\d+)", url)
+        if m and m.group(1):
+            token, job_id = m.group(1), m.group(2)
+            code, _, _ = fetch(
+                f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs/{job_id}")
+            if code == 200:
+                return "LIVE", "greenhouse job API returns 200"
+            if code in (404, 410):
+                return "DEAD", f"greenhouse job API returns {code}"
+        else:
+            return "UNREACHABLE", "greenhouse board root only - no specific job id"
 
     # SIG: careers.sig.com 404s bots on /job/<id>; its search API needs a keyword.
     m = re.search(r"careers\.sig\.com/job/(\d+)", url)
@@ -95,14 +127,21 @@ def classify(url: str, title: str = "") -> tuple[str, str]:
         return "UNREACHABLE", "SIG careers site blocks automated checks - verify by hand"
 
     # Lever: query the single posting (200 = live, 404 = gone)
-    m = re.search(r"lever\.co/([^/]+)/([0-9a-f-]{36})", url)
-    if m:
-        token, pid = m.group(1), m.group(2)
-        code, _, _ = fetch(f"https://api.lever.co/v0/postings/{token}/{pid}")
-        if code == 200:
-            return "LIVE", "lever posting API returns 200"
-        if code in (404, 410):
-            return "DEAD", f"lever posting API returns {code}"
+    if "lever.co" in url:
+        m = re.search(r"lever\.co/([^/]+)/([0-9a-f-]{36})", url)
+        if m:
+            token, pid = m.group(1), m.group(2)
+            code, _, _ = fetch(f"https://api.lever.co/v0/postings/{token}/{pid}")
+            if code == 200:
+                return "LIVE", "lever posting API returns 200"
+            if code in (404, 410):
+                return "DEAD", f"lever posting API returns {code}"
+        else:
+            return "UNREACHABLE", "lever board root only - no specific posting id"
+
+    # University mirrors / aggregators: a 200 tells us nothing - don't guess LIVE.
+    if any(h in url for h in MIRROR_HOSTS):
+        return "UNREACHABLE", "only a mirror/aggregator link - needs the real ATS URL"
 
     # Generic fetch + heuristics
     code, final, body = fetch(url)
@@ -120,6 +159,10 @@ def classify(url: str, title: str = "") -> tuple[str, str]:
     if final and re.search(r"[?&]error=true", final):
         return "DEAD", "redirected to board error page"
     if code == 200:
+        # a bare company careers page (no job id / job path) proves nothing
+        path = re.sub(r"https?://[^/]+", "", final or url)
+        if "/job" not in path.lower() and not re.search(r"\d{4,}", path):
+            return "UNREACHABLE", "company careers page, not a specific posting"
         return "LIVE", "HTTP 200, no closed/removed markers"
     return "UNREACHABLE", f"HTTP {code}"
 
@@ -133,15 +176,14 @@ def candidate_urls(entry: dict) -> list[str]:
     v = entry.get("urls")
     if isinstance(v, list):
         urls.extend(str(x).split(" ")[0].strip() for x in v)
-    # employer-direct first
+    # employer-direct ATS first, mirrors/aggregators last
     def rank(u: str) -> int:
-        for i, pat in enumerate(("greenhouse.io", "lever.co", "myworkdayjobs.com",
-                                 "ashbyhq.com", "icims.com", "gr8people.com")):
-            if pat in u:
-                return i
-        if any(m in u for m in ("kelley.iu.edu", "career", "handshake", "builtin",
-                                "indeed", "linkedin", "prosple")):
+        if any(h in u for h in MIRROR_HOSTS):
             return 90
+        if any(h in u for h in ATS_HOSTS):
+            return 0
+        if "/job" in u or "/careers/" in u or "careers." in u:
+            return 10
         return 20
     seen, out = set(), []
     for u in sorted((u for u in urls if u.startswith("http")), key=rank):
@@ -171,15 +213,19 @@ def main() -> int:
         if not isinstance(entry, dict):
             continue
         status = str(entry.get("verification_status") or entry.get("status") or "").upper()
-        if status in TERMINAL:
+        if status in SKIP_STATUS:
             continue
         if entry.get("verify_alerted"):
             continue
 
         urls = candidate_urls(entry)
-        company = entry.get("company") or key.split("|")[0].replace("_", " ").title()
-        role = entry.get("title") or entry.get("role") or key.split("|")[1].replace("_", " ")
-        loc = entry.get("location") or ""
+        parts = key.split("|")
+        company = entry.get("company") or (parts[0].replace("_", " ").title() if parts else key)
+        role = (entry.get("title") or entry.get("role")
+                or (parts[1].replace("_", " ") if len(parts) > 1 else key))
+        loc = entry.get("location") or (parts[2] if len(parts) > 2 else "")
+        if loc.lower().startswith(("not confirmed", "multiple", "us ", "united states")):
+            loc = ""
 
         verdict, note, used_url = "UNREACHABLE", "no URL found", ""
         for u in urls:
@@ -200,16 +246,21 @@ def main() -> int:
         else:
             unreachable.append((company, role, used_url))
 
-    with open(LEDGER, "w") as f:
-        json.dump(ledger, f, indent=2)
-        f.write("\n")
+    dry = os.environ.get("DRY_RUN") == "1"
+    if not dry:
+        with open(LEDGER, "w") as f:
+            json.dump(ledger, f, indent=2)
+            f.write("\n")
+
+    def sync():
+        if not dry and GIT_SYNC and run_git("status", "--porcelain"):
+            run_git("add", "early_warning_state.json")
+            run_git("commit", "-m", f"verify: {len(live)} live / {len(dead)} dead ({TODAY})")
+            run_git("push")
 
     if not (live or dead):
-        print("nothing new to verify.")
-        if GIT_SYNC and run_git("status", "--porcelain"):
-            run_git("add", "early_warning_state.json")
-            run_git("commit", "-m", "verify: refresh unchecked link statuses")
-            run_git("push")
+        print(f"nothing definitive to report ({len(unreachable)} unreachable).")
+        sync()
         return 0
 
     lines = [f":white_check_mark: Link check {TODAY} — {len(live)} live, {len(dead)} dead"]
@@ -222,11 +273,19 @@ def main() -> int:
         for c, r in dead:
             lines.append(f"• {c} — {r}")
     if unreachable:
-        lines.append("\n*Couldn't reach — check by hand:*")
-        for c, r, u in unreachable:
-            lines.append(f"• {c} — {r} — {u or '(no link)'}")
+        shown = unreachable[:6]
+        lines.append(f"\n*No verifiable link ({len(unreachable)}) — routine only has a mirror/aggregator URL:*")
+        for c, r, u in shown:
+            lines.append(f"• {c} — {r}")
+        if len(unreachable) > len(shown):
+            lines.append(f"• …+{len(unreachable) - len(shown)} more (in early_warning_state.json)")
 
-    payload = json.dumps({"text": "\n".join(lines)}).encode()
+    text = "\n".join(lines)
+    if os.environ.get("DRY_RUN") == "1":
+        print("--- DRY RUN, would post to Slack: ---\n" + text)
+        return 0
+
+    payload = json.dumps({"text": text}).encode()
     req = urllib.request.Request(WEBHOOK, data=payload,
                                 headers={"Content-Type": "application/json"})
     try:
@@ -236,11 +295,7 @@ def main() -> int:
         print(f"slack post failed: {e}", file=sys.stderr)
         return 1
 
-    if GIT_SYNC:
-        run_git("add", "early_warning_state.json")
-        run_git("commit", "-m", f"verify: {len(live)} live / {len(dead)} dead ({TODAY})")
-        run_git("push")
-
+    sync()
     return 0
 
 
