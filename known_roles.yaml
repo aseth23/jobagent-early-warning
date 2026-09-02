@@ -124,3 +124,8 @@ roles:
   - {company: Citadel, title: "Quantitative Research Analyst Intern (US)", location: "New York, NY / Greenwich, CT / Miami, FL", status: check, url: "https://www.citadel.com/careers/details/quantitative-research-analyst-intern-us/"}
   - {company: Fidelity Investments, title: "Equity Research Associate Internship – Summer 2027", location: "Boston, MA", status: check, url: "https://builtin.com/job/equity-research-associate-internship-summer-2027/8099668"}
   - {company: D.A. Davidson, title: "Class of 2028 Equity Capital Markets Research Intern", location: "New York, NY", status: check, url: "https://jobs.lever.co/dadavidson/18eacdf7-ac6b-4111-a815-9d4afd5259e3"}
+  # New firm discovered 2026-09-02. Sandbox network egress confirmed blocked this run (WebFetch +
+  # curl both EGRESS_BLOCKED against job-boards.greenhouse.io, careers.kelley.iu.edu, boards-api.greenhouse.io),
+  # so these links could not be checked live -- status: check for both.
+  - {company: Aeris Partners, title: "Tech M&A Investment Banking Summer Analyst 2027", location: "Boston, MA", status: check, url: "https://jobs.lever.co/aerispartners.com/12b55fb6-bc5d-434a-bb2b-655a17db79cb"}
+  - {company: Aeris Partners, title: "Tech M&A Investment Banking Summer Analyst 2027", location: "San Francisco, CA", status: check, url: "https://jobs.lever.co/aerispartners.com/7cb01202-9919-4af4-86a2-d95a5e9f9013"}

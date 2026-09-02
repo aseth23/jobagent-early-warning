@@ -1568,5 +1568,27 @@
     "notes": "Private Debt Origination team, Boston. Distinct opportunity from the existing Audax Group PE Summer Analyst entry (different team/title/req). Direct Greenhouse job posting found this run.",
     "date_logged": "2026-09-02",
     "verify_note": "network egress blocked this session (WebFetch returned EGRESS_BLOCKED; curl CONNECT tunnel failed 403) -- could not confirm link is live (checked 2026-09-02)"
+  },
+  "aeris partners|tech m&a investment banking summer analyst 2027|boston, ma|2027": {
+    "verification_status": "UNCHECKED",
+    "urls": [
+      "https://jobs.lever.co/aerispartners.com/12b55fb6-bc5d-434a-bb2b-655a17db79cb"
+    ],
+    "discovery_source": "general web search (Lever ATS dork, jobs.lever.co)",
+    "fit_score": 59,
+    "notes": "New firm not previously monitored. Aeris Partners is a boutique investment bank providing M&A advisory to software/SaaS/data-analytics/PE/VC clients -- advisory, not principal investing, so lower investment-responsibility score than a buy-side role. Boston hits priority geography. Firm's own Lever ATS link. Eligibility/grad-year not confirmed in snippet.",
+    "date_logged": "2026-09-02",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); tested via WebFetch (boards.greenhouse.io, careers.kelley.iu.edu) and curl (boards-api.greenhouse.io) this run, all failed the same way (checked 2026-09-02)"
+  },
+  "aeris partners|tech m&a investment banking summer analyst 2027|san francisco, ca|2027": {
+    "verification_status": "UNCHECKED",
+    "urls": [
+      "https://jobs.lever.co/aerispartners.com/7cb01202-9919-4af4-86a2-d95a5e9f9013"
+    ],
+    "discovery_source": "general web search (Lever ATS dork, jobs.lever.co)",
+    "fit_score": 56,
+    "notes": "Sibling req to the Boston posting above (same firm/program, different office). San Francisco is not on the priority-geography list but not rejected per instructions. Firm's own Lever ATS link. Eligibility/grad-year not confirmed in snippet.",
+    "date_logged": "2026-09-02",
+    "verify_note": "fetch attempt failed: EGRESS_BLOCKED - network egress proxy denies the connection (org policy); tested via WebFetch (boards.greenhouse.io, careers.kelley.iu.edu) and curl (boards-api.greenhouse.io) this run, all failed the same way (checked 2026-09-02)"
   }
 }
