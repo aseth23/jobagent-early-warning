@@ -140,6 +140,16 @@
   ],
   "verification_status": "UNCHECKED"
  },
+ "bain capital|2027 summer analyst, path into private equity|boston, ma|2027": {
+  "date_logged": "2026-09-02",
+  "discovery_source": "WebSearch: alternative investments 2027 summer analyst intern Boston OR Philadelphia, corroborated via direct Bain Capital PiPE search",
+  "fit_score": 60,
+  "notes": "Distinct from the already-logged 'Bain Capital 2027 Credit Summer Analyst' entry. This is the Path into Private Equity (PiPE) program, North America Private Equity (NAPE) fund, Boston. Program description states eligibility as applicants 'currently in their sophomore year' -- this may target Class of 2029 rather than the candidate's Class of 2028, so eligibility fit is uncertain. Logged anyway per instruction not to reject on unstated/ambiguous grad-year requirements; flagging the mismatch for human review. Firm's own Workday ATS link.",
+  "urls": [
+   "https://baincapital.wd1.myworkdayjobs.com/en-US/External_Public/job/XMLNAME-2027-Summer-Analyst--Path-into-Private-Equity_REQ_108108-1"
+  ],
+  "verification_status": "UNCHECKED"
+ },
  "baird|equity research analyst internship - summer 2027|milwaukee, wi|2027": {
   "date_logged": "2026-08-30",
   "discovery_source": "carried over",
@@ -1043,6 +1053,19 @@
    "https://careerservices.upenn.edu/jobs/stepstone-group-lp-2027-private-equity-summer-analyst/",
    "https://katiecareervc.stkate.edu/jobs/stepstone-group-lp-2027-private-equity-summer-analyst/",
    "https://www.builtinnyc.com/job/2027-private-equity-summer-analyst/9225253"
+  ],
+  "verification_status": "UNCHECKED"
+ },
+ "stepstone group|2027 real estate investments summer analyst|san francisco, ca|2027": {
+  "date_logged": "2026-09-02",
+  "discovery_source": "WebSearch: real estate private equity 2027 summer analyst intern acquisitions New York (named-firm sweep on StepStone)",
+  "fit_score": 78,
+  "notes": "Distinct StepStone RE role from the already-logged 'Real Estate Private Equity Advisory Summer Analyst' entry -- this is the core Real Estate Investments team (due diligence, execution, ongoing asset management across property types/markets/capital structures). Stated grad window Dec 2027-June 2028, GPA 3.5+, no visa sponsorship. No firm ATS/university-mirror link isolated this run, only aggregator listings. Link not checked.",
+  "urls": [
+   "https://www.linkedin.com/jobs/view/2027-real-estate-investments-summer-analyst-at-stepstone-group-4447999730",
+   "https://www.ziprecruiter.com/c/StepStone-Group/Job/2027-Real-Estate-Investments-Summer-Analyst/-in-San-Francisco,CA?jid=143a01184a3948d8",
+   "https://interninsider.me/internships/stepstone-group/2027-real-estate-investments-summer-analyst-13da28f9-a967-4053-a8c6-6481a1fd588a",
+   "https://www.tealhq.com/job/summer-analyst_7ea1a51dc9da819db1af618a85ed7acd466af"
   ],
   "verification_status": "UNCHECKED"
  },
