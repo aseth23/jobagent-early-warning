@@ -200,7 +200,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "University board sweep (St. John's mirror)",
     "fit_score": 65,
-    "notes": "Distinct role from Barclays' Credit Research Analyst posting already in this ledger, which is marked CLOSED (human-confirmed dead). This is Equity Research, a separate posting \u2014 not a resurrection of the closed one.",
+    "notes": "Distinct role from Barclays' Credit Research Analyst posting already in this ledger, which is marked CLOSED (human-confirmed dead). This is Equity Research, a separate posting — not a resurrection of the closed one.",
     "urls": [
       "https://careerservices.stjohns.edu/jobs/barclays-equity-research-analyst-summer-internship-program-2027-new-york/"
     ],
@@ -537,7 +537,7 @@
     "verification_status": "UNCHECKED",
     "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
   },
-  "graham partners|2027 summer analyst \u2013 investment team|newtown square, pa|2027": {
+  "graham partners|2027 summer analyst – investment team|newtown square, pa|2027": {
     "date_logged": "2026-08-21",
     "discovery_source": "carried over (source not recorded pre-schema-change)",
     "fit_score": null,
@@ -809,7 +809,7 @@
     "date_logged": "2026-08-31",
     "discovery_source": "WebSearch: fixed income intern summer 2027 Boston query",
     "fit_score": 82,
-    "notes": "Distinct from already-logged Morgan Stanley entries (NYC Fixed Income Research; IM Private Equity Solutions; IM Private Credit and Equity) \u2014 this is the IM Fixed Income High Yield desk in Boston. Only source found was a third-party blog mirror, not Morgan Stanley's own careers site.",
+    "notes": "Distinct from already-logged Morgan Stanley entries (NYC Fixed Income Research; IM Private Equity Solutions; IM Private Credit and Equity) — this is the IM Fixed Income High Yield desk in Boston. Only source found was a third-party blog mirror, not Morgan Stanley's own careers site.",
     "urls": [
       "https://econugblog.wordpress.com/2026/08/26/2027-investment-management-summer-analyst-program-fixed-income-morgan-stanley/"
     ],
@@ -1114,7 +1114,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "Greenhouse dork (fixed income/asset management sweep)",
     "fit_score": 55,
-    "notes": "Fixed-income focused (Liquid Corporate Credit, Short-Dated Assets) \u2014 strong skill match, but firm and program appear UK/London-based, outside candidate's priority geography. New firm, not yet in Monitored Companies before this run.",
+    "notes": "Fixed-income focused (Liquid Corporate Credit, Short-Dated Assets) — strong skill match, but firm and program appear UK/London-based, outside candidate's priority geography. New firm, not yet in Monitored Companies before this run.",
     "urls": [
       "https://job-boards.greenhouse.io/rothesaygraduates/jobs/8390555002"
     ],
@@ -1213,7 +1213,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "Named-firm growth equity sweep",
     "fit_score": 78,
-    "notes": "Growth/buyout multi-stage investing; min GPA 3.6 cited in one source (candidate is 3.66). One source titles the program '2026' rather than '2027' \u2013 cycle year is unclear from search snippets alone, flagging rather than resolving it.",
+    "notes": "Growth/buyout multi-stage investing; min GPA 3.6 cited in one source (candidate is 3.66). One source titles the program '2026' rather than '2027' – cycle year is unclear from search snippets alone, flagging rather than resolving it.",
     "urls": [
       "https://job-boards.greenhouse.io/summitpartnerslp",
       "https://www.summitpartners.com/summit-careers",
@@ -1331,7 +1331,7 @@
     "date_logged": "2026-09-01",
     "discovery_source": "Cornell career board sweep",
     "fit_score": 55,
-    "notes": "New firm not previously in Monitored Companies. Search snippet gives no explicit summer-2027/class-year confirmation \u2014 cycle year and eligibility unconfirmed; logging for firm-tracking completeness.",
+    "notes": "New firm not previously in Monitored Companies. Search snippet gives no explicit summer-2027/class-year confirmation — cycle year and eligibility unconfirmed; logging for firm-tracking completeness.",
     "urls": [
       "https://career.cornell.edu/jobs/valhalla-holdings-llc-quantitative-investment-intern/"
     ],
@@ -1350,6 +1350,17 @@
     "verify_note": "greenhouse job API returns 200 (checked 2026-09-01)",
     "official_application_url": "https://job-boards.greenhouse.io/virtu/jobs/8142539002",
     "verify_alerted": true
+  },
+  "volition capital|2027 analyst|boston, ma|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "named-firm sweep (growth equity archetype list): WebSearch \"Great Hill Partners\" OR \"FTV Capital\" OR \"Providence Equity\" OR \"Edison Partners\" OR \"ICONIQ Growth\" OR \"Volition Capital\" 2027 summer analyst intern",
+    "fit_score": 85,
+    "notes": "New firm to ledger. Volition Capital is a Boston-based growth equity firm (~$1.7B+ AUM, small-cap tech growth investing). Two-year Analyst Program; Summer Analyst supports sourcing, industry research, outreach, pipeline management, and due diligence, plus an independent capstone project over a 10-week internship. Explicitly for rising seniors. Direct Ashby job posting found (job id e848e7dc-5369-417d-8ad3-00440e26d476).",
+    "urls": [
+      "https://jobs.ashbyhq.com/volition-capital/e848e7dc-5369-417d-8ad3-00440e26d476"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "network egress blocked in sandbox this run - could not fetch to confirm still open (checked 2026-09-02)"
   },
   "walleye capital|central equity quant research (ceqr) intern - summer 2027|new york, ny|2027": {
     "date_logged": "2026-08-31",

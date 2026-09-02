@@ -118,11 +118,13 @@ DoubleLine
 DraftKings
 Duke Management Company
 Edelman Financial Engines
+Edison Partners
 Ellington Management Group
 Emory Investment Management
 Evercore
 FPA / First Pacific Advisors
 FTI Consulting
+FTV Capital
 FanDuel
 Federated Hermes
 Fidelity Investments
@@ -152,6 +154,7 @@ Goldman Sachs Asset Management
 Golub Capital
 Google
 Graham Partners
+Great Hill Partners
 Greystar
 Guardian Life
 Guggenheim Investments
@@ -172,6 +175,7 @@ Hotchkis & Wiley
 Houlihan Lokey
 Hudson River Trading
 I Squared Capital
+ICONIQ Growth
 IMC Trading
 Impax Asset Management
 Income Research + Management
@@ -181,6 +185,7 @@ Inter
 Invesco
 Investure
 Itaú USA
+JMI Equity
 JPMorgan Asset Management
 JPMorgan Chase
 Jane Street
@@ -347,6 +352,7 @@ Victory Capital
 Virtu Financial
 Virtus Investment Partners
 Vista Equity Partners
+Volition Capital
 Voloridge Investment Management
 Voya Investment Management
 Vulcan Value Partners

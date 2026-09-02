@@ -38,6 +38,10 @@ roles:
   - {company: Lead Edge Capital, title: "2027 Summer Analyst", location: "New York", status: closed, url: "https://job-boards.greenhouse.io/leadedgecapitalmanagement/jobs/5077854007"}
   - {company: Bessemer Venture Partners, title: "Summer Analyst 2027", location: "New York", status: applied, url: "https://job-boards.greenhouse.io/bvpanalyst/jobs/4633431005", applied_on: "2026-08-09"}
   - {company: Access Holdings, title: "Summer 2027 Private Equity Investment Internship", location: "Baltimore", status: closed, url: "https://job-boards.greenhouse.io/accessholdingsmanagementfirm/jobs/7510816003"}
+  # Volition Capital — new firm this run (2026-09-02), named-firm growth-equity sweep. Boston growth
+  # equity firm (~$1.7B+ AUM). Direct Ashby posting found but sandbox had no network egress to
+  # confirm it's still live this cycle.
+  - {company: Volition Capital, title: "2027 Analyst", location: "Boston, MA", status: check, url: "https://jobs.ashbyhq.com/volition-capital/e848e7dc-5369-417d-8ad3-00440e26d476"}
   - {company: I Squared Capital, title: "ISQ Private Equity Summer Analyst 2027", location: "Miami, Florida", status: applied, url: "https://job-boards.greenhouse.io/summeranalyst/jobs/4629345006", verified_on: "2026-08-08", applied_on: "2026-08-08"}
   - {company: Goldman Sachs, title: "2027 Summer Analyst Program", location: "Miami, Florida", status: check, url: "https://www.goldmansachs.com/careers/students/programs-and-internships/americas/2027-summer-analyst-program", verified_on: "2026-08-16"}
   # Closed/unavailable listings stay recorded so stale search-engine results are not re-added.
