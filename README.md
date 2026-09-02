@@ -28,4 +28,29 @@ write back at the end, giving it memory across runs.
   `discovery_source`, `official_application_url`). The routine must read this
   before alerting and only surface genuinely new or changed entries.
 
-Generated 2026-08-28.
+## Posting policy — READ BEFORE SENDING ANYTHING TO SLACK
+
+The routine's sandbox has **no network access** and CANNOT confirm a link is
+live. The user still wants alerts, and wants a clickable link on every line.
+So:
+
+1. **Every candidate line in a Slack alert MUST carry a URL** — the most
+   employer-direct link found (company ATS / Greenhouse / Lever / Workday /
+   Ashby / iCIMS before any university-mirror or aggregator link). If no URL
+   was found at all, write `(no link found — search only)` and list it last.
+   A candidate name with no link is not acceptable.
+
+2. **Never attach confidence language.** No "verified", "live", "durable",
+   "confirmed", no fit scores, no "APPLY ASAP". Every routine alert is headed
+   with a plain UNVERIFIED label saying the sandbox has no internet and nothing
+   was checked. Overclaiming is what broke trust — links without claims are
+   fine and wanted.
+
+3. **Verification passes** (run from an interactive Claude Code session that
+   *does* have network): pull everything logged since the last pass, fetch and
+   check each URL for real, then post ONE consolidated message — live roles
+   with their confirmed links, dead/closed ones listed by name only so they're
+   not chased or re-surfaced. Update `early_warning_state.json` with the
+   verified status + `official_application_url`.
+
+Generated 2026-08-28. Posting policy added 2026-09-01.
