@@ -1,1314 +1,1451 @@
 {
- "accel-kkr|summer 2027 analyst - credit|not confirmed|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No direct link found in any run so far.",
-  "urls": [
-   "no-public-path-found (found only via UCLA career-hub mirror)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "accel-kkr|summer 2027 analyst - private equity|not confirmed (menlo park, ca / atlanta, ga typical)|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Board root only, exact req not isolated in any run so far.",
-  "urls": [
-   "https://apply.workable.com/accel-kkr/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "access holdings|summer 2027 private equity investment internship|baltimore, md|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/accessholdingsmanagementfirm/jobs/7581426003"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "affinius capital|summer 2027 credit team intern|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch: 2027 summer analyst \"real estate private equity\" OR \"real estate credit\" intern New York",
-  "fit_score": 68,
-  "notes": "Same firm/search as the Affinius Capital real estate investments intern above, but this is the separate NY Credit team internship (financing/debt and preferred equity for CRE). No distinct job URL was isolated -- only described in aggregated search summary text. Needs a direct link found before any alert.",
-  "urls": [],
-  "verification_status": "UNCHECKED"
- },
- "affinius capital|summer 2027 real estate investments intern|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch: 2027 summer analyst \"real estate private equity\" OR \"real estate credit\" intern New York",
-  "fit_score": 70,
-  "notes": "New firm to ledger -- commercial real estate investment manager. NY investment team internship covering underwriting/diligence/closing on new investments. Link not checked.",
-  "urls": [
-   "https://ocs.yale.edu/jobs/affinius-capital-summer-2027-real-estate-investments-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "alpine investors|investing summer analyst (2027)|san francisco, ca|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "SF; applications stated to open January 2026 for Spring 2028/Winter 2027 grads. No live req URL isolated. Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/alpineinternships"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "alpine investors|sourcing summer analyst (2027)|austin, tx|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (named-firm sweep)",
-  "fit_score": 68,
-  "notes": "'Elevation | 2027 Sourcing Summer Analyst' at Alpine Internships, Austin TX (program dates June 7-Aug 13 2027). Direct Greenhouse job id 8344152002 re-surfaced this run. Not corroborated against firm's own ATS beyond that.",
-  "urls": [
-   "https://job-boards.greenhouse.io/alpineinternships",
-   "https://www.ziprecruiter.com/c/Alpine-Internships/Job/Elevation-%7C-2027-Sourcing-Summer-Analyst/-in-Austin,TX?jid=baca2d41a85d11d7",
-   "https://app.joinrunway.io/explore/job/cmkfte5oy003sl5049aa4f8bm",
-   "https://job-boards.greenhouse.io/alpineinternships/jobs/8344152002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "aqr capital management|2027 portfolio implementation summer analyst|greenwich, ct|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Candidate has applied to this role (workflow status, not a liveness claim).",
-  "urls": [
-   "https://careers.aqr.com/jobs?gh_jid=7895562"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "aqr capital management|2027 portfolio solutions group summer analyst|greenwich, ct|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Candidate has applied to this role (workflow status, not a liveness claim).",
-  "urls": [
-   "https://careers.aqr.com/jobs?gh_jid=8041362"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "aqr capital management|2027 risk summer analyst|greenwich, ct|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No new information this run.",
-  "urls": [
-   "https://careers.aqr.com/jobs?gh_jid=7926692"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "ardian|secondaries & primaries intern - summer 2027|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
-  "fit_score": 68,
-  "notes": "Financial modeling, valuation of PE funds/companies, IC prep. Firm's own Workday ATS link.",
-  "urls": [
-   "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Secondaries---Primaries-Intern---Summer-2027-I-New-York_JR1001760"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "arena investors|summer investment analyst 2027|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Credit/special-situations shop. Single-source, not corroborated yet.",
-  "urls": [
-   "https://apply.workable.com/arena-investors-lp/j/9150D83148"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "audax group|2027 private equity summer analyst|boston, ma / san francisco, ca|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "WebSearch: real estate/PE greenhouse dork",
-  "fit_score": 82,
-  "notes": "Audax Group, ~$42B AUM alternative investment manager, offices Boston & San Francisco. Full deal-process PE analyst role. A secondary source mentioned an application deadline of Jan 23 (unconfirmed, may reference a prior cycle).",
-  "urls": [
-   "https://job-boards.greenhouse.io/audaxgroup/jobs/4646084005"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "bain capital|2027 credit summer analyst|boston, ma|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (private credit/direct lending sweep)",
-  "fit_score": 76,
-  "notes": "10-week Boston-based program, June 2027 start. Covers leveraged loans, high-yield, direct lending, structured products -- strong fixed-income coursework match. Third-party mirror only.",
-  "urls": [
-   "https://www.builtinboston.com/job/2027-credit-summer-analyst/8091208"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "bain capital|2027 summer analyst, path into private equity|boston, ma|2027": {
-  "date_logged": "2026-09-02",
-  "discovery_source": "WebSearch: alternative investments 2027 summer analyst intern Boston OR Philadelphia, corroborated via direct Bain Capital PiPE search",
-  "fit_score": 60,
-  "notes": "Distinct from the already-logged 'Bain Capital 2027 Credit Summer Analyst' entry. This is the Path into Private Equity (PiPE) program, North America Private Equity (NAPE) fund, Boston. Program description states eligibility as applicants 'currently in their sophomore year' -- this may target Class of 2029 rather than the candidate's Class of 2028, so eligibility fit is uncertain. Logged anyway per instruction not to reject on unstated/ambiguous grad-year requirements; flagging the mismatch for human review. Firm's own Workday ATS link.",
-  "urls": [
-   "https://baincapital.wd1.myworkdayjobs.com/en-US/External_Public/job/XMLNAME-2027-Summer-Analyst--Path-into-Private-Equity_REQ_108108-1"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "baird|equity research analyst internship - summer 2027|milwaukee, wi|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Human-confirmed dead by user.",
-  "urls": [
-   "https://baird.wd1.myworkdayjobs.com/en-US/Careers/job/Internship---Equity-Research-Analyst--Summer-2027-_R20251244-2"
-  ],
-  "verification_status": "CLOSED"
- },
- "bank of america|enterprise credit summer analyst program - 2027 - multiple locations|charlotte, nc / new york, ny / other|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "general web search (private credit/direct lending sweep)",
-  "fit_score": 66,
-  "notes": "Credit underwriting/monitoring rotation. Charlotte is a priority geography.",
-  "urls": [
-   "https://careers.bankofamerica.com/en-us/students/job-detail/14392/enterprise-credit-summer-analyst-program-2027-multiple-locations"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "barclays|credit research analyst summer internship program 2027|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Human-confirmed dead: user reported this link returns Barclays' own 'Custom Job Error' page.",
-  "urls": [
-   "https://search.jobs.barclays/job/new-york/credit-research-analyst-summer-internship-program-2027-new-york/13015/89060416560"
-  ],
-  "verification_status": "CLOSED"
- },
- "barclays|equity research analyst summer internship program 2027|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "University board sweep (St. John's mirror)",
-  "fit_score": 65,
-  "notes": "Distinct role from Barclays' Credit Research Analyst posting already in this ledger, which is marked CLOSED (human-confirmed dead). This is Equity Research, a separate posting — not a resurrection of the closed one.",
-  "urls": [
-   "https://careerservices.stjohns.edu/jobs/barclays-equity-research-analyst-summer-internship-program-2027-new-york/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "battery ventures|2027 summer investment internship|boston, ma / new york, ny / san francisco, ca|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Re-surfaced in search this run describing a live-looking 10-week paid program, up to $2,500/wk. Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/batteryventures/jobs/5059311008"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "beedie|investments & growth capital intern|not confirmed (vancouver, bc - firm hq typical)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (ATS dork, jobs.lever.co)",
-  "fit_score": 62,
-  "notes": "Growth capital intern; deal sourcing/reviewing/executing/monitoring exposure per snippet.",
-  "urls": [
-   "https://jobs.lever.co/beedie/0e0764b2-0291-44e0-a6a7-d003b7f91769"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "bessemer venture partners|2027 summer analyst|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unconfirmed; verify grad-year eligibility directly when checked.",
-  "urls": [
-   "https://job-boards.greenhouse.io/bvpanalyst/jobs/4633431005"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "blackrock|2027 summer internship program - amers|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "WebSearch: fixed income intern summer 2027 query",
-  "fit_score": 68,
-  "notes": "General AMERS summer internship program at BlackRock; specific team/desk placement not confirmed from listing title alone.",
-  "urls": [
-   "https://careers.blackrock.com/job/new-york/2027-summer-internship-program-amers/45831/90628276544"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "blackstone|infrastructure partners summer analyst intern (2027)|not confirmed (new york, ny typical)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
-  "fit_score": 74,
-  "notes": "Financial analysis, investment research, transaction execution support over a 10-week program. Neither URL is Blackstone's own ATS.",
-  "urls": [
-   "https://simplify.jobs/p/3e435665-52cc-4e05-bd4e-2f0a7813c7d4/Infrastructure-Partners-Summer-Analyst-Intern",
-   "https://growthequityinterviewguide.com/job/summer-analyst-pe-infrastructure-investing-blackstone"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "bnp paribas|2027 summer analyst internship - global markets, equity research|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (equity research/fixed income sweep)",
-  "fit_score": 61,
-  "notes": "Global Markets Equity Research internship, New York. Grad-year eligibility not confirmed from snippet.",
-  "urls": [
-   "https://group.bnpparibas/en/careers/job-offer/2027-summer-analyst-internship-global-markets-equity-research"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "boathouse capital|private equity summer analyst internship program|philadelphia, pa|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No direct link found in any run so far.",
-  "urls": [
-   "no-public-path-found (Duke Career Hub reference only)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "cambridge associates|2027 summer analyst internship program|boston, ma / san francisco, ca (multiple)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "university career-board mirrors (Amherst, SNHU)",
-  "fit_score": 72,
-  "notes": "OCIO / investment consulting analyst role. Multiple mirror URLs across different cities -- unclear if one role or several.",
-  "urls": [
-   "https://careers.amherst.edu/jobs/cambridge-associates-2027-summer-analyst-internship-program/",
-   "https://career360.snhu.edu/jobs/cambridge-associates-2027-summer-analyst-internship-program/",
-   "https://www.ziprecruiter.com/c/Cambridgeassociates/Job/2027-Summer-Analyst-Internship-Program/-in-San-Francisco,CA?jid=4521483d824ebce5",
-   "https://bebee.com/us/jobs/2027-summer-analyst-internship-program-cambridge-associates-boston--t7xk-788146632"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "capula investment management|2027 trading and research summer internship|london / new york|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unconfirmed.",
-  "urls": [
-   "https://apply.workable.com/capula-investment-management-ltd/j/A15A62A8BE"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "cleveland research company|research intern - summer 2027|cleveland, oh|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No new information this run.",
-  "urls": [
-   "https://clevelandresearch.applytojob.com/apply/0oj2pH6LVJ/Research-Intern-Summer-2027"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "constitution capital partners|private equity investment summer internship|boston, ma / new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No direct link found in any run so far.",
-  "urls": [
-   "no-public-path-found (Villanova portal mirror only)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "d. e. shaw|fundamental research analyst intern (new york) - summer 2027|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch technology/software investing summer analyst intern 2027 growth-stage SaaS fintech",
-  "fit_score": 75,
-  "notes": "Found on deshaw.com directly. Fundamental-investing group role, distinct from the quant analyst intern req above.",
-  "urls": [
-   "https://www.deshaw.com/careers/fundamental-research-analyst-intern-new-york-summer-2027-5709"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "d. e. shaw|quantitative analyst intern (new york) - summer 2027|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch quantitative investing/quant research summer analyst intern 2027 Class of 2028 hedge fund",
-  "fit_score": 68,
-  "notes": "Found on deshaw.com directly (not an aggregator mirror).",
-  "urls": [
-   "https://www.deshaw.com/careers/quantitative-analyst-intern-new-york-summer-2027-5890"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "dalio family office|2027 summer intern, investment global macro|new york, ny|2027": {
-  "date_logged": "2026-08-24",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Candidate has applied to this role (workflow status, not a liveness claim).",
-  "urls": [
-   "https://job-boards.greenhouse.io/dforeferrals/jobs/6127933004"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "drw|venture capital analyst intern|not confirmed (chicago, il typical)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (venture capital/technology investing sweep)",
-  "fit_score": 65,
-  "notes": "DRW's venture arm investing in financial and enterprise technology. Eligibility stated as graduating Dec 2027-June 2028, matching candidate. Location inferred from firm HQ, not confirmed in snippet.",
-  "urls": [
-   "https://job-boards.greenhouse.io/drweng/jobs/7993004"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "financial technology partners|2027 summer analyst, investment banking (new york)|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (Great Hill/FTV/Providence named-firm sweep)",
-  "fit_score": 63,
-  "notes": "NY sibling to the FT Partners SF req.",
-  "urls": [
-   "https://job-boards.greenhouse.io/financialtechnologypartners/jobs/8339305002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "financial technology partners|2027 summer analyst, investment banking (san francisco)|san francisco, ca|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (private credit/direct lending Greenhouse dork)",
-  "fit_score": 62,
-  "notes": "Boutique fintech-focused investment bank, not principal investing. New firm not previously monitored.",
-  "urls": [
-   "https://job-boards.greenhouse.io/financialtechnologypartners/jobs/8339312002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "four corners property trust|2027 summer investment analyst|not confirmed (charlotte, nc area)|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Re-surfaced this run via Cornell career board. Unverified.",
-  "urls": [
-   "https://career.cornell.edu/jobs/four-corners-property-trust-2027-summer-investment-analyst/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "gcm grosvenor|2027 pe-primaries investments summer intern|not confirmed|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
-  "fit_score": 76,
-  "notes": "PE fund-of-funds primaries team; due diligence and IC-recommendation exposure.",
-  "urls": [
-   "https://careers.amherst.edu/jobs/gcm-grosvenor-2027-pe-primaries-investments-summer-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "gcm grosvenor|2027 pe-secondaries investments summer intern|not confirmed|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (university career-board sweep, Georgetown/Notre Dame query)",
-  "fit_score": 76,
-  "notes": "Firm's own Greenhouse board link.",
-  "urls": [
-   "https://job-boards.greenhouse.io/gcmgrosvenor/jobs/7620558003"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "gcm grosvenor|2027 real estate investments summer intern|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (real estate PE/credit sweep)",
-  "fit_score": 72,
-  "notes": "Distinct from GCM Grosvenor PE-Primaries and PE-Secondaries entries. Third-party aggregator mirror only.",
-  "urls": [
-   "https://www.intern-list.com/accounting-and-finance-intern-list/2027_real_estate_investments_summer_intern_at_gcm_grosvenor_17257325"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "general atlantic|2026 investment summer analyst, class of 2027|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Greenhouse dork (growth equity/PE sweep)",
-  "fit_score": 68,
-  "notes": "Explicitly targets Class of 2027 (one year ahead of candidate's Class of 2028) - likely NOT eligible; logged for firm-tracking completeness, not as a strong candidate match.",
-  "urls": [
-   "https://job-boards.greenhouse.io/generalatlantic/jobs/5422194004"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "general atlantic|2027 summer analyst (title/details unconfirmed variant)|not confirmed|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (growth equity Greenhouse dork)",
-  "fit_score": 60,
-  "notes": "May be a duplicate of another already-logged GA req, or a distinct fourth one.",
-  "urls": [
-   "https://job-boards.greenhouse.io/generalatlantic/jobs/5669455004"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "general atlantic|2027 summer analyst, capital solutions|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "IR/fundraising/LP-relations flavored, weaker fit than sourcing/diligence roles. Links not checked.",
-  "urls": [
-   "https://job-boards.greenhouse.io/generalatlantic/jobs/5780218004"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "general atlantic|2027 summer analyst, class of 2028, growth acceleration|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Greenhouse dork (growth equity/PE sweep)",
-  "fit_score": 80,
-  "notes": "Growth Acceleration is GA's in-house management-consulting/value-creation team; distinct posting from the already-logged 'Growth Acceleration' entry - this one explicitly targets Class of 2028, matching candidate.",
-  "urls": [
-   "https://job-boards.greenhouse.io/generalatlantic/jobs/5780173004"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "general atlantic|2027 summer analyst, financial services|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Distinct req from the Growth Acceleration posting. Single-source, not corroborated yet.",
-  "urls": [
-   "https://job-boards.greenhouse.io/gacampus/jobs/5777726004"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "general atlantic|2027 summer analyst, growth acceleration|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Re-surfaced in search this run. Second URL variant (5420795004, titled '2026 Summer Analyst, Growth Acceleration, Class of 2027') added this run -- may be the same req under a different cycle label, or a distinct one; not reconciled. Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/generalatlantic/jobs/5780173004",
-   "https://job-boards.greenhouse.io/generalatlantic/jobs/5420795004"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "general atlantic|summer analyst, class of 2028, financial services (campus)|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch: site:job-boards.greenhouse.io 2027 \"growth equity\" intern analyst",
-  "fit_score": 78,
-  "notes": "Distinct campus board (gacampus) and title from other logged General Atlantic entries. Explicitly targets Class of 2028 (rising junior), Financial Services vertical touches asset management/credit. Link not checked -- this sandbox has no network egress.",
-  "urls": [
-   "https://job-boards.greenhouse.io/gacampus/jobs/5777726004"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "gex capital|investment associate intern|not confirmed|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "university career-board sweep (UMD Smith mirror)",
-  "fit_score": 55,
-  "notes": "New firm, not previously monitored. Below the 60-point logging threshold; logged anyway since it's a genuinely new firm/channel worth tracking.",
-  "urls": [
-   "https://careers.rhsmith.umd.edu/jobs/gex-capital-investment-associate-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "graham partners|2027 summer analyst – investment team|newtown square, pa|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over (source not recorded pre-schema-change)",
-  "fit_score": null,
-  "notes": "LBO/industrial-tech shop, not growth-stage software archetype, but genuine investing internship. Link never independently checked -- treat as unconfirmed.",
-  "urls": [
-   "https://ats.rippling.com/graham-partners/jobs/aae8c2c3-defc-40f2-a2cb-fdade9ecfd4a?st=2124ad76-ae9a-4b9d-bef7-fc597faee142",
-   "https://www.grahampartners.net/careers/internship-opportunity-2026-summer-analyst/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "graham partners|private equity fast track two-year internship, 2026 and 2027 summer analyst (class of 2028)|not confirmed|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch growth/private equity summer analyst intern 2027 geography sweep (Villanova career mirror)",
-  "fit_score": 78,
-  "notes": "Two-summer (2026 and 2027) track explicitly for Class of 2028. Distinct program from the single-summer 'Graham Partners | 2027 Summer Analyst - Investment Team' key already in the ledger.",
-  "urls": [
-   "https://connections.villanova.edu/jobs/graham-partners-private-equity-fast-track-two-year-internship-2026-and-2027-summer-analyst-class-of-2028/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "harrison street|analyst, transactions, summer 2027|chicago, il|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (ATS dork, jobs.lever.co)",
-  "fit_score": 75,
-  "notes": "Distinct req from the already-logged 'Harrison Street | Summer 2027 Asset Management Intern' entry (different Lever req id). 2.5-year Analyst program evaluating and executing new real-estate investment opportunities alongside senior investment professionals. Location inferred from firm HQ. Links not checked.",
-  "urls": [
-   "https://jobs.lever.co/harrisonst/6751ed05-7c9e-4c7a-bbec-ec96392697bd?lever-source=Trackr",
-   "https://www.builtinchicago.org/job/analyst-transactions-summer-2027/10691331"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "harrison street|summer 2027 asset management intern|not confirmed (chicago, il - firm hq typical)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (ATS dork, jobs.lever.co)",
-  "fit_score": 62,
-  "notes": "10-week program starting early June 2027; financial modeling, cash flow analysis, property/investment research.",
-  "urls": [
-   "https://jobs.lever.co/harrisonst/4594ead7-cc2f-4639-a714-8b46bcfdb653"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "heritage holding|2027 summer private equity junior analyst|boston, ma|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified. (Deal Origination Analyst / Deal Execution Associate roles also noted at this firm previously -- not separately tracked.)",
-  "urls": [
-   "https://jobs.ashbyhq.com/heritage-holding/54857b0e-f10c-4c51-90cb-b2af85f35416"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "highbrook investors|summer analyst, u.s. investments|west palm beach, fl|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (real estate PE archetype sweep)",
-  "fit_score": 74,
-  "notes": "West Palm Beach matches South Florida geography priority. Firm-to-posting mapping across these SelectLeaders URLs is genuinely ambiguous and unresolved (one may belong to a firm called Springer Capital instead). Links not checked.",
-  "urls": [
-   "https://www.selectleaders.com/job/293782/real-estate-private-equity-summer-analyst-summer-2027/",
-   "https://www.selectleaders.com/job/291666/real-estate-private-equity-summer-internship/",
-   "https://www.selectleaders.com/job/291214/real-estate-private-equity-summer-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "hof capital|venture capital investment intern|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "https://wasserman.nyu.edu/jobs/hof-capital-venture-capital-investment-intern-full-time/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "i squared capital|2027 private equity summer analyst|miami, fl|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch named-firm sweep (infrastructure private equity, Miami geography priority)",
-  "fit_score": 80,
-  "notes": "I Squared Capital, global infrastructure PE firm HQ'd in Miami (~$50B+ AUM). 2027 Summer Analysts rotate across investment/portfolio management teams (Asset Management, Credit, InfraTech). Second URL (handshakeisq Greenhouse board) surfaced in the same sweep but the specific job title on that listing was not confirmed in search snippets -- included only as a possible variant, not confirmed to be the same req as the Duke-mirrored PE Summer Analyst posting. Firm was already on Monitored Companies list from a prior pass; this is a newly discovered specific posting/ledger key.",
-  "urls": [
-   "https://careerhub.students.duke.edu/jobs/i-squared-capital-private-equity-summer-analyst/",
-   "https://job-boards.greenhouse.io/handshakeisq/jobs/4446121006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "insight partners|2027 summer investment analyst|not confirmed|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified per the rule that only explicit human confirmation can set CLOSED.",
-  "urls": [
-   "no-public-path-found"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "jpmorgan chase|2027 asset management client summer analyst program|multiple locations|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "KelleyConnect sweep",
-  "fit_score": 63,
-  "notes": "Distinct JPM AM sub-program from the already-logged 'Asset Management Product Summer Analyst Program' - more client-relationship-facing than pure investment work.",
-  "urls": [
-   "https://careers.kelley.iu.edu/jobs/jpmorganchase-2027-asset-management-client-summer-analyst-program/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "jpmorgan chase|2027 asset management product summer analyst program|multiple locations|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": 64,
-  "notes": "Grad window matches.",
-  "urls": [
-   "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691737"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "jpmorgan chase|2027 global private bank investment solutions program (summer analyst)|multiple locations|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "KelleyConnect (careers.kelley.iu.edu)",
-  "fit_score": 62,
-  "notes": "Posting explicitly targets expected-2028 grads, matching candidate. Not principal fund investing.",
-  "urls": [
-   "https://careers.kelley.iu.edu/jobs/jpmorganchase-2027-global-private-bank-investment-solutions-program-summer-analyst/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "jpmorgan chase|2027 quantitative research - asset management summer internship analyst|united states (multiple)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (quantitative investment research sweep)",
-  "fit_score": 60,
-  "notes": "Distinct from the Asset Management Product entry. Eligibility Dec 2027-Aug 2028 matches candidate. Python/quant skill alignment strong.",
-  "urls": [
-   "https://careercenter.wesleyan.edu/jobs/jpmorganchase-2027-quantitative-research-asset-management-summer-internship-analyst-united-states/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "jpmorgan chase|2027 quantitative research - markets - summer internship - analyst|united states (multiple, ny typical)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (quantitative investment research sweep)",
-  "fit_score": 62,
-  "notes": "Distinct from the already-logged 'JPMorgan Chase | 2027 Quantitative Research - Asset Management' entry -- this is the Quantitative Trading & Research Markets desk. Snippet states eligibility as graduating Dec 2027-Aug 2028 with Python/C++ required, matching candidate's stated skills. Links not checked.",
-  "urls": [
-   "https://careercenter.wesleyan.edu/jobs/jpmorganchase-2027-quantitative-research-markets-summer-internship-analyst-united-states/",
-   "https://builtin.com/job/2027-quantitative-research-markets-summer-internship-analyst-united-states/10498025",
-   "https://app.joinhandshake.com/public/jobs/11280168"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "khp capital partners|summer analyst, investments & asset management (summer 2027)|not confirmed|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (asset management/portfolio management sweep)",
-  "fit_score": 62,
-  "notes": "New firm not previously monitored. Only surfaced via UPenn mirror.",
-  "urls": [
-   "https://careerservices.upenn.edu/jobs/khp-capital-partners-summer-analyst-investments-asset-management-summer-2027/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "lead edge capital|2027 summer analyst|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified. Candidate profile references Lead Edge as the growth-equity archetype firm -- worth re-checking directly.",
-  "urls": [
-   "https://job-boards.greenhouse.io/leadedgecapitalmanagement/jobs/5077854007"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "level equity|2027 summer analyst|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Re-surfaced this run (Summer Analysts starting May 2027). Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/levelequity/jobs/5140914007?gh_src=Trackr"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "link logistics|investments analyst summer intern|dallas, tx / new york, ny / irvine, ca|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "https://career.cornell.edu/jobs/link-logistics-real-estate-investments-analyst-summer-intern/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "llr partners|2026 llr diversity collaborate - summer 2027 investment team internship|philadelphia, pa|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (growth equity archetype sweep)",
-  "fit_score": 65,
-  "notes": "Distinct req ID from the already-logged LLR Partners entry. May carry additional program-specific requirements.",
-  "urls": [
-   "https://job-boards.greenhouse.io/llrpartnersjobs/jobs/4049353009"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "llr partners|summer 2027 investment team analyst|philadelphia, pa|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/llrpartnersjobs/jobs/4070459009"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "long ridge equity partners|growth equity summer analyst (2027)|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Re-surfaced in search this run (NYC, 10-week program starting June 2027, $100-115k pro-rata). Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/longridge/jobs/5210665008"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "macquarie group|2027 asset management summer internship program|philadelphia, pa|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (portfolio management/credit research geography sweep)",
-  "fit_score": 72,
-  "notes": "Credit research with trading/portfolio management interaction. ZipRecruiter mirror only.",
-  "urls": [
-   "https://www.ziprecruiter.com/c/Macquarie-Group/Job/2027-Macquarie-Asset-Management-Summer-Internship-Program/-in-Philadelphia,PA"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "mlg capital|acquisitions & capital team intern|not confirmed (likely milwaukee/brookfield, wi)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "WebSearch: Cornell Central Career Services, private credit query",
-  "fit_score": 60,
-  "notes": "Real estate private equity/acquisitions firm. Summer 2027 cohort not explicitly confirmed in the listing title. New firm, not previously in Monitored Companies.",
-  "urls": [
-   "https://career.cornell.edu/jobs/mlg-capital-acquisitions-capital-team-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "morgan stanley|2027 equity research summer analyst program (new york)|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch equity research summer analyst intern 2027 Class of 2028",
-  "fit_score": 70,
-  "notes": "Distinct from the existing MS 'Fixed Income Research Summer Analyst Program 2027' key -- different track.",
-  "urls": [
-   "https://jobs.wallstreetfriends.org/companies/morgan-stanley/jobs/64373011-2027-equity-research-summer-analyst-program-new-york",
-   "https://jobright.ai/jobs/2027-equity-research-summer-analyst-program-(new-york)-jobs-in-united-states"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "morgan stanley|2027 investment management summer analyst program - fixed income (high yield, boston)|boston, ma|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "WebSearch: fixed income intern summer 2027 Boston query",
-  "fit_score": 82,
-  "notes": "Distinct from already-logged Morgan Stanley entries (NYC Fixed Income Research; IM Private Equity Solutions; IM Private Credit and Equity) — this is the IM Fixed Income High Yield desk in Boston. Only source found was a third-party blog mirror, not Morgan Stanley's own careers site.",
-  "urls": [
-   "https://econugblog.wordpress.com/2026/08/26/2027-investment-management-summer-analyst-program-fixed-income-morgan-stanley/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "morgan stanley|2027 investment management summer analyst program - private credit and equity|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Sister program to the role above, same caveats.",
-  "urls": [
-   "https://morganstanley.tal.net/vx/candidate/apply (exact req path not isolated, pattern only)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "morgan stanley|2027 investment management summer analyst program - private equity solutions|west conshohocken, pa|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Single-source, exact URL not fully isolated.",
-  "urls": [
-   "https://morganstanley.tal.net/vx/candidate/apply (exact req path not isolated, pattern only)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "morgan stanley|fixed income research summer analyst program 2027|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified. Not re-surfaced by this run's Kelley searches.",
-  "urls": [
-   "https://careers.kelley.iu.edu/jobs/morgan-stanley-2027-fixed-income-research-summer-analyst-program-new-york/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "neuberger berman|fixed income 2027 non-investment grade summer research analyst internship|chicago, il|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "general web search (fixed income research sweep)",
-  "fit_score": 78,
-  "notes": "Direct fixed-income credit research role on a $40B+ non-investment-grade book. Third-party mirrors only.",
-  "urls": [
-   "https://talents.vaia.com/companies/neuberger-berman/chicago/fixed-income-2027-non-investment-grade-summer-research-analyst-internship-73080918/",
-   "https://jobs.wallstreetfriends.org/companies/neuberger-berman-group/jobs/65068300-fixed-income-2027-non-investment-grade-summer-research-analyst-internship"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "new york city economic development corporation|summer intern, strategic investments group - funds & advisory|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Greenhouse dork (public/quasi-public investment office sweep)",
-  "fit_score": 62,
-  "notes": "New channel type: NYC's quasi-governmental economic development investment arm; Funds & Advisory group does direct fund/co-investment work. New York, NY location (priority geography).",
-  "urls": [
-   "https://job-boards.greenhouse.io/nycedc/jobs/4618446006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "northwestern mutual|investment analyst intern - private debt & equity, summer 2027|milwaukee, wi|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "general web search (private credit/direct lending sweep)",
-  "fit_score": 70,
-  "notes": "Direct private debt & equity investing internship. Grad window (Dec 2027-May 2028) matches.",
-  "urls": [
-   "https://careers.northwesternmutual.com/corporate-careers/jr-45705/investment-analyst-intern-private-debt-equity-summer-2027/",
-   "https://northwesternmutual.wd5.myworkdayjobs.com/en-US/CORPORATE-CAREERS/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705/apply"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "oakmark / harris associates|2027 equity research internship|not confirmed (chicago, il - firm hq)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "Greenhouse dork (growth equity/growth analyst sweep)",
-  "fit_score": 62,
-  "notes": "Summer 2027 Equity Research Internship. Two Greenhouse board slugs found, not reconciled to one canonical URL.",
-  "urls": [
-   "https://job-boards.greenhouse.io/harrisassociates/jobs/4595539006",
-   "https://job-boards.greenhouse.io/harrisprivatejobboard/jobs/4598590006?gh_src=h9c5wmww6us"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "oppenheimer & co|2027 equity research summer internship|not confirmed (new york, ny typical)|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch equity research summer analyst intern 2027 Class of 2028 asset management New York",
-  "fit_score": 65,
-  "notes": "Stated GPA minimum 3.5 per aggregator mirror; unconfirmed against a primary source.",
-  "urls": [
-   "https://www.builtinnyc.com/job/2027-equity-research-summer-internship/9228099"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "orion group|private equity summer analyst (2027)|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/oriongroup/jobs/4652209006"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "peakspan capital|2027 summer growth equity analyst|new york, ny / san mateo, ca|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "named-firm sweep (growth equity archetype) via MIT career-center mirror",
-  "fit_score": 85,
-  "notes": "PeakSpan is a $1.5B+ growth-stage B2B software growth equity firm, offices NYC + San Mateo CA. Posting explicitly welcomes rising seniors Class of 2028 - matches candidate's graduation year exactly. 8-week program, ~10-15 interns/year, sourcing-heavy.",
-  "urls": [
-   "https://capd.mit.edu/jobs/peakspan-capital-peakspan-capital-2027-summer-growth-equity-analyst/",
-   "https://us.jobrapido.com/jobpreview/5261430691748380672"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "piper sandler|2027 investment banking summer analyst, secondary capital advisory|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch: 2027 summer analyst secondaries OR infrastructure investment intern private markets",
-  "fit_score": 63,
-  "notes": "This is IB advisory (Secondary Capital Advisory group), not principal/buy-side investing -- lower investment-responsibility score than typical logged roles. Included because it is genuinely new and touches GP-led secondaries/LP portfolio sales. Link not checked.",
-  "urls": [
-   "https://www.canarywharfian.co.uk/jobs/piper-sandler/campus-recruiting-2027-investment-banking-summer-analyst-secondary-capital-advisory/fd670bbc-ebcb-4a97-abe9-364655a9a0a6"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "point72|2027 point72 academy investment analyst summer internship program - us|us (multiple)|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "Greenhouse dork (growth equity/growth analyst sweep)",
-  "fit_score": 78,
-  "notes": "Structured investment-analyst training internship; strong fit for quant finance coursework, Bloomberg/Python skills.",
-  "urls": [
-   "https://job-boards.greenhouse.io/point72/jobs/8295501002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "prudential financial (pgim)|2027 private credit, investment analyst program|newark, nj / new york, ny / atlanta, ga / chicago, il / dallas, tx / los angeles, ca / san francisco, ca / minneapolis, mn|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch site:careers.kelley.iu.edu/jobs/ 2027 private equity/credit/venture capital intern",
-  "fit_score": 80,
-  "notes": "Title omits 'Summer' -- distinct key from the existing '2027 Private Credit, Summer Investment Analyst Program' entry. May be the same underlying program under a different title, or a separate multi-rotation track; not disambiguated.",
-  "urls": [
-   "https://careers.kelley.iu.edu/jobs/prudential-financial-pgim-2027-private-credit-investment-analyst-program/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "prudential financial (pgim)|2027 private credit, summer investment analyst program|newark, nj / new york, ny / atlanta, ga / chicago, il / dallas, tx / los angeles, ca / san francisco, ca / minneapolis, mn|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "KelleyConnect (careers.kelley.iu.edu)",
-  "fit_score": 70,
-  "notes": "Re-surfaced in Kelley search results this run; added a BuiltIn mirror URL.",
-  "urls": [
-   "https://careers.kelley.iu.edu/jobs/prudential-financial-pgim-2027-private-credit-summer-investment-analyst-program/",
-   "https://builtin.com/job/pgim-2027-private-credit-summer-investment-analyst-program/10241502"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "prudential financial (pgim)|2027 public fixed income summer investment analyst program (credit research group)|newark, nj|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Human-confirmed dead by user (Workday link).",
-  "urls": [
-   "https://pru.wd5.myworkdayjobs.com/Careers/job/Newark-NJ-USA/PGIM--2027-Public-Fixed-Income--Summer-Investment-Analyst-Program--Credit-Research-Group-_R-123005-1"
-  ],
-  "verification_status": "CLOSED"
- },
- "prudential financial (pgim)|2027 public fixed income summer investment analyst program (portfolio analysis group)|newark, nj|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (fixed income research sweep)",
-  "fit_score": 72,
-  "notes": "Distinct team from the already-CLOSED PGIM Public Fixed Income Credit Research Group entry -- this is the Portfolio Analysis Group req. Third-party mirror (TheMuse) only, not PGIM's own ATS. Given the sibling req was human-confirmed dead, treat with extra skepticism.",
-  "urls": [
-   "https://www.themuse.com/jobs/prudentialfinancial/pgim-2027-public-fixed-income-summer-investment-analyst-program-portfolio-analysis-group"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "prudential financial (pgim)|2027 real estate, agency summer investment analyst program|arlington, va|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Human-confirmed dead by user (Workday link).",
-  "urls": [
-   "https://pru.wd5.myworkdayjobs.com/en-US/Careers/job/Arlington-VA-USA/PGIM--2027-Real-Estate--Agency-Summer-Investment-Analyst-Program_R-124636-2"
-  ],
-  "verification_status": "CLOSED"
- },
- "prudential financial (pgim)|2027 real estate, equity summer investment analyst program|multiple locations|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "KelleyConnect (careers.kelley.iu.edu)",
-  "fit_score": 68,
-  "notes": "Re-surfaced this run, program dates June 7-Aug 13 2027. Needs a real (human or networked) check.",
-  "urls": [
-   "https://careers.kelley.iu.edu/jobs/prudential-financial-pgim-2027-real-estate-equity-summer-investment-analyst-program/",
-   "https://jobs.pgim.com/us-en/jobs-details/R-124634/pgim-2027-real-estate-equity-summer-investment-analyst-program"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "prudential financial (pgim)|2027 real estate, originations summer investment analyst program|new york, ny (+ multiple)|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Human-confirmed dead by user (Workday link).",
-  "urls": [
-   "https://pru.wd5.myworkdayjobs.com/en-US/Careers/job/New-York-NY-USA/PGIM--2027-Real-Estate--Originations-Summer-Investment-Analyst-Program_R-124635-1"
-  ],
-  "verification_status": "CLOSED"
- },
- "psg equity|2027 summer investment analyst|boston, ma|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified; no direct link found.",
-  "urls": [
-   "no-public-path-found (psgequity.com/careers)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "psg equity|2027 summer sourcing analyst|boston, ma|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "no-public-path-found (psgequity.com/careers)"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "radian capital|2027 growth equity summer analyst|new york, ny|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Not human-confirmed either way -- treat as unverified.",
-  "urls": [
-   "https://careerhub.students.duke.edu/jobs/radian-capital-2027-growth-equity-summer-analyst/"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "raine group|2027 summer analyst (new york)|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (ATS dork, jobs.lever.co)",
-  "fit_score": 66,
-  "notes": "New firm not previously monitored. Raine Group is a merchant bank combining TMT advisory with principal/growth investing; Summer Analysts described as fully integrated deal-team members executing both advisory and principal-investing opportunities. Links not checked.",
-  "urls": [
-   "https://jobs.lever.co/raine/e4bb952f-8b02-4a96-87e0-e1d4447fa962?lever-source=Trackr",
-   "https://builtin.com/job/2027-summer-analyst-new-york/7278707",
-   "https://simplify.jobs/p/b3198c9f-9a81-4c6f-98ee-131b6010fad8/2027-Summer-Analyst"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "rclco|investments analyst intern|not confirmed (bethesda, md - firm hq typical)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "university career-board sweep (Cornell mirror)",
-  "fit_score": 62,
-  "notes": "Real estate investment/advisory analyst intern. Cycle uncertain. New firm not previously monitored.",
-  "urls": [
-   "https://career.cornell.edu/jobs/rclco-investments-analyst-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "readystate asset management|investment intern (summer 2027 & 2028)|not confirmed|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (quantitative investment research sweep)",
-  "fit_score": 72,
-  "notes": "Multi-strategy internship covering both quantitative/systematic and fundamental research tracks; explicitly open to Summer 2027 & 2028 candidates. Location not confirmed from snippet.",
-  "urls": [
-   "https://job-boards.greenhouse.io/readystate/jobs/4171077008"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "roark capital group|2027 private equity summer analyst|atlanta, ga|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (private credit/direct lending Greenhouse dork)",
-  "fit_score": 74,
-  "notes": "PE summer analyst at a large multi-sector buyout firm. New firm not previously monitored.",
-  "urls": [
-   "https://job-boards.greenhouse.io/roarkcapitalgroup/jobs/4913735008"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "rothesay asset management|summer internship 2027|london, uk|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Greenhouse dork (fixed income/asset management sweep)",
-  "fit_score": 55,
-  "notes": "Fixed-income focused (Liquid Corporate Credit, Short-Dated Assets) — strong skill match, but firm and program appear UK/London-based, outside candidate's priority geography. New firm, not yet in Monitored Companies before this run.",
-  "urls": [
-   "https://job-boards.greenhouse.io/rothesaygraduates/jobs/8390555002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "silversmith capital partners|2027 summer analyst|boston, ma|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Named-firm growth equity sweep",
-  "fit_score": 78,
-  "notes": "10-week program, Class of 2027 cohort per LinkedIn/trackr; software/tech growth equity, company-research heavy. No direct ATS posting URL found, only firm careers page and a third-party tracker page.",
-  "urls": [
-   "https://www.silversmith.com/careers",
-   "https://app.the-trackr.com/company/silversmith-capital-partners"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "stepstone group|2027 private equity infrastructure & real assets summer analyst|multiple (philadelphia, pa / new york, ny per university mirrors)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
-  "fit_score": 70,
-  "notes": "Third distinct StepStone vertical found across runs. SIRA team. Eligibility Dec 2027-June 2028 matches candidate.",
-  "urls": [
-   "https://www.builtinnyc.com/job/2027-private-equity-infrastructure-real-assets-summer-analyst/9227136",
-   "https://careerservices.upenn.edu/jobs/stepstone-group-lp-2027-private-equity-infrastructure-real-assets-summer-analyst/",
-   "https://careers.centre.edu/jobs/stepstone-group-lp-2027-private-equity-infrastructure-real-assets-summer-analyst/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "stepstone group|2027 private equity summer analyst|philadelphia, pa / minneapolis, mn / new york, ny (multiple, per university mirrors)|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (secondaries/PE archetype sweep) surfacing multiple university career-board mirrors (UPenn, St. Kate's)",
-  "fit_score": 90,
-  "notes": "General PE fund investments/co-investments/secondaries analyst role, distinct from the StepStone Real Estate PE Advisory entry. Eligibility Dec 2027-June 2028 matches candidate exactly.",
-  "urls": [
-   "https://careerservices.upenn.edu/jobs/stepstone-group-lp-2027-private-equity-summer-analyst/",
-   "https://katiecareervc.stkate.edu/jobs/stepstone-group-lp-2027-private-equity-summer-analyst/",
-   "https://www.builtinnyc.com/job/2027-private-equity-summer-analyst/9225253"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "stepstone group|2027 real estate investments summer analyst|san francisco, ca|2027": {
-  "date_logged": "2026-09-02",
-  "discovery_source": "WebSearch: real estate private equity 2027 summer analyst intern acquisitions New York (named-firm sweep on StepStone)",
-  "fit_score": 78,
-  "notes": "Distinct StepStone RE role from the already-logged 'Real Estate Private Equity Advisory Summer Analyst' entry -- this is the core Real Estate Investments team (due diligence, execution, ongoing asset management across property types/markets/capital structures). Stated grad window Dec 2027-June 2028, GPA 3.5+, no visa sponsorship. No firm ATS/university-mirror link isolated this run, only aggregator listings. Link not checked.",
-  "urls": [
-   "https://www.linkedin.com/jobs/view/2027-real-estate-investments-summer-analyst-at-stepstone-group-4447999730",
-   "https://www.ziprecruiter.com/c/StepStone-Group/Job/2027-Real-Estate-Investments-Summer-Analyst/-in-San-Francisco,CA?jid=143a01184a3948d8",
-   "https://interninsider.me/internships/stepstone-group/2027-real-estate-investments-summer-analyst-13da28f9-a967-4053-a8c6-6481a1fd588a",
-   "https://www.tealhq.com/job/summer-analyst_7ea1a51dc9da819db1af618a85ed7acd466af"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "stepstone group|2027 real estate private equity advisory summer analyst|multiple (posted via UW/Amherst/Tufts career mirrors)|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "general web search (real estate PE/credit sweep)",
-  "fit_score": 65,
-  "notes": "StepStone Real Estate team. Explicit Dec 2027-June 2028 grad eligibility matches candidate.",
-  "urls": [
-   "https://careers.uw.edu/jobs/stepstone-group-lp-2027-real-estate-private-equity-advisory-summer-analyst/",
-   "https://careers.amherst.edu/jobs/stepstone-group-lp-2027-real-estate-private-equity-advisory-summer-analyst/",
-   "https://careers.tufts.edu/jobs/stepstone-group-lp-2027-real-estate-investment-advisory-summer-analyst/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "stifel|2027 summer associate: kbw equity research (new york)|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch Cornell career board 2027 private equity/growth equity/asset management summer analyst",
-  "fit_score": 62,
-  "notes": "Posting title says 'Summer Associate' (unusual for a rising-junior undergrad program) under the KBW equity-research brand (Stifel subsidiary) -- level/title not disambiguated.",
-  "urls": [
-   "https://career.cornell.edu/jobs/stifel-2027-summer-associate-kbw-equity-research-new-york/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "strategic investment group|intern, investment analyst - summer 2027|arlington, va|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (infrastructure/OCIO archetype sweep)",
-  "fit_score": 67,
-  "notes": "OCIO-style investment analyst intern, Arlington VA (DC-area geography priority). Found via aggregator mirror, canonical link unknown.",
-  "urls": [
-   "https://www.talent.com/view?id=633000189022445320"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "summit partners|summer internship 2027 - investment team|boston, ma|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Named-firm growth equity sweep",
-  "fit_score": 78,
-  "notes": "Growth/buyout multi-stage investing; min GPA 3.6 cited in one source (candidate is 3.66). One source titles the program '2026' rather than '2027' – cycle year is unclear from search snippets alone, flagging rather than resolving it.",
-  "urls": [
-   "https://job-boards.greenhouse.io/summitpartnerslp",
-   "https://www.summitpartners.com/summit-careers",
-   "https://startup.jobs/summer-internship-2026-investment-team-summit-partners-6162507"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "susquehanna international group|credit analyst internship: summer 2027|philadelphia, pa|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch fixed income/credit research summer analyst 2027",
-  "fit_score": 75,
-  "notes": "10-week Credit Research team internship. Location shown as Philadelphia, PA on aggregator mirrors; may overlap with SIG's Bala Cynwyd, PA growth-equity/equity listings already in the ledger -- not disambiguated.",
-  "urls": [
-   "https://www.ziprecruiter.com/c/Susquehanna-International-Group/Job/Credit-Analyst-Internship:-Summer-2027/-in-Philadelphia,PA?jid=5bd69656ba6137d3",
-   "https://haystackapp.io/jobs/f4c54c94-3aaa-401c-8bd4-413bf678d2c7",
-   "https://jobright.ai/jobs/info/6a084e17403fc339507ec7d3"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "susquehanna international group|equity analyst internship - summer 2027|bala cynwyd, pa|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No new information this run.",
-  "urls": [
-   "https://careers.sig.com/equity-research/jobs/10723?lang=en-us"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "susquehanna international group|equity analyst internship - summer 2027|new york, ny|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "No new information this run.",
-  "urls": [
-   "https://careers.sig.com/quantitative-trading-internships-co-ops/jobs/10573?lang=en-us"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "susquehanna international group|growth equity investing analyst internship - summer 2027|bala cynwyd, pa|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Reset to unverified pending a real check.",
-  "urls": [
-   "https://careers.sig.com/growth-equity-private-equity-venture-capital/jobs/10714?lang=en-us"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "susquehanna international group|growth equity portfolio value creation analyst internship - summer 2027|bala cynwyd, pennsylvania|2027": {
-  "date_logged": "2026-08-21",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unconfirmed -- no network egress available to check.",
-  "urls": [
-   "https://careers.sig.com/growth-equity-private-equity-venture-capital/jobs/10716?lang=en-us"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "t. rowe price|equity research internship opportunity - summer 2027|baltimore, md|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Named-firm/equity research sweep",
-  "fit_score": 68,
-  "notes": "10-week program; stated eligibility spans Dec 2027-June 2029 grads, which covers candidate's May 2028 grad date. Location inferred from T. Rowe Price HQ, not confirmed on the posting itself.",
-  "urls": [
-   "https://troweprice.gr8people.com/jobs/21665/equity-research-internship-opportunity-summer-2027"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "the riverside company|2027 summer analyst, riverside micro-cap fund strategy|new york, ny / cleveland, oh / los angeles, ca|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch named-firm/university-board sweep; direct Greenhouse posting confirmed via search",
-  "fit_score": 85,
-  "notes": "The Riverside Company, global private equity firm (~$14B+ AUM), Riverside Micro-Cap Fund strategy (small/micro-cap buyouts). Posting explicitly states 'Only undergraduate students from the Class of 2028 will be considered' -- exact eligibility match. Locations: Cleveland OH / Los Angeles CA / New York NY. One mirror lists $20/hour comp, unconfirmed. Firm not previously on Monitored Companies list; added this run.",
-  "urls": [
-   "https://job-boards.greenhouse.io/theriversidecompany/jobs/8099028002",
-   "https://careerservices.fas.harvard.edu/jobs/the-riverside-company-2027-summer-analyst-riverside-micro-cap-fund-strategy/",
-   "https://ocs.yale.edu/jobs/the-riverside-company-2027-summer-analyst-riverside-micro-cap-fund-strategy/",
-   "https://careerservices.upenn.edu/jobs/the-riverside-company-8099028002-2027-riverside-micro-cap-summer-analyst/",
-   "https://career.ucla.edu/jobs/the-riverside-company-8099028002-2027-riverside-micro-cap-summer-analyst-3/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "two sigma|quantitative researcher - intern (2027 summer)|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (quantitative investment research sweep)",
-  "fit_score": 62,
-  "notes": "Likely skews toward CS/Math-heavy eligibility beyond candidate's stated skillset.",
-  "urls": [
-   "https://careers.twosigma.com/careers/JobDetail/New-York-New-York-United-States-Quantitative-Researcher-Intern-2027-Summer/13945"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "uvimco|2027 summer investment intern|charlottesville, va|2027": {
-  "date_logged": "2026-08-30",
-  "discovery_source": "carried over",
-  "fit_score": null,
-  "notes": "Unverified.",
-  "urls": [
-   "https://job-boards.greenhouse.io/uvimco/jobs/5079509008"
-  ],
-  "verification_status": "CARRIED_OVER"
- },
- "valhalla holdings llc|quantitative investment intern|not confirmed|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Cornell career board sweep",
-  "fit_score": 55,
-  "notes": "New firm not previously in Monitored Companies. Search snippet gives no explicit summer-2027/class-year confirmation — cycle year and eligibility unconfirmed; logging for firm-tracking completeness.",
-  "urls": [
-   "https://career.cornell.edu/jobs/valhalla-holdings-llc-quantitative-investment-intern/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "virtu financial|2027 internship - quant research (undergrad)|new york, ny|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Greenhouse dork (quant research sweep)",
-  "fit_score": 65,
-  "notes": "Undergrad quant research internship applying quantitative analysis to trading algorithms. Virtu was already in Monitored Companies but had no ledger entry until now.",
-  "urls": [
-   "https://job-boards.greenhouse.io/virtu/jobs/8142539002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "walleye capital|central equity quant research (ceqr) intern - summer 2027|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "university career-board sweep (UMD Smith mirror)",
-  "fit_score": 68,
-  "notes": "Quant equity research intern, NY; Python/quant coursework alignment. Firm's own Greenhouse URL added this run.",
-  "urls": [
-   "https://careers.rhsmith.umd.edu/jobs/walleye-capital-llc-central-equity-quant-research-ceqr-intern-summer-2027/",
-   "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676069006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "walleye capital|equity volatility quant researcher intern (summer 2027)|miami, fl|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (Miami/South Florida geography sweep)",
-  "fit_score": 66,
-  "notes": "10-week program, June-Aug 2027, Miami -- priority geography. Distinct from the already-logged Walleye CEQR (NY) entry. Python/quant skill match.",
-  "urls": [
-   "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676334006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "walleye capital|fundamental equities intern (summer 2027)|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "WebSearch: technology/quant investing greenhouse dork",
-  "fit_score": 80,
-  "notes": "NYC-based, fundamental long/short equity research support. Good fit with equity research/fundamental analysis skillset.",
-  "urls": [
-   "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4677152006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "walleye capital|investment data science intern (summer 2027)|new york, ny|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "WebSearch: venture capital / quant greenhouse dork",
-  "fit_score": 70,
-  "notes": "NYC, alternative-data / thematic research support for long/short discretionary strategies. More data-science leaning than pure investment role.",
-  "urls": [
-   "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676587006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "walleye capital|quantic - quantitative developer intern (summer 2027)|boston, ma|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "Greenhouse dork (quant research sweep)",
-  "fit_score": 62,
-  "notes": "Distinct Walleye posting from the CEQR, Equity Volatility, Fundamental Equities, and Investment Data Science internships already logged; this one is developer/engineering-leaning (Quantic platform team) rather than pure investment research.",
-  "urls": [
-   "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4679168006"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "weiss asset management|fundamental analyst internship - summer 2027|boston, ma|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (portfolio management/credit research geography sweep)",
-  "fit_score": 75,
-  "notes": "Sibling role to the Weiss quantitative entry -- fundamental-analysis track.",
-  "urls": [
-   "https://careerservices.fas.harvard.edu/jobs/weiss-asset-management-fundamental-analyst-internship-summer-2027-2/"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "weiss asset management|summer 2027 investment analyst internship (quantitative)|boston, ma|2027": {
-  "date_logged": "2026-08-31",
-  "discovery_source": "general web search (quant/fixed income archetype sweep)",
-  "fit_score": 88,
-  "notes": "Quantitative/fundamental investment analyst internship, Boston, June 7-Aug 13 2027. Strong stated skill match.",
-  "urls": [
-   "https://careerservices.fas.harvard.edu/jobs/weiss-asset-management-summer-2027-quantitative-analyst-internship/",
-   "https://job-boards.greenhouse.io/weissassetmanagement/jobs/8328455002"
-  ],
-  "verification_status": "UNCHECKED"
- },
- "yale investments office|2027 summer analyst|new haven, ct|2027": {
-  "date_logged": "2026-09-01",
-  "discovery_source": "WebSearch named-institution sweep (endowment/asset-owner investing offices)",
-  "fit_score": 85,
-  "notes": "Yale Investments Office (endowment, ~$44.1B AUM). Summer Analysts rotate through private- and public-market asset class groups working alongside full-time investment staff; past interns have worked on manager due diligence, VC landscape research, portfolio analysis. One search snippet referenced an April 26, 2026 application-deadline date for this posting, which is unconfirmed and possibly stale/mismatched to a different cycle -- not relied upon. Strong fit for candidate's asset-allocation/fixed-income coursework and Bloomberg/Excel/Python skillset. Not previously on Monitored Companies list; added this run.",
-  "urls": [
-   "https://investments.yale.edu/jobs/7481453003"
-  ],
-  "verification_status": "UNCHECKED"
- }
+  "accel-kkr|summer 2027 analyst - credit|not confirmed|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No direct link found in any run so far.",
+    "urls": [
+      "no-public-path-found (found only via UCLA career-hub mirror)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "accel-kkr|summer 2027 analyst - private equity|not confirmed (menlo park, ca / atlanta, ga typical)|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Board root only, exact req not isolated in any run so far.",
+    "urls": [
+      "https://apply.workable.com/accel-kkr/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "access holdings|summer 2027 private equity investment internship|baltimore, md|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/accessholdingsmanagementfirm/jobs/7581426003"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "affinius capital|summer 2027 credit team intern|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch: 2027 summer analyst \"real estate private equity\" OR \"real estate credit\" intern New York",
+    "fit_score": 68,
+    "notes": "Same firm/search as the Affinius Capital real estate investments intern above, but this is the separate NY Credit team internship (financing/debt and preferred equity for CRE). No distinct job URL was isolated -- only described in aggregated search summary text. Needs a direct link found before any alert.",
+    "urls": [],
+    "verification_status": "UNCHECKED",
+    "verify_note": "no URL found (checked 2026-09-01)"
+  },
+  "affinius capital|summer 2027 real estate investments intern|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch: 2027 summer analyst \"real estate private equity\" OR \"real estate credit\" intern New York",
+    "fit_score": 70,
+    "notes": "New firm to ledger -- commercial real estate investment manager. NY investment team internship covering underwriting/diligence/closing on new investments. Link not checked.",
+    "urls": [
+      "https://ocs.yale.edu/jobs/affinius-capital-summer-2027-real-estate-investments-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "alpine investors|investing summer analyst (2027)|san francisco, ca|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "SF; applications stated to open January 2026 for Spring 2028/Winter 2027 grads. No live req URL isolated. Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/alpineinternships"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "alpine investors|sourcing summer analyst (2027)|austin, tx|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (named-firm sweep)",
+    "fit_score": 68,
+    "notes": "'Elevation | 2027 Sourcing Summer Analyst' at Alpine Internships, Austin TX (program dates June 7-Aug 13 2027). Direct Greenhouse job id 8344152002 re-surfaced this run. Not corroborated against firm's own ATS beyond that.",
+    "urls": [
+      "https://job-boards.greenhouse.io/alpineinternships",
+      "https://www.ziprecruiter.com/c/Alpine-Internships/Job/Elevation-%7C-2027-Sourcing-Summer-Analyst/-in-Austin,TX?jid=baca2d41a85d11d7",
+      "https://app.joinrunway.io/explore/job/cmkfte5oy003sl5049aa4f8bm",
+      "https://job-boards.greenhouse.io/alpineinternships/jobs/8344152002"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "aqr capital management|2027 portfolio implementation summer analyst|greenwich, ct|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Candidate has applied to this role (workflow status, not a liveness claim).",
+    "urls": [
+      "https://careers.aqr.com/jobs?gh_jid=7895562"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "aqr capital management|2027 portfolio solutions group summer analyst|greenwich, ct|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Candidate has applied to this role (workflow status, not a liveness claim).",
+    "urls": [
+      "https://careers.aqr.com/jobs?gh_jid=8041362"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "aqr capital management|2027 risk summer analyst|greenwich, ct|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No new information this run.",
+    "urls": [
+      "https://careers.aqr.com/jobs?gh_jid=7926692"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "ardian|secondaries & primaries intern - summer 2027|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
+    "fit_score": 68,
+    "notes": "Financial modeling, valuation of PE funds/companies, IC prep. Firm's own Workday ATS link.",
+    "urls": [
+      "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Secondaries---Primaries-Intern---Summer-2027-I-New-York_JR1001760"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Secondaries---Primaries-Intern---Summer-2027-I-New-York_JR1001760",
+    "verify_alerted": true
+  },
+  "arena investors|summer investment analyst 2027|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Credit/special-situations shop. Single-source, not corroborated yet.",
+    "urls": [
+      "https://apply.workable.com/arena-investors-lp/j/9150D83148"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "audax group|2027 private equity summer analyst|boston, ma / san francisco, ca|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "WebSearch: real estate/PE greenhouse dork",
+    "fit_score": 82,
+    "notes": "Audax Group, ~$42B AUM alternative investment manager, offices Boston & San Francisco. Full deal-process PE analyst role. A secondary source mentioned an application deadline of Jan 23 (unconfirmed, may reference a prior cycle).",
+    "urls": [
+      "https://job-boards.greenhouse.io/audaxgroup/jobs/4646084005"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "bain capital|2027 credit summer analyst|boston, ma|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (private credit/direct lending sweep)",
+    "fit_score": 76,
+    "notes": "10-week Boston-based program, June 2027 start. Covers leveraged loans, high-yield, direct lending, structured products -- strong fixed-income coursework match. Third-party mirror only.",
+    "urls": [
+      "https://www.builtinboston.com/job/2027-credit-summer-analyst/8091208"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "bain capital|2027 summer analyst, path into private equity|boston, ma|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: alternative investments 2027 summer analyst intern Boston OR Philadelphia, corroborated via direct Bain Capital PiPE search",
+    "fit_score": 60,
+    "notes": "Distinct from the already-logged 'Bain Capital 2027 Credit Summer Analyst' entry. This is the Path into Private Equity (PiPE) program, North America Private Equity (NAPE) fund, Boston. Program description states eligibility as applicants 'currently in their sophomore year' -- this may target Class of 2029 rather than the candidate's Class of 2028, so eligibility fit is uncertain. Logged anyway per instruction not to reject on unstated/ambiguous grad-year requirements; flagging the mismatch for human review. Firm's own Workday ATS link.",
+    "urls": [
+      "https://baincapital.wd1.myworkdayjobs.com/en-US/External_Public/job/XMLNAME-2027-Summer-Analyst--Path-into-Private-Equity_REQ_108108-1"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://baincapital.wd1.myworkdayjobs.com/en-US/External_Public/job/XMLNAME-2027-Summer-Analyst--Path-into-Private-Equity_REQ_108108-1",
+    "verify_alerted": true
+  },
+  "baird|equity research analyst internship - summer 2027|milwaukee, wi|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Human-confirmed dead by user.",
+    "urls": [
+      "https://baird.wd1.myworkdayjobs.com/en-US/Careers/job/Internship---Equity-Research-Analyst--Summer-2027-_R20251244-2"
+    ],
+    "verification_status": "CLOSED"
+  },
+  "bank of america|enterprise credit summer analyst program - 2027 - multiple locations|charlotte, nc / new york, ny / other|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "general web search (private credit/direct lending sweep)",
+    "fit_score": 66,
+    "notes": "Credit underwriting/monitoring rotation. Charlotte is a priority geography.",
+    "urls": [
+      "https://careers.bankofamerica.com/en-us/students/job-detail/14392/enterprise-credit-summer-analyst-program-2027-multiple-locations"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://careers.bankofamerica.com/en-us/students/job-detail/14392/enterprise-credit-summer-analyst-program-2027-multiple-locations",
+    "verify_alerted": true
+  },
+  "barclays|credit research analyst summer internship program 2027|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Human-confirmed dead: user reported this link returns Barclays' own 'Custom Job Error' page.",
+    "urls": [
+      "https://search.jobs.barclays/job/new-york/credit-research-analyst-summer-internship-program-2027-new-york/13015/89060416560"
+    ],
+    "verification_status": "CLOSED"
+  },
+  "barclays|equity research analyst summer internship program 2027|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "University board sweep (St. John's mirror)",
+    "fit_score": 65,
+    "notes": "Distinct role from Barclays' Credit Research Analyst posting already in this ledger, which is marked CLOSED (human-confirmed dead). This is Equity Research, a separate posting \u2014 not a resurrection of the closed one.",
+    "urls": [
+      "https://careerservices.stjohns.edu/jobs/barclays-equity-research-analyst-summer-internship-program-2027-new-york/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "battery ventures|2027 summer investment internship|boston, ma / new york, ny / san francisco, ca|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Re-surfaced in search this run describing a live-looking 10-week paid program, up to $2,500/wk. Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/batteryventures/jobs/5059311008"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "beedie|investments & growth capital intern|not confirmed (vancouver, bc - firm hq typical)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (ATS dork, jobs.lever.co)",
+    "fit_score": 62,
+    "notes": "Growth capital intern; deal sourcing/reviewing/executing/monitoring exposure per snippet.",
+    "urls": [
+      "https://jobs.lever.co/beedie/0e0764b2-0291-44e0-a6a7-d003b7f91769"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "lever posting API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "bessemer venture partners|2027 summer analyst|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unconfirmed; verify grad-year eligibility directly when checked.",
+    "urls": [
+      "https://job-boards.greenhouse.io/bvpanalyst/jobs/4633431005"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "blackrock|2027 summer internship program - amers|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "WebSearch: fixed income intern summer 2027 query",
+    "fit_score": 68,
+    "notes": "General AMERS summer internship program at BlackRock; specific team/desk placement not confirmed from listing title alone.",
+    "urls": [
+      "https://careers.blackrock.com/job/new-york/2027-summer-internship-program-amers/45831/90628276544"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://careers.blackrock.com/job/new-york/2027-summer-internship-program-amers/45831/90628276544",
+    "verify_alerted": true
+  },
+  "blackstone|infrastructure partners summer analyst intern (2027)|not confirmed (new york, ny typical)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
+    "fit_score": 74,
+    "notes": "Financial analysis, investment research, transaction execution support over a 10-week program. Neither URL is Blackstone's own ATS.",
+    "urls": [
+      "https://simplify.jobs/p/3e435665-52cc-4e05-bd4e-2f0a7813c7d4/Infrastructure-Partners-Summer-Analyst-Intern",
+      "https://growthequityinterviewguide.com/job/summer-analyst-pe-infrastructure-investing-blackstone"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "bnp paribas|2027 summer analyst internship - global markets, equity research|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (equity research/fixed income sweep)",
+    "fit_score": 61,
+    "notes": "Global Markets Equity Research internship, New York. Grad-year eligibility not confirmed from snippet.",
+    "urls": [
+      "https://group.bnpparibas/en/careers/job-offer/2027-summer-analyst-internship-global-markets-equity-research"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "HTTP 403 (checked 2026-09-01)"
+  },
+  "boathouse capital|private equity summer analyst internship program|philadelphia, pa|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No direct link found in any run so far.",
+    "urls": [
+      "no-public-path-found (Duke Career Hub reference only)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "cambridge associates|2027 summer analyst internship program|boston, ma / san francisco, ca (multiple)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "university career-board mirrors (Amherst, SNHU)",
+    "fit_score": 72,
+    "notes": "OCIO / investment consulting analyst role. Multiple mirror URLs across different cities -- unclear if one role or several.",
+    "urls": [
+      "https://careers.amherst.edu/jobs/cambridge-associates-2027-summer-analyst-internship-program/",
+      "https://career360.snhu.edu/jobs/cambridge-associates-2027-summer-analyst-internship-program/",
+      "https://www.ziprecruiter.com/c/Cambridgeassociates/Job/2027-Summer-Analyst-Internship-Program/-in-San-Francisco,CA?jid=4521483d824ebce5",
+      "https://bebee.com/us/jobs/2027-summer-analyst-internship-program-cambridge-associates-boston--t7xk-788146632"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "capula investment management|2027 trading and research summer internship|london / new york|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unconfirmed.",
+    "urls": [
+      "https://apply.workable.com/capula-investment-management-ltd/j/A15A62A8BE"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "cleveland research company|research intern - summer 2027|cleveland, oh|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No new information this run.",
+    "urls": [
+      "https://clevelandresearch.applytojob.com/apply/0oj2pH6LVJ/Research-Intern-Summer-2027"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "constitution capital partners|private equity investment summer internship|boston, ma / new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No direct link found in any run so far.",
+    "urls": [
+      "no-public-path-found (Villanova portal mirror only)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "d. e. shaw|fundamental research analyst intern (new york) - summer 2027|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch technology/software investing summer analyst intern 2027 growth-stage SaaS fintech",
+    "fit_score": 75,
+    "notes": "Found on deshaw.com directly. Fundamental-investing group role, distinct from the quant analyst intern req above.",
+    "urls": [
+      "https://www.deshaw.com/careers/fundamental-research-analyst-intern-new-york-summer-2027-5709"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://www.deshaw.com/careers/fundamental-research-analyst-intern-new-york-summer-2027-5709",
+    "verify_alerted": true
+  },
+  "d. e. shaw|quantitative analyst intern (new york) - summer 2027|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch quantitative investing/quant research summer analyst intern 2027 Class of 2028 hedge fund",
+    "fit_score": 68,
+    "notes": "Found on deshaw.com directly (not an aggregator mirror).",
+    "urls": [
+      "https://www.deshaw.com/careers/quantitative-analyst-intern-new-york-summer-2027-5890"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://www.deshaw.com/careers/quantitative-analyst-intern-new-york-summer-2027-5890",
+    "verify_alerted": true
+  },
+  "dalio family office|2027 summer intern, investment global macro|new york, ny|2027": {
+    "date_logged": "2026-08-24",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Candidate has applied to this role (workflow status, not a liveness claim).",
+    "urls": [
+      "https://job-boards.greenhouse.io/dforeferrals/jobs/6127933004"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "drw|venture capital analyst intern|not confirmed (chicago, il typical)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (venture capital/technology investing sweep)",
+    "fit_score": 65,
+    "notes": "DRW's venture arm investing in financial and enterprise technology. Eligibility stated as graduating Dec 2027-June 2028, matching candidate. Location inferred from firm HQ, not confirmed in snippet.",
+    "urls": [
+      "https://job-boards.greenhouse.io/drweng/jobs/7993004"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "greenhouse job API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://job-boards.greenhouse.io/drweng/jobs/7993004",
+    "verify_alerted": true
+  },
+  "financial technology partners|2027 summer analyst, investment banking (new york)|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (Great Hill/FTV/Providence named-firm sweep)",
+    "fit_score": 63,
+    "notes": "NY sibling to the FT Partners SF req.",
+    "urls": [
+      "https://job-boards.greenhouse.io/financialtechnologypartners/jobs/8339305002"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "financial technology partners|2027 summer analyst, investment banking (san francisco)|san francisco, ca|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (private credit/direct lending Greenhouse dork)",
+    "fit_score": 62,
+    "notes": "Boutique fintech-focused investment bank, not principal investing. New firm not previously monitored.",
+    "urls": [
+      "https://job-boards.greenhouse.io/financialtechnologypartners/jobs/8339312002"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "four corners property trust|2027 summer investment analyst|not confirmed (charlotte, nc area)|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Re-surfaced this run via Cornell career board. Unverified.",
+    "urls": [
+      "https://career.cornell.edu/jobs/four-corners-property-trust-2027-summer-investment-analyst/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "gcm grosvenor|2027 pe-primaries investments summer intern|not confirmed|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
+    "fit_score": 76,
+    "notes": "PE fund-of-funds primaries team; due diligence and IC-recommendation exposure.",
+    "urls": [
+      "https://careers.amherst.edu/jobs/gcm-grosvenor-2027-pe-primaries-investments-summer-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "gcm grosvenor|2027 pe-secondaries investments summer intern|not confirmed|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (university career-board sweep, Georgetown/Notre Dame query)",
+    "fit_score": 76,
+    "notes": "Firm's own Greenhouse board link.",
+    "urls": [
+      "https://job-boards.greenhouse.io/gcmgrosvenor/jobs/7620558003"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "greenhouse job API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://job-boards.greenhouse.io/gcmgrosvenor/jobs/7620558003",
+    "verify_alerted": true
+  },
+  "gcm grosvenor|2027 real estate investments summer intern|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (real estate PE/credit sweep)",
+    "fit_score": 72,
+    "notes": "Distinct from GCM Grosvenor PE-Primaries and PE-Secondaries entries. Third-party aggregator mirror only.",
+    "urls": [
+      "https://www.intern-list.com/accounting-and-finance-intern-list/2027_real_estate_investments_summer_intern_at_gcm_grosvenor_17257325"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "general atlantic|2026 investment summer analyst, class of 2027|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Greenhouse dork (growth equity/PE sweep)",
+    "fit_score": 68,
+    "notes": "Explicitly targets Class of 2027 (one year ahead of candidate's Class of 2028) - likely NOT eligible; logged for firm-tracking completeness, not as a strong candidate match.",
+    "urls": [
+      "https://job-boards.greenhouse.io/generalatlantic/jobs/5422194004"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "general atlantic|2027 summer analyst (title/details unconfirmed variant)|not confirmed|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (growth equity Greenhouse dork)",
+    "fit_score": 60,
+    "notes": "May be a duplicate of another already-logged GA req, or a distinct fourth one.",
+    "urls": [
+      "https://job-boards.greenhouse.io/generalatlantic/jobs/5669455004"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "general atlantic|2027 summer analyst, capital solutions|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "IR/fundraising/LP-relations flavored, weaker fit than sourcing/diligence roles. Links not checked.",
+    "urls": [
+      "https://job-boards.greenhouse.io/generalatlantic/jobs/5780218004"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "general atlantic|2027 summer analyst, class of 2028, growth acceleration|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Greenhouse dork (growth equity/PE sweep)",
+    "fit_score": 80,
+    "notes": "Growth Acceleration is GA's in-house management-consulting/value-creation team; distinct posting from the already-logged 'Growth Acceleration' entry - this one explicitly targets Class of 2028, matching candidate.",
+    "urls": [
+      "https://job-boards.greenhouse.io/generalatlantic/jobs/5780173004"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "general atlantic|2027 summer analyst, financial services|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Distinct req from the Growth Acceleration posting. Single-source, not corroborated yet.",
+    "urls": [
+      "https://job-boards.greenhouse.io/gacampus/jobs/5777726004"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "general atlantic|2027 summer analyst, growth acceleration|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Re-surfaced in search this run. Second URL variant (5420795004, titled '2026 Summer Analyst, Growth Acceleration, Class of 2027') added this run -- may be the same req under a different cycle label, or a distinct one; not reconciled. Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/generalatlantic/jobs/5780173004",
+      "https://job-boards.greenhouse.io/generalatlantic/jobs/5420795004"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "general atlantic|summer analyst, class of 2028, financial services (campus)|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch: site:job-boards.greenhouse.io 2027 \"growth equity\" intern analyst",
+    "fit_score": 78,
+    "notes": "Distinct campus board (gacampus) and title from other logged General Atlantic entries. Explicitly targets Class of 2028 (rising junior), Financial Services vertical touches asset management/credit. Link not checked -- this sandbox has no network egress.",
+    "urls": [
+      "https://job-boards.greenhouse.io/gacampus/jobs/5777726004"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "gex capital|investment associate intern|not confirmed|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "university career-board sweep (UMD Smith mirror)",
+    "fit_score": 55,
+    "notes": "New firm, not previously monitored. Below the 60-point logging threshold; logged anyway since it's a genuinely new firm/channel worth tracking.",
+    "urls": [
+      "https://careers.rhsmith.umd.edu/jobs/gex-capital-investment-associate-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "graham partners|2027 summer analyst \u2013 investment team|newtown square, pa|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over (source not recorded pre-schema-change)",
+    "fit_score": null,
+    "notes": "LBO/industrial-tech shop, not growth-stage software archetype, but genuine investing internship. Link never independently checked -- treat as unconfirmed.",
+    "urls": [
+      "https://ats.rippling.com/graham-partners/jobs/aae8c2c3-defc-40f2-a2cb-fdade9ecfd4a?st=2124ad76-ae9a-4b9d-bef7-fc597faee142",
+      "https://www.grahampartners.net/careers/internship-opportunity-2026-summer-analyst/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "graham partners|private equity fast track two-year internship, 2026 and 2027 summer analyst (class of 2028)|not confirmed|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch growth/private equity summer analyst intern 2027 geography sweep (Villanova career mirror)",
+    "fit_score": 78,
+    "notes": "Two-summer (2026 and 2027) track explicitly for Class of 2028. Distinct program from the single-summer 'Graham Partners | 2027 Summer Analyst - Investment Team' key already in the ledger.",
+    "urls": [
+      "https://connections.villanova.edu/jobs/graham-partners-private-equity-fast-track-two-year-internship-2026-and-2027-summer-analyst-class-of-2028/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "harrison street|analyst, transactions, summer 2027|chicago, il|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (ATS dork, jobs.lever.co)",
+    "fit_score": 75,
+    "notes": "Distinct req from the already-logged 'Harrison Street | Summer 2027 Asset Management Intern' entry (different Lever req id). 2.5-year Analyst program evaluating and executing new real-estate investment opportunities alongside senior investment professionals. Location inferred from firm HQ. Links not checked.",
+    "urls": [
+      "https://jobs.lever.co/harrisonst/6751ed05-7c9e-4c7a-bbec-ec96392697bd?lever-source=Trackr",
+      "https://www.builtinchicago.org/job/analyst-transactions-summer-2027/10691331"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "lever posting API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://jobs.lever.co/harrisonst/6751ed05-7c9e-4c7a-bbec-ec96392697bd?lever-source=Trackr",
+    "verify_alerted": true
+  },
+  "harrison street|summer 2027 asset management intern|not confirmed (chicago, il - firm hq typical)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (ATS dork, jobs.lever.co)",
+    "fit_score": 62,
+    "notes": "10-week program starting early June 2027; financial modeling, cash flow analysis, property/investment research.",
+    "urls": [
+      "https://jobs.lever.co/harrisonst/4594ead7-cc2f-4639-a714-8b46bcfdb653"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "lever posting API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://jobs.lever.co/harrisonst/4594ead7-cc2f-4639-a714-8b46bcfdb653",
+    "verify_alerted": true
+  },
+  "heritage holding|2027 summer private equity junior analyst|boston, ma|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified. (Deal Origination Analyst / Deal Execution Associate roles also noted at this firm previously -- not separately tracked.)",
+    "urls": [
+      "https://jobs.ashbyhq.com/heritage-holding/54857b0e-f10c-4c51-90cb-b2af85f35416"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "highbrook investors|summer analyst, u.s. investments|west palm beach, fl|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (real estate PE archetype sweep)",
+    "fit_score": 74,
+    "notes": "West Palm Beach matches South Florida geography priority. Firm-to-posting mapping across these SelectLeaders URLs is genuinely ambiguous and unresolved (one may belong to a firm called Springer Capital instead). Links not checked.",
+    "urls": [
+      "https://www.selectleaders.com/job/293782/real-estate-private-equity-summer-analyst-summer-2027/",
+      "https://www.selectleaders.com/job/291666/real-estate-private-equity-summer-internship/",
+      "https://www.selectleaders.com/job/291214/real-estate-private-equity-summer-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "hof capital|venture capital investment intern|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "https://wasserman.nyu.edu/jobs/hof-capital-venture-capital-investment-intern-full-time/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "i squared capital|2027 private equity summer analyst|miami, fl|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch named-firm sweep (infrastructure private equity, Miami geography priority)",
+    "fit_score": 80,
+    "notes": "I Squared Capital, global infrastructure PE firm HQ'd in Miami (~$50B+ AUM). 2027 Summer Analysts rotate across investment/portfolio management teams (Asset Management, Credit, InfraTech). Second URL (handshakeisq Greenhouse board) surfaced in the same sweep but the specific job title on that listing was not confirmed in search snippets -- included only as a possible variant, not confirmed to be the same req as the Duke-mirrored PE Summer Analyst posting. Firm was already on Monitored Companies list from a prior pass; this is a newly discovered specific posting/ledger key.",
+    "urls": [
+      "https://careerhub.students.duke.edu/jobs/i-squared-capital-private-equity-summer-analyst/",
+      "https://job-boards.greenhouse.io/handshakeisq/jobs/4446121006"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "insight partners|2027 summer investment analyst|not confirmed|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified per the rule that only explicit human confirmation can set CLOSED.",
+    "urls": [
+      "no-public-path-found"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "jpmorgan chase|2027 asset management client summer analyst program|multiple locations|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "KelleyConnect sweep",
+    "fit_score": 63,
+    "notes": "Distinct JPM AM sub-program from the already-logged 'Asset Management Product Summer Analyst Program' - more client-relationship-facing than pure investment work.",
+    "urls": [
+      "https://careers.kelley.iu.edu/jobs/jpmorganchase-2027-asset-management-client-summer-analyst-program/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "jpmorgan chase|2027 asset management product summer analyst program|multiple locations|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": 64,
+    "notes": "Grad window matches.",
+    "urls": [
+      "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691737"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "jpmorgan chase|2027 global private bank investment solutions program (summer analyst)|multiple locations|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "KelleyConnect (careers.kelley.iu.edu)",
+    "fit_score": 62,
+    "notes": "Posting explicitly targets expected-2028 grads, matching candidate. Not principal fund investing.",
+    "urls": [
+      "https://careers.kelley.iu.edu/jobs/jpmorganchase-2027-global-private-bank-investment-solutions-program-summer-analyst/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "jpmorgan chase|2027 quantitative research - asset management summer internship analyst|united states (multiple)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (quantitative investment research sweep)",
+    "fit_score": 60,
+    "notes": "Distinct from the Asset Management Product entry. Eligibility Dec 2027-Aug 2028 matches candidate. Python/quant skill alignment strong.",
+    "urls": [
+      "https://careercenter.wesleyan.edu/jobs/jpmorganchase-2027-quantitative-research-asset-management-summer-internship-analyst-united-states/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "jpmorgan chase|2027 quantitative research - markets - summer internship - analyst|united states (multiple, ny typical)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (quantitative investment research sweep)",
+    "fit_score": 62,
+    "notes": "Distinct from the already-logged 'JPMorgan Chase | 2027 Quantitative Research - Asset Management' entry -- this is the Quantitative Trading & Research Markets desk. Snippet states eligibility as graduating Dec 2027-Aug 2028 with Python/C++ required, matching candidate's stated skills. Links not checked.",
+    "urls": [
+      "https://careercenter.wesleyan.edu/jobs/jpmorganchase-2027-quantitative-research-markets-summer-internship-analyst-united-states/",
+      "https://builtin.com/job/2027-quantitative-research-markets-summer-internship-analyst-united-states/10498025",
+      "https://app.joinhandshake.com/public/jobs/11280168"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "khp capital partners|summer analyst, investments & asset management (summer 2027)|not confirmed|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (asset management/portfolio management sweep)",
+    "fit_score": 62,
+    "notes": "New firm not previously monitored. Only surfaced via UPenn mirror.",
+    "urls": [
+      "https://careerservices.upenn.edu/jobs/khp-capital-partners-summer-analyst-investments-asset-management-summer-2027/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "lead edge capital|2027 summer analyst|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified. Candidate profile references Lead Edge as the growth-equity archetype firm -- worth re-checking directly.",
+    "urls": [
+      "https://job-boards.greenhouse.io/leadedgecapitalmanagement/jobs/5077854007"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "level equity|2027 summer analyst|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Re-surfaced this run (Summer Analysts starting May 2027). Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/levelequity/jobs/5140914007?gh_src=Trackr"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "link logistics|investments analyst summer intern|dallas, tx / new york, ny / irvine, ca|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "https://career.cornell.edu/jobs/link-logistics-real-estate-investments-analyst-summer-intern/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "llr partners|2026 llr diversity collaborate - summer 2027 investment team internship|philadelphia, pa|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (growth equity archetype sweep)",
+    "fit_score": 65,
+    "notes": "Distinct req ID from the already-logged LLR Partners entry. May carry additional program-specific requirements.",
+    "urls": [
+      "https://job-boards.greenhouse.io/llrpartnersjobs/jobs/4049353009"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "llr partners|summer 2027 investment team analyst|philadelphia, pa|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/llrpartnersjobs/jobs/4070459009"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "long ridge equity partners|growth equity summer analyst (2027)|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Re-surfaced in search this run (NYC, 10-week program starting June 2027, $100-115k pro-rata). Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/longridge/jobs/5210665008"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "macquarie group|2027 asset management summer internship program|philadelphia, pa|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (portfolio management/credit research geography sweep)",
+    "fit_score": 72,
+    "notes": "Credit research with trading/portfolio management interaction. ZipRecruiter mirror only.",
+    "urls": [
+      "https://www.ziprecruiter.com/c/Macquarie-Group/Job/2027-Macquarie-Asset-Management-Summer-Internship-Program/-in-Philadelphia,PA"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "mlg capital|acquisitions & capital team intern|not confirmed (likely milwaukee/brookfield, wi)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "WebSearch: Cornell Central Career Services, private credit query",
+    "fit_score": 60,
+    "notes": "Real estate private equity/acquisitions firm. Summer 2027 cohort not explicitly confirmed in the listing title. New firm, not previously in Monitored Companies.",
+    "urls": [
+      "https://career.cornell.edu/jobs/mlg-capital-acquisitions-capital-team-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "morgan stanley|2027 equity research summer analyst program (new york)|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch equity research summer analyst intern 2027 Class of 2028",
+    "fit_score": 70,
+    "notes": "Distinct from the existing MS 'Fixed Income Research Summer Analyst Program 2027' key -- different track.",
+    "urls": [
+      "https://jobs.wallstreetfriends.org/companies/morgan-stanley/jobs/64373011-2027-equity-research-summer-analyst-program-new-york",
+      "https://jobright.ai/jobs/2027-equity-research-summer-analyst-program-(new-york)-jobs-in-united-states"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "morgan stanley|2027 investment management summer analyst program - fixed income (high yield, boston)|boston, ma|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "WebSearch: fixed income intern summer 2027 Boston query",
+    "fit_score": 82,
+    "notes": "Distinct from already-logged Morgan Stanley entries (NYC Fixed Income Research; IM Private Equity Solutions; IM Private Credit and Equity) \u2014 this is the IM Fixed Income High Yield desk in Boston. Only source found was a third-party blog mirror, not Morgan Stanley's own careers site.",
+    "urls": [
+      "https://econugblog.wordpress.com/2026/08/26/2027-investment-management-summer-analyst-program-fixed-income-morgan-stanley/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "morgan stanley|2027 investment management summer analyst program - private credit and equity|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Sister program to the role above, same caveats.",
+    "urls": [
+      "https://morganstanley.tal.net/vx/candidate/apply (exact req path not isolated, pattern only)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "morgan stanley|2027 investment management summer analyst program - private equity solutions|west conshohocken, pa|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Single-source, exact URL not fully isolated.",
+    "urls": [
+      "https://morganstanley.tal.net/vx/candidate/apply (exact req path not isolated, pattern only)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "morgan stanley|fixed income research summer analyst program 2027|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified. Not re-surfaced by this run's Kelley searches.",
+    "urls": [
+      "https://careers.kelley.iu.edu/jobs/morgan-stanley-2027-fixed-income-research-summer-analyst-program-new-york/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "neuberger berman|fixed income 2027 non-investment grade summer research analyst internship|chicago, il|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "general web search (fixed income research sweep)",
+    "fit_score": 78,
+    "notes": "Direct fixed-income credit research role on a $40B+ non-investment-grade book. Third-party mirrors only.",
+    "urls": [
+      "https://talents.vaia.com/companies/neuberger-berman/chicago/fixed-income-2027-non-investment-grade-summer-research-analyst-internship-73080918/",
+      "https://jobs.wallstreetfriends.org/companies/neuberger-berman-group/jobs/65068300-fixed-income-2027-non-investment-grade-summer-research-analyst-internship"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "new york city economic development corporation|summer intern, strategic investments group - funds & advisory|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Greenhouse dork (public/quasi-public investment office sweep)",
+    "fit_score": 62,
+    "notes": "New channel type: NYC's quasi-governmental economic development investment arm; Funds & Advisory group does direct fund/co-investment work. New York, NY location (priority geography).",
+    "urls": [
+      "https://job-boards.greenhouse.io/nycedc/jobs/4618446006"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "northwestern mutual|investment analyst intern - private debt & equity, summer 2027|milwaukee, wi|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "general web search (private credit/direct lending sweep)",
+    "fit_score": 70,
+    "notes": "Direct private debt & equity investing internship. Grad window (Dec 2027-May 2028) matches.",
+    "urls": [
+      "https://careers.northwesternmutual.com/corporate-careers/jr-45705/investment-analyst-intern-private-debt-equity-summer-2027/",
+      "https://northwesternmutual.wd5.myworkdayjobs.com/en-US/CORPORATE-CAREERS/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705/apply"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://northwesternmutual.wd5.myworkdayjobs.com/en-US/CORPORATE-CAREERS/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705/apply",
+    "verify_alerted": true
+  },
+  "oakmark / harris associates|2027 equity research internship|not confirmed (chicago, il - firm hq)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "Greenhouse dork (growth equity/growth analyst sweep)",
+    "fit_score": 62,
+    "notes": "Summer 2027 Equity Research Internship. Two Greenhouse board slugs found, not reconciled to one canonical URL.",
+    "urls": [
+      "https://job-boards.greenhouse.io/harrisassociates/jobs/4595539006",
+      "https://job-boards.greenhouse.io/harrisprivatejobboard/jobs/4598590006?gh_src=h9c5wmww6us"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "oppenheimer & co|2027 equity research summer internship|not confirmed (new york, ny typical)|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch equity research summer analyst intern 2027 Class of 2028 asset management New York",
+    "fit_score": 65,
+    "notes": "Stated GPA minimum 3.5 per aggregator mirror; unconfirmed against a primary source.",
+    "urls": [
+      "https://www.builtinnyc.com/job/2027-equity-research-summer-internship/9228099"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "orion group|private equity summer analyst (2027)|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/oriongroup/jobs/4652209006"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "peakspan capital|2027 summer growth equity analyst|new york, ny / san mateo, ca|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "named-firm sweep (growth equity archetype) via MIT career-center mirror",
+    "fit_score": 85,
+    "notes": "PeakSpan is a $1.5B+ growth-stage B2B software growth equity firm, offices NYC + San Mateo CA. Posting explicitly welcomes rising seniors Class of 2028 - matches candidate's graduation year exactly. 8-week program, ~10-15 interns/year, sourcing-heavy.",
+    "urls": [
+      "https://capd.mit.edu/jobs/peakspan-capital-peakspan-capital-2027-summer-growth-equity-analyst/",
+      "https://us.jobrapido.com/jobpreview/5261430691748380672"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "piper sandler|2027 investment banking summer analyst, secondary capital advisory|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch: 2027 summer analyst secondaries OR infrastructure investment intern private markets",
+    "fit_score": 63,
+    "notes": "This is IB advisory (Secondary Capital Advisory group), not principal/buy-side investing -- lower investment-responsibility score than typical logged roles. Included because it is genuinely new and touches GP-led secondaries/LP portfolio sales. Link not checked.",
+    "urls": [
+      "https://www.canarywharfian.co.uk/jobs/piper-sandler/campus-recruiting-2027-investment-banking-summer-analyst-secondary-capital-advisory/fd670bbc-ebcb-4a97-abe9-364655a9a0a6"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "point72|2027 point72 academy investment analyst summer internship program - us|us (multiple)|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "Greenhouse dork (growth equity/growth analyst sweep)",
+    "fit_score": 78,
+    "notes": "Structured investment-analyst training internship; strong fit for quant finance coursework, Bloomberg/Python skills.",
+    "urls": [
+      "https://job-boards.greenhouse.io/point72/jobs/8295501002"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "prudential financial (pgim)|2027 private credit, investment analyst program|newark, nj / new york, ny / atlanta, ga / chicago, il / dallas, tx / los angeles, ca / san francisco, ca / minneapolis, mn|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch site:careers.kelley.iu.edu/jobs/ 2027 private equity/credit/venture capital intern",
+    "fit_score": 80,
+    "notes": "Title omits 'Summer' -- distinct key from the existing '2027 Private Credit, Summer Investment Analyst Program' entry. May be the same underlying program under a different title, or a separate multi-rotation track; not disambiguated.",
+    "urls": [
+      "https://careers.kelley.iu.edu/jobs/prudential-financial-pgim-2027-private-credit-investment-analyst-program/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "prudential financial (pgim)|2027 private credit, summer investment analyst program|newark, nj / new york, ny / atlanta, ga / chicago, il / dallas, tx / los angeles, ca / san francisco, ca / minneapolis, mn|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "KelleyConnect (careers.kelley.iu.edu)",
+    "fit_score": 70,
+    "notes": "Re-surfaced in Kelley search results this run; added a BuiltIn mirror URL.",
+    "urls": [
+      "https://careers.kelley.iu.edu/jobs/prudential-financial-pgim-2027-private-credit-summer-investment-analyst-program/",
+      "https://builtin.com/job/pgim-2027-private-credit-summer-investment-analyst-program/10241502"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "prudential financial (pgim)|2027 public fixed income summer investment analyst program (credit research group)|newark, nj|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Human-confirmed dead by user (Workday link).",
+    "urls": [
+      "https://pru.wd5.myworkdayjobs.com/Careers/job/Newark-NJ-USA/PGIM--2027-Public-Fixed-Income--Summer-Investment-Analyst-Program--Credit-Research-Group-_R-123005-1"
+    ],
+    "verification_status": "CLOSED"
+  },
+  "prudential financial (pgim)|2027 public fixed income summer investment analyst program (portfolio analysis group)|newark, nj|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (fixed income research sweep)",
+    "fit_score": 72,
+    "notes": "Distinct team from the already-CLOSED PGIM Public Fixed Income Credit Research Group entry -- this is the Portfolio Analysis Group req. Third-party mirror (TheMuse) only, not PGIM's own ATS. Given the sibling req was human-confirmed dead, treat with extra skepticism.",
+    "urls": [
+      "https://www.themuse.com/jobs/prudentialfinancial/pgim-2027-public-fixed-income-summer-investment-analyst-program-portfolio-analysis-group"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "prudential financial (pgim)|2027 real estate, agency summer investment analyst program|arlington, va|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Human-confirmed dead by user (Workday link).",
+    "urls": [
+      "https://pru.wd5.myworkdayjobs.com/en-US/Careers/job/Arlington-VA-USA/PGIM--2027-Real-Estate--Agency-Summer-Investment-Analyst-Program_R-124636-2"
+    ],
+    "verification_status": "CLOSED"
+  },
+  "prudential financial (pgim)|2027 real estate, equity summer investment analyst program|multiple locations|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "KelleyConnect (careers.kelley.iu.edu)",
+    "fit_score": 68,
+    "notes": "Re-surfaced this run, program dates June 7-Aug 13 2027. Needs a real (human or networked) check.",
+    "urls": [
+      "https://careers.kelley.iu.edu/jobs/prudential-financial-pgim-2027-real-estate-equity-summer-investment-analyst-program/",
+      "https://jobs.pgim.com/us-en/jobs-details/R-124634/pgim-2027-real-estate-equity-summer-investment-analyst-program"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "HTTP 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "prudential financial (pgim)|2027 real estate, originations summer investment analyst program|new york, ny (+ multiple)|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Human-confirmed dead by user (Workday link).",
+    "urls": [
+      "https://pru.wd5.myworkdayjobs.com/en-US/Careers/job/New-York-NY-USA/PGIM--2027-Real-Estate--Originations-Summer-Investment-Analyst-Program_R-124635-1"
+    ],
+    "verification_status": "CLOSED"
+  },
+  "psg equity|2027 summer investment analyst|boston, ma|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified; no direct link found.",
+    "urls": [
+      "no-public-path-found (psgequity.com/careers)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "psg equity|2027 summer sourcing analyst|boston, ma|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "no-public-path-found (psgequity.com/careers)"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "radian capital|2027 growth equity summer analyst|new york, ny|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Not human-confirmed either way -- treat as unverified.",
+    "urls": [
+      "https://careerhub.students.duke.edu/jobs/radian-capital-2027-growth-equity-summer-analyst/"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "raine group|2027 summer analyst (new york)|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (ATS dork, jobs.lever.co)",
+    "fit_score": 66,
+    "notes": "New firm not previously monitored. Raine Group is a merchant bank combining TMT advisory with principal/growth investing; Summer Analysts described as fully integrated deal-team members executing both advisory and principal-investing opportunities. Links not checked.",
+    "urls": [
+      "https://jobs.lever.co/raine/e4bb952f-8b02-4a96-87e0-e1d4447fa962?lever-source=Trackr",
+      "https://builtin.com/job/2027-summer-analyst-new-york/7278707",
+      "https://simplify.jobs/p/b3198c9f-9a81-4c6f-98ee-131b6010fad8/2027-Summer-Analyst"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "lever posting API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "rclco|investments analyst intern|not confirmed (bethesda, md - firm hq typical)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "university career-board sweep (Cornell mirror)",
+    "fit_score": 62,
+    "notes": "Real estate investment/advisory analyst intern. Cycle uncertain. New firm not previously monitored.",
+    "urls": [
+      "https://career.cornell.edu/jobs/rclco-investments-analyst-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "readystate asset management|investment intern (summer 2027 & 2028)|not confirmed|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (quantitative investment research sweep)",
+    "fit_score": 72,
+    "notes": "Multi-strategy internship covering both quantitative/systematic and fundamental research tracks; explicitly open to Summer 2027 & 2028 candidates. Location not confirmed from snippet.",
+    "urls": [
+      "https://job-boards.greenhouse.io/readystate/jobs/4171077008"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "greenhouse job API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://job-boards.greenhouse.io/readystate/jobs/4171077008",
+    "verify_alerted": true
+  },
+  "roark capital group|2027 private equity summer analyst|atlanta, ga|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (private credit/direct lending Greenhouse dork)",
+    "fit_score": 74,
+    "notes": "PE summer analyst at a large multi-sector buyout firm. New firm not previously monitored.",
+    "urls": [
+      "https://job-boards.greenhouse.io/roarkcapitalgroup/jobs/4913735008"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "rothesay asset management|summer internship 2027|london, uk|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Greenhouse dork (fixed income/asset management sweep)",
+    "fit_score": 55,
+    "notes": "Fixed-income focused (Liquid Corporate Credit, Short-Dated Assets) \u2014 strong skill match, but firm and program appear UK/London-based, outside candidate's priority geography. New firm, not yet in Monitored Companies before this run.",
+    "urls": [
+      "https://job-boards.greenhouse.io/rothesaygraduates/jobs/8390555002"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "silversmith capital partners|2027 summer analyst|boston, ma|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Named-firm growth equity sweep",
+    "fit_score": 78,
+    "notes": "10-week program, Class of 2027 cohort per LinkedIn/trackr; software/tech growth equity, company-research heavy. No direct ATS posting URL found, only firm careers page and a third-party tracker page.",
+    "urls": [
+      "https://www.silversmith.com/careers",
+      "https://app.the-trackr.com/company/silversmith-capital-partners"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "stepstone group|2027 private equity infrastructure & real assets summer analyst|multiple (philadelphia, pa / new york, ny per university mirrors)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (secondaries/special situations/infrastructure sweep)",
+    "fit_score": 70,
+    "notes": "Third distinct StepStone vertical found across runs. SIRA team. Eligibility Dec 2027-June 2028 matches candidate.",
+    "urls": [
+      "https://www.builtinnyc.com/job/2027-private-equity-infrastructure-real-assets-summer-analyst/9227136",
+      "https://careerservices.upenn.edu/jobs/stepstone-group-lp-2027-private-equity-infrastructure-real-assets-summer-analyst/",
+      "https://careers.centre.edu/jobs/stepstone-group-lp-2027-private-equity-infrastructure-real-assets-summer-analyst/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "stepstone group|2027 private equity summer analyst|philadelphia, pa / minneapolis, mn / new york, ny (multiple, per university mirrors)|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (secondaries/PE archetype sweep) surfacing multiple university career-board mirrors (UPenn, St. Kate's)",
+    "fit_score": 90,
+    "notes": "General PE fund investments/co-investments/secondaries analyst role, distinct from the StepStone Real Estate PE Advisory entry. Eligibility Dec 2027-June 2028 matches candidate exactly.",
+    "urls": [
+      "https://careerservices.upenn.edu/jobs/stepstone-group-lp-2027-private-equity-summer-analyst/",
+      "https://katiecareervc.stkate.edu/jobs/stepstone-group-lp-2027-private-equity-summer-analyst/",
+      "https://www.builtinnyc.com/job/2027-private-equity-summer-analyst/9225253"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "stepstone group|2027 real estate investments summer analyst|san francisco, ca|2027": {
+    "date_logged": "2026-09-02",
+    "discovery_source": "WebSearch: real estate private equity 2027 summer analyst intern acquisitions New York (named-firm sweep on StepStone)",
+    "fit_score": 78,
+    "notes": "Distinct StepStone RE role from the already-logged 'Real Estate Private Equity Advisory Summer Analyst' entry -- this is the core Real Estate Investments team (due diligence, execution, ongoing asset management across property types/markets/capital structures). Stated grad window Dec 2027-June 2028, GPA 3.5+, no visa sponsorship. No firm ATS/university-mirror link isolated this run, only aggregator listings. Link not checked.",
+    "urls": [
+      "https://www.linkedin.com/jobs/view/2027-real-estate-investments-summer-analyst-at-stepstone-group-4447999730",
+      "https://www.ziprecruiter.com/c/StepStone-Group/Job/2027-Real-Estate-Investments-Summer-Analyst/-in-San-Francisco,CA?jid=143a01184a3948d8",
+      "https://interninsider.me/internships/stepstone-group/2027-real-estate-investments-summer-analyst-13da28f9-a967-4053-a8c6-6481a1fd588a",
+      "https://www.tealhq.com/job/summer-analyst_7ea1a51dc9da819db1af618a85ed7acd466af"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "stepstone group|2027 real estate private equity advisory summer analyst|multiple (posted via UW/Amherst/Tufts career mirrors)|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "general web search (real estate PE/credit sweep)",
+    "fit_score": 65,
+    "notes": "StepStone Real Estate team. Explicit Dec 2027-June 2028 grad eligibility matches candidate.",
+    "urls": [
+      "https://careers.uw.edu/jobs/stepstone-group-lp-2027-real-estate-private-equity-advisory-summer-analyst/",
+      "https://careers.amherst.edu/jobs/stepstone-group-lp-2027-real-estate-private-equity-advisory-summer-analyst/",
+      "https://careers.tufts.edu/jobs/stepstone-group-lp-2027-real-estate-investment-advisory-summer-analyst/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "stifel|2027 summer associate: kbw equity research (new york)|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch Cornell career board 2027 private equity/growth equity/asset management summer analyst",
+    "fit_score": 62,
+    "notes": "Posting title says 'Summer Associate' (unusual for a rising-junior undergrad program) under the KBW equity-research brand (Stifel subsidiary) -- level/title not disambiguated.",
+    "urls": [
+      "https://career.cornell.edu/jobs/stifel-2027-summer-associate-kbw-equity-research-new-york/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "strategic investment group|intern, investment analyst - summer 2027|arlington, va|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (infrastructure/OCIO archetype sweep)",
+    "fit_score": 67,
+    "notes": "OCIO-style investment analyst intern, Arlington VA (DC-area geography priority). Found via aggregator mirror, canonical link unknown.",
+    "urls": [
+      "https://www.talent.com/view?id=633000189022445320"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "summit partners|summer internship 2027 - investment team|boston, ma|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Named-firm growth equity sweep",
+    "fit_score": 78,
+    "notes": "Growth/buyout multi-stage investing; min GPA 3.6 cited in one source (candidate is 3.66). One source titles the program '2026' rather than '2027' \u2013 cycle year is unclear from search snippets alone, flagging rather than resolving it.",
+    "urls": [
+      "https://job-boards.greenhouse.io/summitpartnerslp",
+      "https://www.summitpartners.com/summit-careers",
+      "https://startup.jobs/summer-internship-2026-investment-team-summit-partners-6162507"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "susquehanna international group|credit analyst internship: summer 2027|philadelphia, pa|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch fixed income/credit research summer analyst 2027",
+    "fit_score": 75,
+    "notes": "10-week Credit Research team internship. Location shown as Philadelphia, PA on aggregator mirrors; may overlap with SIG's Bala Cynwyd, PA growth-equity/equity listings already in the ledger -- not disambiguated.",
+    "urls": [
+      "https://www.ziprecruiter.com/c/Susquehanna-International-Group/Job/Credit-Analyst-Internship:-Summer-2027/-in-Philadelphia,PA?jid=5bd69656ba6137d3",
+      "https://haystackapp.io/jobs/f4c54c94-3aaa-401c-8bd4-413bf678d2c7",
+      "https://jobright.ai/jobs/info/6a084e17403fc339507ec7d3"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "susquehanna international group|equity analyst internship - summer 2027|bala cynwyd, pa|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No new information this run.",
+    "urls": [
+      "https://careers.sig.com/equity-research/jobs/10723?lang=en-us"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "susquehanna international group|equity analyst internship - summer 2027|new york, ny|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "No new information this run.",
+    "urls": [
+      "https://careers.sig.com/quantitative-trading-internships-co-ops/jobs/10573?lang=en-us"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "susquehanna international group|growth equity investing analyst internship - summer 2027|bala cynwyd, pa|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Reset to unverified pending a real check.",
+    "urls": [
+      "https://careers.sig.com/growth-equity-private-equity-venture-capital/jobs/10714?lang=en-us"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "susquehanna international group|growth equity portfolio value creation analyst internship - summer 2027|bala cynwyd, pennsylvania|2027": {
+    "date_logged": "2026-08-21",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unconfirmed -- no network egress available to check.",
+    "urls": [
+      "https://careers.sig.com/growth-equity-private-equity-venture-capital/jobs/10716?lang=en-us"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "t. rowe price|equity research internship opportunity - summer 2027|baltimore, md|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Named-firm/equity research sweep",
+    "fit_score": 68,
+    "notes": "10-week program; stated eligibility spans Dec 2027-June 2029 grads, which covers candidate's May 2028 grad date. Location inferred from T. Rowe Price HQ, not confirmed on the posting itself.",
+    "urls": [
+      "https://troweprice.gr8people.com/jobs/21665/equity-research-internship-opportunity-summer-2027"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://troweprice.gr8people.com/jobs/21665/equity-research-internship-opportunity-summer-2027",
+    "verify_alerted": true
+  },
+  "the riverside company|2027 summer analyst, riverside micro-cap fund strategy|new york, ny / cleveland, oh / los angeles, ca|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch named-firm/university-board sweep; direct Greenhouse posting confirmed via search",
+    "fit_score": 85,
+    "notes": "The Riverside Company, global private equity firm (~$14B+ AUM), Riverside Micro-Cap Fund strategy (small/micro-cap buyouts). Posting explicitly states 'Only undergraduate students from the Class of 2028 will be considered' -- exact eligibility match. Locations: Cleveland OH / Los Angeles CA / New York NY. One mirror lists $20/hour comp, unconfirmed. Firm not previously on Monitored Companies list; added this run.",
+    "urls": [
+      "https://job-boards.greenhouse.io/theriversidecompany/jobs/8099028002",
+      "https://careerservices.fas.harvard.edu/jobs/the-riverside-company-2027-summer-analyst-riverside-micro-cap-fund-strategy/",
+      "https://ocs.yale.edu/jobs/the-riverside-company-2027-summer-analyst-riverside-micro-cap-fund-strategy/",
+      "https://careerservices.upenn.edu/jobs/the-riverside-company-8099028002-2027-riverside-micro-cap-summer-analyst/",
+      "https://career.ucla.edu/jobs/the-riverside-company-8099028002-2027-riverside-micro-cap-summer-analyst-3/"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "two sigma|quantitative researcher - intern (2027 summer)|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (quantitative investment research sweep)",
+    "fit_score": 62,
+    "notes": "Likely skews toward CS/Math-heavy eligibility beyond candidate's stated skillset.",
+    "urls": [
+      "https://careers.twosigma.com/careers/JobDetail/New-York-New-York-United-States-Quantitative-Researcher-Intern-2027-Summer/13945"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "HTTP 200, no closed/removed markers (checked 2026-09-01)",
+    "official_application_url": "https://careers.twosigma.com/careers/JobDetail/New-York-New-York-United-States-Quantitative-Researcher-Intern-2027-Summer/13945",
+    "verify_alerted": true
+  },
+  "uvimco|2027 summer investment intern|charlottesville, va|2027": {
+    "date_logged": "2026-08-30",
+    "discovery_source": "carried over",
+    "fit_score": null,
+    "notes": "Unverified.",
+    "urls": [
+      "https://job-boards.greenhouse.io/uvimco/jobs/5079509008"
+    ],
+    "verification_status": "CARRIED_OVER"
+  },
+  "valhalla holdings llc|quantitative investment intern|not confirmed|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Cornell career board sweep",
+    "fit_score": 55,
+    "notes": "New firm not previously in Monitored Companies. Search snippet gives no explicit summer-2027/class-year confirmation \u2014 cycle year and eligibility unconfirmed; logging for firm-tracking completeness.",
+    "urls": [
+      "https://career.cornell.edu/jobs/valhalla-holdings-llc-quantitative-investment-intern/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "virtu financial|2027 internship - quant research (undergrad)|new york, ny|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Greenhouse dork (quant research sweep)",
+    "fit_score": 65,
+    "notes": "Undergrad quant research internship applying quantitative analysis to trading algorithms. Virtu was already in Monitored Companies but had no ledger entry until now.",
+    "urls": [
+      "https://job-boards.greenhouse.io/virtu/jobs/8142539002"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "greenhouse job API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://job-boards.greenhouse.io/virtu/jobs/8142539002",
+    "verify_alerted": true
+  },
+  "walleye capital|central equity quant research (ceqr) intern - summer 2027|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "university career-board sweep (UMD Smith mirror)",
+    "fit_score": 68,
+    "notes": "Quant equity research intern, NY; Python/quant coursework alignment. Firm's own Greenhouse URL added this run.",
+    "urls": [
+      "https://careers.rhsmith.umd.edu/jobs/walleye-capital-llc-central-equity-quant-research-ceqr-intern-summer-2027/",
+      "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676069006"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "walleye capital|equity volatility quant researcher intern (summer 2027)|miami, fl|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (Miami/South Florida geography sweep)",
+    "fit_score": 66,
+    "notes": "10-week program, June-Aug 2027, Miami -- priority geography. Distinct from the already-logged Walleye CEQR (NY) entry. Python/quant skill match.",
+    "urls": [
+      "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676334006"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "walleye capital|fundamental equities intern (summer 2027)|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "WebSearch: technology/quant investing greenhouse dork",
+    "fit_score": 80,
+    "notes": "NYC-based, fundamental long/short equity research support. Good fit with equity research/fundamental analysis skillset.",
+    "urls": [
+      "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4677152006"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "walleye capital|investment data science intern (summer 2027)|new york, ny|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "WebSearch: venture capital / quant greenhouse dork",
+    "fit_score": 70,
+    "notes": "NYC, alternative-data / thematic research support for long/short discretionary strategies. More data-science leaning than pure investment role.",
+    "urls": [
+      "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676587006"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "walleye capital|quantic - quantitative developer intern (summer 2027)|boston, ma|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "Greenhouse dork (quant research sweep)",
+    "fit_score": 62,
+    "notes": "Distinct Walleye posting from the CEQR, Equity Volatility, Fundamental Equities, and Investment Data Science internships already logged; this one is developer/engineering-leaning (Quantic platform team) rather than pure investment research.",
+    "urls": [
+      "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4679168006"
+    ],
+    "verification_status": "LIVE",
+    "verify_note": "greenhouse job API returns 200 (checked 2026-09-01)",
+    "official_application_url": "https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4679168006",
+    "verify_alerted": true
+  },
+  "weiss asset management|fundamental analyst internship - summer 2027|boston, ma|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (portfolio management/credit research geography sweep)",
+    "fit_score": 75,
+    "notes": "Sibling role to the Weiss quantitative entry -- fundamental-analysis track.",
+    "urls": [
+      "https://careerservices.fas.harvard.edu/jobs/weiss-asset-management-fundamental-analyst-internship-summer-2027-2/"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  },
+  "weiss asset management|summer 2027 investment analyst internship (quantitative)|boston, ma|2027": {
+    "date_logged": "2026-08-31",
+    "discovery_source": "general web search (quant/fixed income archetype sweep)",
+    "fit_score": 88,
+    "notes": "Quantitative/fundamental investment analyst internship, Boston, June 7-Aug 13 2027. Strong stated skill match.",
+    "urls": [
+      "https://careerservices.fas.harvard.edu/jobs/weiss-asset-management-summer-2027-quantitative-analyst-internship/",
+      "https://job-boards.greenhouse.io/weissassetmanagement/jobs/8328455002"
+    ],
+    "verification_status": "DEAD",
+    "verify_note": "greenhouse job API returns 404 (checked 2026-09-01)",
+    "verify_alerted": true
+  },
+  "yale investments office|2027 summer analyst|new haven, ct|2027": {
+    "date_logged": "2026-09-01",
+    "discovery_source": "WebSearch named-institution sweep (endowment/asset-owner investing offices)",
+    "fit_score": 85,
+    "notes": "Yale Investments Office (endowment, ~$44.1B AUM). Summer Analysts rotate through private- and public-market asset class groups working alongside full-time investment staff; past interns have worked on manager due diligence, VC landscape research, portfolio analysis. One search snippet referenced an April 26, 2026 application-deadline date for this posting, which is unconfirmed and possibly stale/mismatched to a different cycle -- not relied upon. Strong fit for candidate's asset-allocation/fixed-income coursework and Bloomberg/Excel/Python skillset. Not previously on Monitored Companies list; added this run.",
+    "urls": [
+      "https://investments.yale.edu/jobs/7481453003"
+    ],
+    "verification_status": "UNCHECKED",
+    "verify_note": "only a mirror/aggregator link - needs the real ATS URL (checked 2026-09-01)"
+  }
 }
