@@ -9,15 +9,15 @@
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/python3</string>
-    <string>/Users/armaanseth/jobagent-early-warning/verify_and_alert.py</string>
+    <string>/Users/armaanseth/jobagent-early-warning/discover_and_alert.py</string>
   </array>
 
   <key>WorkingDirectory</key>
   <string>/Users/armaanseth/jobagent-early-warning</string>
 
-  <!-- Runs at load, then every 4 hours. Fires on wake if a run was missed. -->
+  <!-- Runs at load, then every 6 hours. Fires on wake if a run was missed. -->
   <key>StartInterval</key>
-  <integer>14400</integer>
+  <integer>21600</integer>
   <key>RunAtLoad</key>
   <true/>
 
