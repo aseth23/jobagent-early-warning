@@ -57,6 +57,12 @@ GREENHOUSE = [
     "mainsailpartners", "iconiqgrowth", "volitioncapital", "edisonpartners",
     "vistaequitypartners", "thomabravo", "kkr", "carlyle", "apollo",
     "warburgpincus", "silverlake", "hgcapital", "generalcatalyst", "bain",
+    # long-only / fundamental asset management, equity & fixed-income research
+    "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
+    "adamsstreetpartners", "mangroup", "neubergerberman", "tcw", "pimco",
+    "wellingtonmanagement", "lazard", "gqgpartners", "diamondhillcapital",
+    "harbourvest", "hamiltonlane", "aresmanagement", "oaktreecapital",
+    "blueowlcapital", "sixthstreet", "brookfield", "partnersgroup",
 ]
 LEVER = [
     "harrisonst", "dadavidson", "raine", "beedie", "point72", "citadel",
@@ -109,14 +115,19 @@ WATCHLIST = [
 INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
                  r"co-?op|apprentice)\b", re.I)
 INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
-                    r"\bventure\b|portfolio|research analyst|quant|capital markets|"
+                    r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
                     r"buyout|secondar|infrastructure|real estate|fixed income|"
-                    r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b)", re.I)
+                    r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b|asset manage|"
+                    r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b)", re.I)
 # require the role to NOT be an old cycle / senior / grad-only; 2027 in the title optional
 EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|"
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
                      r"\bmba\b|ph\.?d|master('?s| or)|doctoral|full[- ]time|"
-                     r"new grad|experienced)", re.I)
+                     r"new grad|experienced|\btax\b|sales enablement|"
+                     r"business development operations|\brecruit|\bhr\b|"
+                     r"human resources|\bmarketing\b|\blegal\b|\bcompliance\b|"
+                     r"\baudit|\baccounting\b|payroll|facilities|help ?desk|"
+                     r"total rewards|investor services)", re.I)
 
 # skip clearly non-US postings unless a US city is also listed
 FOREIGN = re.compile(r"(singapore|london|dublin|ireland|hong kong|japan|tokyo|"
