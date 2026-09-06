@@ -72,6 +72,22 @@ LEVER = [
 ASHBY = [
     "volition-capital", "iconiq", "thrivecapital", "ggv", "coatue",
 ]
+# Workday: (label, host, tenant, site) — the CXS /jobs search returns only open reqs,
+# so anything it returns has a working link. Covers banks in secondary US markets
+# (Charlotte, Chicago, the Southeast) that don't use Greenhouse/Lever.
+WORKDAY = [
+    ("Truist", "truist.wd1.myworkdayjobs.com", "truist", "Careers"),
+    ("Wells Fargo", "wf.wd1.myworkdayjobs.com", "wf", "WellsFargoJobs"),
+    ("BMO", "bmo.wd3.myworkdayjobs.com", "bmo", "External"),
+    ("Baird", "baird.wd1.myworkdayjobs.com", "baird", "Careers"),
+    ("KeyBank", "keybank.wd5.myworkdayjobs.com", "keybank", "External_Career_Site"),
+    ("Regions", "regions.wd5.myworkdayjobs.com", "regions", "Regions_Careers"),
+    ("PNC", "pnc.wd5.myworkdayjobs.com", "pnc", "External"),
+    ("Blackstone", "blackstone.wd1.myworkdayjobs.com", "blackstone",
+     "Blackstone_Campus_Careers"),
+    ("Barings", "barings.wd1.myworkdayjobs.com", "barings", "Barings"),
+    ("PGIM / Prudential", "pru.wd5.myworkdayjobs.com", "pru", "Careers"),
+]
 
 # ---- specific postings on ATSes without a clean board API ------------------
 WATCHLIST = [
@@ -127,14 +143,18 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"business development operations|\brecruit|\bhr\b|"
                      r"human resources|\bmarketing\b|\blegal\b|\bcompliance\b|"
                      r"\baudit|\baccounting\b|payroll|facilities|help ?desk|"
-                     r"total rewards|investor services)", re.I)
+                     r"total rewards|investor services|certified financial planner|"
+                     r"financial planner|financial advisor|cybersecurity|"
+                     r"software engineer|data engineer|network engineer|"
+                     r"client support|help ?desk|\bcoop\b|co-?op)", re.I)
 
 # skip clearly non-US postings unless a US city is also listed
 FOREIGN = re.compile(r"(singapore|london|dublin|ireland|hong kong|japan|tokyo|"
                      r"\bparis\b|beijing|shanghai|shenzhen|hanoi|ho chi minh|"
                      r"madrid|brussels|amsterdam|sydney|toronto|montreal|mumbai|"
                      r"bengaluru|bangalore|seoul|zurich|munich|frankfurt|milan|"
-                     r"\bindia\b|\buk\b|\bemea\b)", re.I)
+                     r"vancouver|calgary|\bcanada\b|, ?can\b|, ?uk\b| bc,| on,|"
+                     r"\bindia\b|\buk\b|\bemea\b|geneva|luxembourg|\bapac\b)", re.I)
 US = re.compile(r"(new york|\bnyc\b|chicago|boston|san francisco|\bsf\b|los angeles|"
                 r"\bla\b|miami|austin|houston|dallas|charlotte|atlanta|seattle|"
                 r"greenwich|stamford|philadelphia|baltimore|washington|\bdc\b|"
@@ -160,6 +180,44 @@ def fetch(url, timeout=15):
         return e.code, "", url
     except Exception as e:  # noqa: BLE001
         return None, f"{type(e).__name__}: {e}", url
+
+
+def post_json(url, payload, timeout=20):
+    try:
+        req = urllib.request.Request(
+            url, data=json.dumps(payload).encode(),
+            headers={**UA, "Content-Type": "application/json", "Accept": "application/json"})
+        r = urllib.request.urlopen(req, timeout=timeout)
+        return r.status, r.read(400000).decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        return e.code, ""
+    except Exception:  # noqa: BLE001
+        return None, ""
+
+
+def from_workday(label, host, tenant, site):
+    seen_paths, out = set(), []
+    for term in ("2027 summer analyst internship", "2027 intern investment",
+                 "2027 credit analyst internship"):
+        code, body = post_json(
+            f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
+            {"searchText": term, "limit": 20, "offset": 0})
+        if code != 200:
+            continue
+        try:
+            posts = json.loads(body).get("jobPostings", [])
+        except Exception:  # noqa: BLE001
+            continue
+        for p in posts:
+            t = p.get("title", "")
+            loc = p.get("locationsText", "")
+            path = p.get("externalPath", "")
+            if not path or path in seen_paths:
+                continue
+            if want(t) and us_ok(loc) and "2027" in t:
+                seen_paths.add(path)
+                out.append((f"{label}: {t}", loc, f"https://{host}/{site}{path}"))
+    return out
 
 
 def want(title: str) -> bool:
@@ -254,6 +312,8 @@ def main() -> int:
         found += [(f"{tok}: {t}", l, u) for t, l, u in from_lever(tok)]
     for tok in ASHBY:
         found += [(f"{tok}: {t}", l, u) for t, l, u in from_ashby(tok)]
+    for label, host, tenant, site in WORKDAY:
+        found += from_workday(label, host, tenant, site)
 
     watch_ok, watch_dead = [], []
     for label, loc, chk, pub in WATCHLIST:
