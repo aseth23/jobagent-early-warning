@@ -259,6 +259,12 @@ def main() -> int:
     for label, loc, chk, pub in WATCHLIST:
         (watch_ok if watch_live(chk) else watch_dead).append((label, loc, pub))
 
+    # already applied — never re-surface (match on gh_jid / stable URL fragment)
+    APPLIED = ("gh_jid=7895583", "gh_jid=7895562", "gh_jid=8041362",  # AQR SA roles
+               "joinhandshake.com/public/jobs/11015271")               # StepStone PE Infra
+    found = [(t, l, u) for (t, l, u) in found
+             if not any(a in u for a in APPLIED)]
+
     new = [(t, l, u) for (t, l, u) in found if u not in seen]
     for t, l, u in new:
         seen[u] = {"title": t, "first_seen": TODAY}
