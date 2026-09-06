@@ -87,7 +87,20 @@ WORKDAY = [
      "Blackstone_Campus_Careers"),
     ("Barings", "barings.wd1.myworkdayjobs.com", "barings", "Barings"),
     ("PGIM / Prudential", "pru.wd5.myworkdayjobs.com", "pru", "Careers"),
+    ("Fifth Third", "fifththird.wd5.myworkdayjobs.com", "fifththird", "53careers"),
+    ("Citi", "citi.wd5.myworkdayjobs.com", "citi", "2"),
+    ("Raymond James", "raymondjames.wd1.myworkdayjobs.com", "raymondjames",
+     "RaymondJamesCareers"),
 ]
+
+# Roles like the user wants front-and-centre: bank / IB / credit / equity research /
+# wealth / PE / AM summer-analyst internships. These sort to the top of the digest.
+PRIORITY = re.compile(
+    r"(investment bank|\bib\b|summer analyst|credit analyst|equity research|"
+    r"wealth manage|asset manage|private equity|capital markets|"
+    r"portfolio|research analyst|investment analyst|sales & trading|"
+    r"sales and trading|corporate banking|commercial bank|real estate capital|"
+    r"investment intern|securities)", re.I)
 
 # ---- specific postings on ATSes without a clean board API ------------------
 WATCHLIST = [
@@ -146,30 +159,25 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"total rewards|investor services|certified financial planner|"
                      r"financial planner|financial advisor|cybersecurity|"
                      r"software engineer|data engineer|network engineer|"
-                     r"client support|help ?desk|\bcoop\b|co-?op)", re.I)
+                     r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
+                     r"externship|communications|\bbrand\b|social media)", re.I)
 
-# skip clearly non-US postings unless a US city is also listed
-FOREIGN = re.compile(r"(singapore|london|dublin|ireland|hong kong|japan|tokyo|"
-                     r"\bparis\b|beijing|shanghai|shenzhen|hanoi|ho chi minh|"
-                     r"madrid|brussels|amsterdam|sydney|toronto|montreal|mumbai|"
-                     r"bengaluru|bangalore|seoul|zurich|munich|frankfurt|milan|"
-                     r"vancouver|calgary|\bcanada\b|, ?can\b|, ?uk\b| bc,| on,|"
-                     r"\bindia\b|\buk\b|\bemea\b|geneva|luxembourg|\bapac\b)", re.I)
-US = re.compile(r"(new york|\bnyc\b|chicago|boston|san francisco|\bsf\b|los angeles|"
-                r"\bla\b|miami|austin|houston|dallas|charlotte|atlanta|seattle|"
-                r"greenwich|stamford|philadelphia|baltimore|washington|\bdc\b|"
-                r"newark|princeton|connecticut|\bct\b|new jersey|\bnj\b|texas|"
-                r"\btx\b|florida|\bfl\b|illinois|\bil\b|california|\bca\b|\bma\b|"
-                r"\bny\b|\bpa\b|\bwi\b|\bmd\b|united states|u\.s\.|remote - us|"
-                r"denver|minneapolis|nashville|richmond|mclean|wilmington)", re.I)
+# User is fine with US + Canada + UK/London. Drop everything further afield
+# (APAC / continental Europe / MEA / LatAm / Australia) — a US undergrad can't
+# realistically intern there. Unknown / unlisted location -> keep.
+FAR = re.compile(
+    r"(singapore|hong ?kong|\bchina\b|shanghai|beijing|shenzhen|guangzhou|"
+    r"\bjapan\b|tokyo|osaka|\bkorea\b|seoul|taiwan|taipei|\bindia\b|mumbai|"
+    r"bengaluru|bangalore|new delhi|gurgaon|\buae\b|dubai|abu dhabi|riyadh|"
+    r"\bqatar\b|doha|tel aviv|\bgermany\b|frankfurt|munich|berlin|\bfrance\b|"
+    r"\bparis\b|\bitaly\b|milan|\bspain\b|madrid|barcelona|netherlands|amsterdam|"
+    r"\bbelgium\b|brussels|luxembourg|\bswitzerland\b|zurich|geneva|\bsweden\b|"
+    r"stockholm|\bpoland\b|warsaw|\baustralia\b|sydney|melbourne|\bbrazil\b|"
+    r"sao paulo|\bmexico\b|\bchile\b|bogota|\bperu\b|\bapac\b|\btaurus\b)", re.I)
 
 
 def us_ok(loc: str) -> bool:
-    if not loc:
-        return True  # unknown location -> keep, don't silently drop
-    if US.search(loc):
-        return True
-    return not FOREIGN.search(loc)
+    return not FAR.search(loc or "")
 
 
 def fetch(url, timeout=15):
@@ -340,12 +348,23 @@ def main() -> int:
         print(f"no new roles ({len(found)} board hits, {len(watch_ok)} watchlist live).")
         return 0
 
+    # bank / IB / AM / ER / PE summer-analyst roles first, everything else after
+    new_sorted = sorted(new, key=lambda r: (not PRIORITY.search(r[0]), r[0].lower()))
+    pri = [r for r in new_sorted if PRIORITY.search(r[0])]
+    rest = [r for r in new_sorted if not PRIORITY.search(r[0])]
+
     lines = [f":mag: {len(new) + len(fresh_watch)} new live internship(s) — "
              f"links checked {TODAY}"]
-    for t, l, u in sorted(new):
-        lines.append(f"• {t}{f' ({l})' if l else ''}\n  {u}")
+    if pri:
+        lines.append("\n*Bank / IB / AM / research / PE:*")
+        for t, l, u in pri:
+            lines.append(f"• {t}{f' ({l})' if l else ''}\n  {u}")
     for lab, loc, pub in fresh_watch:
         lines.append(f"• {lab}{f' ({loc})' if loc else ''}\n  {pub}")
+    if rest:
+        lines.append("\n*Other:*")
+        for t, l, u in rest:
+            lines.append(f"• {t}{f' ({l})' if l else ''}\n  {u}")
     text = "\n".join(lines)
 
     if DRY:
