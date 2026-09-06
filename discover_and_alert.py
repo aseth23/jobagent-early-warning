@@ -91,6 +91,8 @@ WORKDAY = [
     ("Citi", "citi.wd5.myworkdayjobs.com", "citi", "2"),
     ("Raymond James", "raymondjames.wd1.myworkdayjobs.com", "raymondjames",
      "RaymondJamesCareers"),
+    ("Dimensional Fund Advisors", "dimensional.wd5.myworkdayjobs.com",
+     "dimensional", "DFA_Careers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -222,15 +224,26 @@ def from_workday(label, host, tenant, site):
             path = p.get("externalPath", "")
             if not path or path in seen_paths:
                 continue
-            if want(t) and us_ok(loc) and "2027" in t:
+            # keep 2027 roles, or undated ones; drop anything tagged an older year
+            year_ok = "2027" in t or not re.search(r"\b202[0-6]\b", t)
+            if want(t) and us_ok(loc) and year_ok:
                 seen_paths.add(path)
                 out.append((f"{label}: {t}", loc, f"https://{host}/{site}{path}"))
     return out
 
 
+MASTERS = re.compile(r"(\bmba\b|ph\.?d|master('?s| or)|doctoral)", re.I)
+
+
 def want(title: str) -> bool:
-    return bool(INC.search(title) and INVEST.search(title)
-               and not EXCLUDE.search(title))
+    if not (INC.search(title) and INVEST.search(title)):
+        return False
+    t = title
+    # "(Undergraduate & Master's)" postings are open to undergrads — strip the
+    # grad-degree wording before applying EXCLUDE so it doesn't drop them.
+    if re.search(r"undergrad", t, re.I):
+        t = MASTERS.sub("", t)
+    return not EXCLUDE.search(t)
 
 
 def from_greenhouse(token):
