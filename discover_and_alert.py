@@ -63,11 +63,18 @@ GREENHOUSE = [
     "wellingtonmanagement", "lazard", "gqgpartners", "diamondhillcapital",
     "harbourvest", "hamiltonlane", "aresmanagement", "oaktreecapital",
     "blueowlcapital", "sixthstreet", "brookfield", "partnersgroup",
+    # Miami / Florida finance hub + more PE / hedge funds
+    "summeranalyst", "isquaredcapital", "schonfeld", "exoduspoint", "pointstate",
+    "valorequitypartners", "pantheon", "americansecurities", "gtcr",
+    "audaxprivateequity", "hig", "trivest", "comvestpartners", "starwoodcapital",
+    "kayneanderson", "bayviewassetmanagement", "citadel", "millennium",
+    "balyasny", "verition", "hbk", "elliottmanagement", "d1capital",
 ]
 LEVER = [
     "harrisonst", "dadavidson", "raine", "beedie", "point72", "citadel",
     "twosigma", "hudson-river-trading", "voleon", "quantbox", "radix-trading",
-    "tower-research-capital", "de-shaw",
+    "tower-research-capital", "de-shaw", "thomabravo", "hig", "starwood",
+    "millennium", "exoduspoint", "schonfeld", "verition",
 ]
 ASHBY = [
     "volition-capital", "iconiq", "thrivecapital", "ggv", "coatue",
