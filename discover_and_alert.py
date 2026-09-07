@@ -79,6 +79,39 @@ LEVER = [
 ASHBY = [
     "volition-capital", "iconiq", "thrivecapital", "ggv", "coatue",
 ]
+# ATS token -> readable firm name for the digest
+NAMES = {
+    "summeranalyst": "I Squared Capital", "isquaredcapital": "I Squared Capital",
+    "drweng": "DRW", "bvpanalyst": "Bessemer Venture Partners",
+    "walleyecapital-external-students": "Walleye Capital",
+    "leadedgecapitalmanagement": "Lead Edge Capital", "harrisonst": "Harrison Street",
+    "dadavidson": "D.A. Davidson", "de-shaw": "D.E. Shaw", "aqr": "AQR",
+    "gcmgrosvenor": "GCM Grosvenor", "financialtechnologypartners": "FT Partners",
+    "roarkcapitalgroup": "Roark Capital", "theriversidecompany": "The Riverside Company",
+    "llrpartnersjobs": "LLR Partners", "harrisassociates": "Harris Associates / Oakmark",
+    "summitpartnerslp": "Summit Partners", "gacampus": "General Atlantic",
+    "generalatlantic": "General Atlantic", "adamsstreetpartners": "Adams Street Partners",
+    "mangroup": "Man Group", "neubergerberman": "Neuberger Berman",
+    "wellingtonmanagement": "Wellington Management", "gqgpartners": "GQG Partners",
+    "diamondhillcapital": "Diamond Hill", "aresmanagement": "Ares Management",
+    "oaktreecapital": "Oaktree", "blueowlcapital": "Blue Owl", "sixthstreet": "Sixth Street",
+    "partnersgroup": "Partners Group", "valorequitypartners": "Valor Equity Partners",
+    "americansecurities": "American Securities", "gtcr": "GTCR",
+    "audaxprivateequity": "Audax Private Equity", "hig": "H.I.G. Capital",
+    "starwoodcapital": "Starwood Capital", "starwood": "Starwood Capital",
+    "kayneanderson": "Kayne Anderson", "bayviewassetmanagement": "Bayview Asset Management",
+    "thomabravo": "Thoma Bravo", "d1capital": "D1 Capital", "hbk": "HBK Capital",
+    "elliottmanagement": "Elliott Management", "exoduspoint": "ExodusPoint",
+    "pointstate": "PointState Capital", "schonfeld": "Schonfeld", "verition": "Verition",
+    "citadel": "Citadel", "millennium": "Millennium", "balyasny": "Balyasny",
+    "trivest": "Trivest Partners", "comvestpartners": "Comvest Partners",
+    "pantheon": "Pantheon", "williamblair": "William Blair", "artisanpartners": "Artisan Partners",
+    "baroncapital": "Baron Capital", "virtu": "Virtu Financial", "worldquant": "WorldQuant",
+    "flowtraders": "Flow Traders", "akunacapital": "Akuna Capital", "stepstone": "StepStone",
+    "raine": "The Raine Group", "beedie": "Beedie Capital", "point72": "Point72",
+    "twosigma": "Two Sigma", "hudson-river-trading": "Hudson River Trading",
+    "tower-research-capital": "Tower Research Capital", "voleon": "Voleon Group",
+}
 # Workday: (label, host, tenant, site) — the CXS /jobs search returns only open reqs,
 # so anything it returns has a working link. Covers banks in secondary US markets
 # (Charlotte, Chicago, the Southeast) that don't use Greenhouse/Lever.
@@ -333,13 +366,18 @@ def main() -> int:
         except Exception:  # noqa: BLE001
             seen = {}
 
+    def nice(tok: str) -> str:
+        if tok in NAMES:
+            return NAMES[tok]
+        return tok.replace("-", " ").replace("_", " ").title()
+
     found: list[tuple[str, str, str]] = []
     for tok in GREENHOUSE:
-        found += [(f"{tok}: {t}", l, u) for t, l, u in from_greenhouse(tok)]
+        found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_greenhouse(tok)]
     for tok in LEVER:
-        found += [(f"{tok}: {t}", l, u) for t, l, u in from_lever(tok)]
+        found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_lever(tok)]
     for tok in ASHBY:
-        found += [(f"{tok}: {t}", l, u) for t, l, u in from_ashby(tok)]
+        found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_ashby(tok)]
     for label, host, tenant, site in WORKDAY:
         found += from_workday(label, host, tenant, site)
 
