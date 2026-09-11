@@ -25,6 +25,7 @@ import re
 import sys
 import urllib.request
 import urllib.error
+from collections import defaultdict
 from datetime import date
 
 REPO_DIR = os.environ.get("REPO_DIR") or os.path.dirname(os.path.abspath(__file__))
@@ -286,6 +287,24 @@ def want(title: str) -> bool:
     return not EXCLUDE.search(t)
 
 
+def canon_role(role: str, loc: str) -> str:
+    """Role title with the location stripped, so 'X Intern - Chicago, IL' and
+    'X Intern - Atlanta, GA' collapse to the same group key across runs/days."""
+    t = role
+    frags = [f.strip() for f in re.split(r"[,/]", loc or "") if f.strip()]
+    city = next((f for f in frags if len(f) > 2
+                and f.upper() not in ("USA", "US", "UK")), None)
+    if city:
+        state = next((f for f in frags if re.fullmatch(r"[A-Z]{2}", f)), None)
+        pat = re.escape(city) + (rf"(\s*,\s*{re.escape(state)})?" if state else "")
+        t = re.sub(rf"[\s,\-–—(]*{pat}[\s,)]*", " ", t, flags=re.I)
+    t = re.sub(r"\(\s*\)", "", t)
+    if t.count("(") > t.count(")"):
+        t = re.sub(r"\([^()]*$", "", t)  # drop an unmatched trailing "("
+    t = re.sub(r"\s{2,}", " ", t).strip(" ,-–—")
+    return t or role
+
+
 def from_greenhouse(token):
     code, body, _ = fetch(f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs")
     if code != 200:
@@ -411,18 +430,38 @@ def main() -> int:
     pri = [r for r in new_sorted if PRIORITY.search(r[0])]
     rest = [r for r in new_sorted if not PRIORITY.search(r[0])]
 
+    def render_group(rows: list[tuple[str, str, str]]) -> list[str]:
+        # Same firm posting the same role title in many cities (BMO Credit Analyst
+        # Internship, DRW Quantitative Research Intern, etc.) reads as repeat spam
+        # spread across days if each city gets its own line every time it's found.
+        # Collapse them: one line per (firm, role-with-locations-stripped).
+        groups: dict[tuple[str, str], list[tuple[str, str, str]]] = defaultdict(list)
+        for t, l, u in rows:
+            firm, _, role = t.partition(": ")
+            groups[(firm, canon_role(role, l))].append((role, l, u))
+        out = []
+        for (firm, role_key), items in groups.items():
+            if len(items) == 1:
+                role, l, u = items[0]
+                out.append(f"• {firm}: {role}{f' ({l})' if l else ''}\n  {u}")
+                continue
+            out.append(f"• {firm}: {role_key} — {len(items)} locations")
+            for role, l, u in items[:6]:
+                out.append(f"  {l or role}: {u}")
+            if len(items) > 6:
+                out.append(f"  …+{len(items) - 6} more (in seen_jobs.json)")
+        return out
+
     lines = [f":mag: {len(new) + len(fresh_watch)} new live internship(s) — "
              f"links checked {TODAY}"]
     if pri:
         lines.append("\n*Bank / IB / AM / research / PE:*")
-        for t, l, u in pri:
-            lines.append(f"• {t}{f' ({l})' if l else ''}\n  {u}")
+        lines += render_group(pri)
     for lab, loc, pub in fresh_watch:
         lines.append(f"• {lab}{f' ({loc})' if loc else ''}\n  {pub}")
     if rest:
         lines.append("\n*Other:*")
-        for t, l, u in rest:
-            lines.append(f"• {t}{f' ({l})' if l else ''}\n  {u}")
+        lines += render_group(rest)
     text = "\n".join(lines)
 
     if DRY:
