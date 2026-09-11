@@ -62,7 +62,7 @@ GREENHOUSE = [
     "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
     "adamsstreetpartners", "mangroup", "neubergerberman", "tcw", "pimco",
     "wellingtonmanagement", "lazard", "gqgpartners", "diamondhillcapital",
-    "harbourvest", "hamiltonlane", "aresmanagement", "oaktreecapital",
+    "harbourvest", "hamiltonlane", "oaktreecapital",
     "blueowlcapital", "sixthstreet", "brookfield", "partnersgroup",
     # Miami / Florida finance hub + more PE / hedge funds
     "summeranalyst", "isquaredcapital", "schonfeld", "exoduspoint", "pointstate",
@@ -134,6 +134,7 @@ WORKDAY = [
      "RaymondJamesCareers"),
     ("Dimensional Fund Advisors", "dimensional.wd5.myworkdayjobs.com",
      "dimensional", "DFA_Careers"),
+    ("Ares Management", "aresmgmt.wd1.myworkdayjobs.com", "aresmgmt", "External", True),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -246,7 +247,10 @@ def post_json(url, payload, timeout=20):
         return None, ""
 
 
-def from_workday(label, host, tenant, site):
+def from_workday(label, host, tenant, site, pure_investment_firm=False):
+    """pure_investment_firm: the firm's whole business IS investing (e.g. Ares,
+    a pure alternative-asset manager), so generic titles like "2027 Summer
+    Intern" are relevant even without an investment keyword in the title."""
     seen_paths, out = set(), []
     for term in ("2027 summer analyst internship", "2027 intern investment",
                  "2027 credit analyst internship"):
@@ -267,7 +271,9 @@ def from_workday(label, host, tenant, site):
                 continue
             # keep 2027 roles, or undated ones; drop anything tagged an older year
             year_ok = "2027" in t or not re.search(r"\b202[0-6]\b", t)
-            if want(t) and us_ok(loc) and year_ok:
+            ok = (INC.search(t) and not EXCLUDE.search(t)) if pure_investment_firm \
+                else want(t)
+            if ok and us_ok(loc) and year_ok:
                 seen_paths.add(path)
                 out.append((f"{label}: {t}", loc, f"https://{host}/{site}{path}"))
     return out
@@ -397,8 +403,8 @@ def main() -> int:
         found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_lever(tok)]
     for tok in ASHBY:
         found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_ashby(tok)]
-    for label, host, tenant, site in WORKDAY:
-        found += from_workday(label, host, tenant, site)
+    for entry in WORKDAY:
+        found += from_workday(*entry)
 
     watch_ok, watch_dead = [], []
     for label, loc, chk, pub in WATCHLIST:
