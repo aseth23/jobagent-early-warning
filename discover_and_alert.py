@@ -70,6 +70,7 @@ GREENHOUSE = [
     "audaxprivateequity", "hig", "trivest", "comvestpartners", "starwoodcapital",
     "kayneanderson", "bayviewassetmanagement", "citadel", "millennium",
     "balyasny", "verition", "hbk", "elliottmanagement", "d1capital",
+    "solomonpartnersstudentsgraduates", "lincolninternational",
 ]
 LEVER = [
     "harrisonst", "dadavidson", "raine", "beedie", "point72", "citadel",
@@ -102,6 +103,8 @@ NAMES = {
     "starwoodcapital": "Starwood Capital", "starwood": "Starwood Capital",
     "kayneanderson": "Kayne Anderson", "bayviewassetmanagement": "Bayview Asset Management",
     "thomabravo": "Thoma Bravo", "d1capital": "D1 Capital", "hbk": "HBK Capital",
+    "solomonpartnersstudentsgraduates": "Solomon Partners",
+    "lincolninternational": "Lincoln International",
     "elliottmanagement": "Elliott Management", "exoduspoint": "ExodusPoint",
     "pointstate": "PointState Capital", "schonfeld": "Schonfeld", "verition": "Verition",
     "citadel": "Citadel", "millennium": "Millennium", "balyasny": "Balyasny",
@@ -191,6 +194,15 @@ WATCHLIST = [
     ("Group One Trading — Trading Analyst Intern", "New York, NY",
      "https://www.applicantpro.com/openings/group1/jobs/2002537/NY-New-York/New-York/Trading-Analyst-Intern",
      "https://www.applicantpro.com/openings/group1/jobs/2002537/NY-New-York/New-York/Trading-Analyst-Intern"),
+    ("Moelis & Company — 2027 Summer Analyst, Investment Banking", "New York, NY",
+     "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/xf-d43c9a446dde/candidate/so/pm/1/pl/2/opp/355-2027-Summer-Analyst-Investment-Banking-New-York-City/en-GB",
+     "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/xf-d43c9a446dde/candidate/so/pm/1/pl/2/opp/355-2027-Summer-Analyst-Investment-Banking-New-York-City/en-GB"),
+    ("Moelis & Company — 2027 Summer Analyst, Investment Banking", "Houston, TX",
+     "https://moelis-careers.tal.net/vx/mobile-0/appcentre-ext/brand-4/candidate/so/pm/1/pl/2/opp/348-2027-Summer-Analyst-Investment-Banking-Houston/en-GB",
+     "https://moelis-careers.tal.net/vx/mobile-0/appcentre-ext/brand-4/candidate/so/pm/1/pl/2/opp/348-2027-Summer-Analyst-Investment-Banking-Houston/en-GB"),
+    ("Moelis & Company — 2027 Summer Analyst, Investment Banking", "London, UK",
+     "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/user-7/xf-69860b0d6b25/wid-2/candidate/so/pm/1/pl/2/opp/391-2027-Summer-Analyst-Investment-Banking-London/en-GB",
+     "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/user-7/xf-69860b0d6b25/wid-2/candidate/so/pm/1/pl/2/opp/391-2027-Summer-Analyst-Investment-Banking-London/en-GB"),
 ]
 
 INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
@@ -200,8 +212,9 @@ INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
                     r"buyout|secondar|infrastructure|real estate|fixed income|"
                     r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b|asset manage|"
                     r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
-                    r"commercial bank|corporate bank|global markets|transaction bank)",
-                    re.I)
+                    r"commercial bank|corporate bank|global markets|transaction bank|"
+                    r"m&a|merger|valuation|leveraged finance|restructuring|"
+                    r"structured finance|underwrit)", re.I)
 # require the role to NOT be an old cycle / senior / grad-only; 2027 in the title optional
 EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|"
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
@@ -216,9 +229,8 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
                      r"externship|communications|\bbrand\b|social media)", re.I)
 
-# User is fine with US + Canada + UK/London. Drop everything further afield
-# (APAC / continental Europe / MEA / LatAm / Australia) — a US undergrad can't
-# realistically intern there. Unknown / unlisted location -> keep.
+# User wants everything "regardless of where they are located" -- no geo
+# filtering at all. Kept as a hook (and FAR as reference) in case that changes.
 FAR = re.compile(
     r"(singapore|hong ?kong|\bchina\b|shanghai|beijing|shenzhen|guangzhou|"
     r"\bjapan\b|tokyo|osaka|\bkorea\b|seoul|taiwan|taipei|\bindia\b|mumbai|"
@@ -231,7 +243,7 @@ FAR = re.compile(
 
 
 def us_ok(loc: str) -> bool:
-    return not FAR.search(loc or "")
+    return True
 
 
 def fetch(url, timeout=15):
