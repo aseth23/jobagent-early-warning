@@ -135,6 +135,7 @@ WORKDAY = [
     ("Dimensional Fund Advisors", "dimensional.wd5.myworkdayjobs.com",
      "dimensional", "DFA_Careers"),
     ("Ares Management", "aresmgmt.wd1.myworkdayjobs.com", "aresmgmt", "External", True),
+    ("Houlihan Lokey", "hl.wd1.myworkdayjobs.com", "hl", "External"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
