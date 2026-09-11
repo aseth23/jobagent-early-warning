@@ -136,6 +136,7 @@ WORKDAY = [
      "dimensional", "DFA_Careers"),
     ("Ares Management", "aresmgmt.wd1.myworkdayjobs.com", "aresmgmt", "External", True),
     ("Houlihan Lokey", "hl.wd1.myworkdayjobs.com", "hl", "External"),
+    ("TD Bank", "td.wd3.myworkdayjobs.com", "td", "TD_Bank_Careers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -184,6 +185,12 @@ WATCHLIST = [
     ("Affinius Capital — Summer 2027 Real Estate Credit Intern", "New York, NY",
      "https://careers-affiniuscapital.icims.com/jobs/2293/job",
      "https://careers-affiniuscapital.icims.com/jobs/2293/job"),
+    ("Group One Trading — Trading Analyst Intern", "Chicago, IL",
+     "https://group1.applicantpro.com/jobs/3859850",
+     "https://group1.applicantpro.com/jobs/3859850"),
+    ("Group One Trading — Trading Analyst Intern", "New York, NY",
+     "https://www.applicantpro.com/openings/group1/jobs/2002537/NY-New-York/New-York/Trading-Analyst-Intern",
+     "https://www.applicantpro.com/openings/group1/jobs/2002537/NY-New-York/New-York/Trading-Analyst-Intern"),
 ]
 
 INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
@@ -192,7 +199,9 @@ INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
                     r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
                     r"buyout|secondar|infrastructure|real estate|fixed income|"
                     r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b|asset manage|"
-                    r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b)", re.I)
+                    r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
+                    r"commercial bank|corporate bank|global markets|transaction bank)",
+                    re.I)
 # require the role to NOT be an old cycle / senior / grad-only; 2027 in the title optional
 EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|"
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
