@@ -229,21 +229,31 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
                      r"externship|communications|\bbrand\b|social media)", re.I)
 
-# User wants everything "regardless of where they are located" -- no geo
-# filtering at all. Kept as a hook (and FAR as reference) in case that changes.
+# User: no restriction within the US (any state), and outside the US only
+# London and Paris -- everywhere else (incl. Canada) is out.
+ALLOWED_FOREIGN = re.compile(
+    r"(london|united kingdom|\buk\b|england|\bparis\b|\bfrance\b)", re.I)
+
 FAR = re.compile(
     r"(singapore|hong ?kong|\bchina\b|shanghai|beijing|shenzhen|guangzhou|"
     r"\bjapan\b|tokyo|osaka|\bkorea\b|seoul|taiwan|taipei|\bindia\b|mumbai|"
     r"bengaluru|bangalore|new delhi|gurgaon|\buae\b|dubai|abu dhabi|riyadh|"
-    r"\bqatar\b|doha|tel aviv|\bgermany\b|frankfurt|munich|berlin|\bfrance\b|"
-    r"\bparis\b|\bitaly\b|milan|\bspain\b|madrid|barcelona|netherlands|amsterdam|"
+    r"\bqatar\b|doha|tel aviv|\bgermany\b|frankfurt|munich|berlin|"
+    r"\bitaly\b|milan|\bspain\b|madrid|barcelona|netherlands|amsterdam|"
     r"\bbelgium\b|brussels|luxembourg|\bswitzerland\b|zurich|geneva|\bsweden\b|"
     r"stockholm|\bpoland\b|warsaw|\baustralia\b|sydney|melbourne|\bbrazil\b|"
-    r"sao paulo|\bmexico\b|\bchile\b|bogota|\bperu\b|\bapac\b|\btaurus\b)", re.I)
+    r"sao paulo|\bmexico\b|\bchile\b|bogota|\bperu\b|\bapac\b|\btaurus\b|"
+    r"\bcanada\b|toronto|montr[ée]al|vancouver|calgary|\bottawa\b|\bontario\b|"
+    r"\bqu[ée]bec\b|british columbia|\balberta\b|,\s*on\b|,\s*qc\b|,\s*bc\b)",
+    re.I)
 
 
 def us_ok(loc: str) -> bool:
-    return True
+    if not loc:
+        return True  # unknown location - could well be US, keep it
+    if ALLOWED_FOREIGN.search(loc):
+        return True
+    return not FAR.search(loc)
 
 
 def fetch(url, timeout=15):
