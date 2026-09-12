@@ -139,6 +139,8 @@ WORKDAY = [
      "dimensional", "DFA_Careers"),
     ("Ares Management", "aresmgmt.wd1.myworkdayjobs.com", "aresmgmt", "External", True),
     ("Houlihan Lokey", "hl.wd1.myworkdayjobs.com", "hl", "External"),
+    ("American Century Investments", "americancentury.wd5.myworkdayjobs.com",
+     "americancentury", "AmericanCenturyInvestments", True),
     ("TD Bank", "td.wd3.myworkdayjobs.com", "td", "TD_Bank_Careers"),
 ]
 
@@ -203,6 +205,9 @@ WATCHLIST = [
     ("Moelis & Company — 2027 Summer Analyst, Investment Banking", "London, UK",
      "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/user-7/xf-69860b0d6b25/wid-2/candidate/so/pm/1/pl/2/opp/391-2027-Summer-Analyst-Investment-Banking-London/en-GB",
      "https://moelis-careers.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/user-7/xf-69860b0d6b25/wid-2/candidate/so/pm/1/pl/2/opp/391-2027-Summer-Analyst-Investment-Banking-London/en-GB"),
+    ("Principal Financial Group — Risk Management Internship 2027", "Des Moines, IA",
+     "https://careers.principal.com/careers-home/jobs/52427?lang=en-us",
+     "https://careers.principal.com/careers-home/jobs/52427?lang=en-us"),
 ]
 
 INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
