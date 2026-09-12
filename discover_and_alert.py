@@ -142,6 +142,9 @@ WORKDAY = [
     ("American Century Investments", "americancentury.wd5.myworkdayjobs.com",
      "americancentury", "AmericanCenturyInvestments", True),
     ("TD Bank", "td.wd3.myworkdayjobs.com", "td", "TD_Bank_Careers"),
+    ("Northern Trust", "ntrs.wd1.myworkdayjobs.com", "ntrs", "northerntrust"),
+    ("AllianceBernstein", "abglobal.wd1.myworkdayjobs.com", "abglobal",
+     "alliancebernsteincareers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -208,6 +211,13 @@ WATCHLIST = [
     ("Principal Financial Group — Risk Management Internship 2027", "Des Moines, IA",
      "https://careers.principal.com/careers-home/jobs/52427?lang=en-us",
      "https://careers.principal.com/careers-home/jobs/52427?lang=en-us"),
+    # NOTE: Putnam (now part of Franklin Templeton) posts these on a Workday
+    # site literally named "Invitation-Only" -- pages load fine but the actual
+    # application may require a referral/invite code. Included so the user can
+    # judge for themselves rather than being silently dropped.
+    ("Putnam Investments (Franklin Templeton) — Equity Associate Intern", "Boston, MA",
+     "https://franklintempleton.wd5.myworkdayjobs.com/en-US/Invitation-Only/job/Putnam-Equity-Associate-Intern_863131",
+     "https://franklintempleton.wd5.myworkdayjobs.com/en-US/Invitation-Only/job/Putnam-Equity-Associate-Intern_863131"),
 ]
 
 INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
@@ -219,7 +229,11 @@ INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
                     r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
                     r"commercial bank|corporate bank|global markets|transaction bank|"
                     r"m&a|merger|valuation|leveraged finance|restructuring|"
-                    r"structured finance|underwrit)", re.I)
+                    r"structured finance|underwrit|direct lending|senior lending|"
+                    r"junior capital|unitranche|mezzanine|middle market|"
+                    r"special situations|distressed|capital solutions|"
+                    r"asset-based|\bsourcing\b|origination|manager research|"
+                    r"investment strategy|investment analytics)", re.I)
 # require the role to NOT be an old cycle / senior / grad-only; 2027 in the title optional
 EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|"
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
