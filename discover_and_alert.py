@@ -73,7 +73,7 @@ LEVER = [
     "harrisonst", "dadavidson", "raine", "beedie", "point72", "citadel",
     "twosigma", "hudson-river-trading", "voleon", "quantbox", "radix-trading",
     "tower-research-capital", "de-shaw", "thomabravo", "hig", "starwood",
-    "millennium", "exoduspoint", "schonfeld", "verition",
+    "millennium", "exoduspoint", "schonfeld", "verition", "txse",
 ]
 ASHBY = [
     "volition-capital", "iconiq", "thrivecapital", "ggv", "coatue",
@@ -112,6 +112,7 @@ NAMES = {
     "raine": "The Raine Group", "beedie": "Beedie Capital", "point72": "Point72",
     "twosigma": "Two Sigma", "hudson-river-trading": "Hudson River Trading",
     "tower-research-capital": "Tower Research Capital", "voleon": "Voleon Group",
+    "txse": "Texas Stock Exchange (TXSE)",
 }
 # Workday: (label, host, tenant, site) — the CXS /jobs search returns only open reqs,
 # so anything it returns has a working link. Covers banks in secondary US markets
