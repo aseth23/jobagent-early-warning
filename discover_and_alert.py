@@ -229,10 +229,13 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
                      r"externship|communications|\bbrand\b|social media)", re.I)
 
-# User: no restriction within the US (any state), and outside the US only
-# London and Paris -- everywhere else (incl. Canada) is out.
+# User: no restriction within the US (any state); outside the US, London,
+# Paris, and Canada are fine too -- everywhere further afield is out.
 ALLOWED_FOREIGN = re.compile(
-    r"(london|united kingdom|\buk\b|england|\bparis\b|\bfrance\b)", re.I)
+    r"(london|united kingdom|\buk\b|england|\bparis\b|\bfrance\b|"
+    r"\bcanada\b|toronto|montr[ée]al|vancouver|calgary|\bottawa\b|"
+    r"\bontario\b|\bqu[ée]bec\b|british columbia|\balberta\b|"
+    r",\s*on\b|,\s*qc\b|,\s*bc\b)", re.I)
 
 FAR = re.compile(
     r"(singapore|hong ?kong|\bchina\b|shanghai|beijing|shenzhen|guangzhou|"
@@ -242,9 +245,7 @@ FAR = re.compile(
     r"\bitaly\b|milan|\bspain\b|madrid|barcelona|netherlands|amsterdam|"
     r"\bbelgium\b|brussels|luxembourg|\bswitzerland\b|zurich|geneva|\bsweden\b|"
     r"stockholm|\bpoland\b|warsaw|\baustralia\b|sydney|melbourne|\bbrazil\b|"
-    r"sao paulo|\bmexico\b|\bchile\b|bogota|\bperu\b|\bapac\b|\btaurus\b|"
-    r"\bcanada\b|toronto|montr[ée]al|vancouver|calgary|\bottawa\b|\bontario\b|"
-    r"\bqu[ée]bec\b|british columbia|\balberta\b|,\s*on\b|,\s*qc\b|,\s*bc\b)",
+    r"sao paulo|\bmexico\b|\bchile\b|bogota|\bperu\b|\bapac\b|\btaurus\b)",
     re.I)
 
 
