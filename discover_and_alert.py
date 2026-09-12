@@ -60,10 +60,7 @@ GREENHOUSE = [
     "warburgpincus", "silverlake", "hgcapital", "generalcatalyst", "bain",
     # long-only / fundamental asset management, equity & fixed-income research
     "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
-    "adamsstreetpartners", "mangroup", "neubergerberman", "tcw", "pimco",
-    "wellingtonmanagement", "lazard", "gqgpartners", "diamondhillcapital",
-    "harbourvest", "hamiltonlane", "oaktreecapital",
-    "blueowlcapital", "sixthstreet", "brookfield", "partnersgroup",
+    "adamsstreetpartners", "mangroup",
     # Miami / Florida finance hub + more PE / hedge funds
     "summeranalyst", "isquaredcapital", "schonfeld", "exoduspoint", "pointstate",
     "valorequitypartners", "pantheon", "americansecurities", "gtcr",
@@ -145,6 +142,8 @@ WORKDAY = [
     ("Northern Trust", "ntrs.wd1.myworkdayjobs.com", "ntrs", "northerntrust"),
     ("AllianceBernstein", "abglobal.wd1.myworkdayjobs.com", "abglobal",
      "alliancebernsteincareers"),
+    ("Invesco", "invesco.wd1.myworkdayjobs.com", "invesco", "IVZ"),
+    ("Neuberger Berman", "nb.wd1.myworkdayjobs.com", "nb", "NBCareers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -218,13 +217,18 @@ WATCHLIST = [
     ("Putnam Investments (Franklin Templeton) — Equity Associate Intern", "Boston, MA",
      "https://franklintempleton.wd5.myworkdayjobs.com/en-US/Invitation-Only/job/Putnam-Equity-Associate-Intern_863131",
      "https://franklintempleton.wd5.myworkdayjobs.com/en-US/Invitation-Only/job/Putnam-Equity-Associate-Intern_863131"),
+    # Churchill Asset Management (TIAA/Nuveen affiliate): NOT added. Its
+    # careers.tiaa.org URLs from search caches 404 on direct fetch, and its
+    # tiaa.jobs mirror returns HTTP 200 for literally any path (client-side
+    # routed SPA), so an HTTP check there proves nothing. No reliable way to
+    # verify a specific posting yet -- still an open lead, not wired in.
 ]
 
 INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
                  r"co-?op|apprentice)\b", re.I)
 INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
                     r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
-                    r"buyout|secondar|infrastructure|real estate|fixed income|"
+                    r"buyout|secondar|infrastructure|real estate|\brealty\b|fixed income|"
                     r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b|asset manage|"
                     r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
                     r"commercial bank|corporate bank|global markets|transaction bank|"
