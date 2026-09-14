@@ -51,7 +51,7 @@ GREENHOUSE = [
     "levelequity", "accessholdingsmanagementfirm", "uvimco", "weissassetmanagement",
     "twosigmainvestments", "twosigma", "citadel", "millennium", "balyasny",
     "squarepointcapital", "verition", "worldquant", "sig", "imc", "drwholdings",
-    "janestreet", "hudsonrivertrading", "belvederetrading", "geneva-trading",
+    "janestreet", "genevatrading",
     "akunacapital", "wolverinetrading", "chicagotrading", "flowtraders",
     "tekionos", "insightpartnersinternship", "battery", "batteryventures",
     "spectrumequity", "jmi", "greathillpartners", "ta-associates", "psgequity",
@@ -112,7 +112,8 @@ NAMES = {
     "raine": "The Raine Group", "beedie": "Beedie Capital", "point72": "Point72",
     "twosigma": "Two Sigma", "hudson-river-trading": "Hudson River Trading",
     "tower-research-capital": "Tower Research Capital", "voleon": "Voleon Group",
-    "txse": "Texas Stock Exchange (TXSE)",
+    "txse": "Texas Stock Exchange (TXSE)", "genevatrading": "Geneva Trading",
+    "janestreet": "Jane Street",
 }
 # Workday: (label, host, tenant, site) — the CXS /jobs search returns only open reqs,
 # so anything it returns has a working link. Covers banks in secondary US markets
