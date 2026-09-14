@@ -147,6 +147,8 @@ WORKDAY = [
     ("Invesco", "invesco.wd1.myworkdayjobs.com", "invesco", "IVZ"),
     ("Neuberger Berman", "nb.wd1.myworkdayjobs.com", "nb", "NBCareers"),
     ("Leerink Partners", "leerink.wd5.myworkdayjobs.com", "leerink", "leerinkpartners"),
+    ("BRG (Berkeley Research Group)", "thinkbrg.wd5.myworkdayjobs.com",
+     "thinkbrg", "BRG_External_Career_Site"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
