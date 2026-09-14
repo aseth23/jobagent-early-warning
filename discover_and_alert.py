@@ -145,6 +145,7 @@ WORKDAY = [
      "alliancebernsteincareers"),
     ("Invesco", "invesco.wd1.myworkdayjobs.com", "invesco", "IVZ"),
     ("Neuberger Berman", "nb.wd1.myworkdayjobs.com", "nb", "NBCareers"),
+    ("Leerink Partners", "leerink.wd5.myworkdayjobs.com", "leerink", "leerinkpartners"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -211,6 +212,12 @@ WATCHLIST = [
     ("Principal Financial Group — Risk Management Internship 2027", "Des Moines, IA",
      "https://careers.principal.com/careers-home/jobs/52427?lang=en-us",
      "https://careers.principal.com/careers-home/jobs/52427?lang=en-us"),
+    ("JPMorgan — 2027 Asset Management Product Summer Analyst Program", "New York, NY",
+     "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691737",
+     "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691737"),
+    ("JPMorgan — 2027 Asset Management Client Summer Analyst Program", "New York, NY",
+     "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691091",
+     "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691091"),
     # NOTE: Putnam (now part of Franklin Templeton) posts these on a Workday
     # site literally named "Invitation-Only" -- pages load fine but the actual
     # application may require a referral/invite code. Included so the user can
