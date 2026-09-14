@@ -186,8 +186,6 @@ WATCHLIST = [
     ("Graham Partners — PE Fast Track Two-Year Internship", "Newtown Square, PA",
      "https://ats.rippling.com/graham-partners/jobs/e64f9797-6dde-414d-93ea-58cfa4aa8a2b",
      "https://ats.rippling.com/graham-partners/jobs/e64f9797-6dde-414d-93ea-58cfa4aa8a2b"),
-    ("SIG — Credit Analyst Internship: Summer 2027", "Bala Cynwyd, PA",
-     "https://careers.sig.com/api/jobs/10794", "https://careers.sig.com/job/10794"),
     ("Affinius Capital — Real Estate Summer Intern 2027", "San Antonio, TX",
      "https://careers-affiniuscapital.icims.com/jobs/2280/job",
      "https://careers-affiniuscapital.icims.com/jobs/2280/job"),
@@ -218,6 +216,10 @@ WATCHLIST = [
     ("JPMorgan — 2027 Asset Management Client Summer Analyst Program", "New York, NY",
      "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691091",
      "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691091"),
+    ("Scotiabank — Global Banking and Markets, Equity Research Intern/Co-op, Winter 2027",
+     "Toronto, ON",
+     "https://jobs.scotiabank.com/job/Toronto-Global-Banking-and-Markets-Equity-Research-InternCo-op-Winter-2027-ON/605812817/",
+     "https://jobs.scotiabank.com/job/Toronto-Global-Banking-and-Markets-Equity-Research-InternCo-op-Winter-2027-ON/605812817/"),
     # NOTE: Putnam (now part of Franklin Templeton) posts these on a Workday
     # site literally named "Invitation-Only" -- pages load fine but the actual
     # application may require a referral/invite code. Included so the user can
@@ -275,6 +277,7 @@ FAR = re.compile(
     r"\bqatar\b|doha|tel aviv|\bgermany\b|frankfurt|munich|berlin|"
     r"\bitaly\b|milan|\bspain\b|madrid|barcelona|netherlands|amsterdam|"
     r"\bbelgium\b|brussels|luxembourg|\bswitzerland\b|zurich|geneva|\bsweden\b|"
+    r"\bireland\b|dublin|"
     r"stockholm|\bpoland\b|warsaw|\baustralia\b|sydney|melbourne|\bbrazil\b|"
     r"sao paulo|\bmexico\b|\bchile\b|bogota|\bperu\b|\bapac\b|\btaurus\b)",
     re.I)
@@ -291,7 +294,7 @@ def us_ok(loc: str) -> bool:
 def fetch(url, timeout=15):
     try:
         r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout)
-        return r.status, r.read(200000).decode("utf-8", "replace"), r.geturl()
+        return r.status, r.read(1500000).decode("utf-8", "replace"), r.geturl()
     except urllib.error.HTTPError as e:
         return e.code, "", url
     except Exception as e:  # noqa: BLE001
@@ -340,6 +343,31 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
             if ok and us_ok(loc) and year_ok:
                 seen_paths.add(path)
                 out.append((f"{label}: {t}", loc, f"https://{host}/{site}{path}"))
+    return out
+
+
+def from_sig():
+    """Susquehanna International Group runs its own custom careers API with a
+    large internship program (quant research/trading, equity, macro, credit,
+    ops...) across many locations. Their board API ignores offset/limit
+    pagination for keyword search but one broad call returns the full list."""
+    code, body, _ = fetch(
+        "https://careers.sig.com/api/jobs?keywords=summer%202027%20intern&limit=100")
+    if code != 200:
+        return []
+    try:
+        jobs = json.loads(body).get("jobs", [])
+    except Exception:  # noqa: BLE001
+        return []
+    out = []
+    for j in jobs:
+        d = j.get("data", {})
+        t = d.get("title", "")
+        loc = d.get("full_location", "")
+        req_id = d.get("req_id")
+        if not req_id or not want(t) or not us_ok(loc):
+            continue
+        out.append((f"Susquehanna (SIG): {t}", loc, f"https://careers.sig.com/job/{req_id}"))
     return out
 
 
@@ -469,6 +497,7 @@ def main() -> int:
         found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_ashby(tok)]
     for entry in WORKDAY:
         found += from_workday(*entry)
+    found += from_sig()
 
     watch_ok, watch_dead = [], []
     for label, loc, chk, pub in WATCHLIST:
