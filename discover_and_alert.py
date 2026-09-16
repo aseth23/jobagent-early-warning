@@ -149,6 +149,14 @@ WORKDAY = [
     ("Leerink Partners", "leerink.wd5.myworkdayjobs.com", "leerink", "leerinkpartners"),
     ("BRG (Berkeley Research Group)", "thinkbrg.wd5.myworkdayjobs.com",
      "thinkbrg", "BRG_External_Career_Site"),
+    # Exchanges themselves -- wherever one sits, banks cluster nearby (Chicago
+    # for CME/Cboe, Atlanta for ICE, Dallas for TXSE). No 2027 postings live
+    # yet on either as of this add; wired in so they're caught same-day.
+    ("CME Group", "cmegroup.wd1.myworkdayjobs.com", "cmegroup", "cme_careers"),
+    ("Cboe Global Markets", "cboe.wd1.myworkdayjobs.com", "cboe", "External_Career_CBOE"),
+    # Boston: major asset-management hub (also home to the BOX options exchange)
+    ("MFS Investment Management", "mfs.wd1.myworkdayjobs.com", "mfs", "MFS-Careers"),
+    ("State Street", "statestreet.wd1.myworkdayjobs.com", "statestreet", "Global"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -323,7 +331,7 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
     Intern" are relevant even without an investment keyword in the title."""
     seen_paths, out = set(), []
     for term in ("2027 summer analyst internship", "2027 intern investment",
-                 "2027 credit analyst internship"):
+                 "2027 credit analyst internship", "2027 intern", "summer intern 2027"):
         code, body = post_json(
             f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
             {"searchText": term, "limit": 20, "offset": 0})
