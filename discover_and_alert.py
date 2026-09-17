@@ -241,6 +241,21 @@ WATCHLIST = [
     ("Putnam Investments (Franklin Templeton) — Equity Associate Intern", "Boston, MA",
      "https://franklintempleton.wd5.myworkdayjobs.com/en-US/Invitation-Only/job/Putnam-Equity-Associate-Intern_863131",
      "https://franklintempleton.wd5.myworkdayjobs.com/en-US/Invitation-Only/job/Putnam-Equity-Associate-Intern_863131"),
+    # Bank of America: no public search API (custom platform, confirmed no
+    # embedded JSON/API in the page source) -- but individual /students/
+    # job-detail/ URLs are stable and checkable, so specific confirmed-live
+    # postings are watchlisted directly. One other candidate ID (13932,
+    # "Global Capital Markets Summer Analyst Program") 301-redirects to
+    # /careers/errors/404.html -- confirmed dead, deliberately left out.
+    ("Bank of America — Global Risk Summer Analyst Program 2027", "New York / Charlotte",
+     "https://careers.bankofamerica.com/en-us/students/job-detail/14437/global-risk-summer-analyst-program-2027-multiple-locations",
+     "https://careers.bankofamerica.com/en-us/students/job-detail/14437/global-risk-summer-analyst-program-2027-multiple-locations"),
+    ("Bank of America — Global Markets (Sales & Trading) Summer Analyst 2027", "London, UK",
+     "https://careers.bankofamerica.com/en-us/students/job-detail/14719/global-markets-sales-trading-private-side-rotational-programme-2027-summer-analyst-london-london-united-kingdom",
+     "https://careers.bankofamerica.com/en-us/students/job-detail/14719/global-markets-sales-trading-private-side-rotational-programme-2027-summer-analyst-london-london-united-kingdom"),
+    ("Bank of America — Global Investment Banking Summer Analyst 2027", "London, UK",
+     "https://careers.bankofamerica.com/en-us/students/job-detail/14522/global-investment-banking-2027-summer-analyst-london-london-united-kingdom",
+     "https://careers.bankofamerica.com/en-us/students/job-detail/14522/global-investment-banking-2027-summer-analyst-london-london-united-kingdom"),
     # Churchill Asset Management (TIAA/Nuveen affiliate): NOT added. Its
     # careers.tiaa.org URLs from search caches 404 on direct fetch, and its
     # tiaa.jobs mirror returns HTTP 200 for literally any path (client-side
@@ -396,6 +411,40 @@ def from_sig():
     return out
 
 
+# (label, cid, ccId) for firms whose careers site runs on ADP Workforce Now's
+# public candidate portal, which exposes an unauthenticated JSON requisition
+# feed at a fixed URL shape -- no keyword search needed, just list everything
+# and filter client-side like from_sig().
+ADP_WFN = [
+    ("Valuation Research Corporation", "9b136ddc-361a-422a-b03c-668faab57287",
+     "19000101_000001"),
+]
+
+
+def from_adp_wfn(label, cid, ccid):
+    url = ("https://workforcenow.adp.com/mascsr/default/careercenter/public/"
+           f"events/staffing/v1/job-requisitions?cid={cid}&lang=en_US&clientId={ccid}&fromSF=Y")
+    code, body, _ = fetch(url)
+    if code != 200:
+        return []
+    try:
+        reqs = json.loads(body).get("jobRequisitions", [])
+    except Exception:  # noqa: BLE001
+        return []
+    out = []
+    for r in reqs:
+        t = r.get("requisitionTitle", "")
+        item_id = r.get("itemID")
+        locs = r.get("requisitionLocations", [])
+        loc = locs[0].get("nameCode", {}).get("shortName", "") if locs else ""
+        if not item_id or not want(t) or not us_ok(loc):
+            continue
+        apply_url = ("https://workforcenow.adp.com/mascsr/default/mdf/recruitment/"
+                     f"recruitment.html?cid={cid}&ccId={ccid}&type=JS&lang=en_US&jobId={item_id}")
+        out.append((f"{label}: {t}", loc, apply_url))
+    return out
+
+
 MASTERS = re.compile(r"(\bmba\b|ph\.?d|master('?s| or)|doctoral)", re.I)
 
 
@@ -486,6 +535,12 @@ def watch_live(check_url: str) -> bool:
         return False
     if code != 200:
         return False
+    # urllib silently follows redirects -- a job page that now 301s to a
+    # generic error page still reads back as HTTP 200 for the error page
+    # itself. Catch that (seen live: a BofA job-detail URL redirecting to
+    # /careers/errors/404.html) by checking where we actually landed.
+    if re.search(r"/errors?/(404|not-?found)", final, re.I):
+        return False
     low = body.lower()
     if any(m in low for m in ("no longer accepting", "position has been filled",
                               "this job is no longer", "job was removed",
@@ -523,6 +578,8 @@ def main() -> int:
     for entry in WORKDAY:
         found += from_workday(*entry)
     found += from_sig()
+    for label, cid, ccid in ADP_WFN:
+        found += from_adp_wfn(label, cid, ccid)
 
     watch_ok, watch_dead = [], []
     for label, loc, chk, pub in WATCHLIST:
