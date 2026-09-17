@@ -157,6 +157,9 @@ WORKDAY = [
     # Boston: major asset-management hub (also home to the BOX options exchange)
     ("MFS Investment Management", "mfs.wd1.myworkdayjobs.com", "mfs", "MFS-Careers"),
     ("State Street", "statestreet.wd1.myworkdayjobs.com", "statestreet", "Global"),
+    # Sourced from a campus career-fair company list (2026-09-17).
+    ("CIBC", "cibc.wd3.myworkdayjobs.com", "cibc", "campus"),
+    ("Prudential / PGIM", "pru.wd5.myworkdayjobs.com", "pru", "Careers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -245,13 +248,17 @@ WATCHLIST = [
     # verify a specific posting yet -- still an open lead, not wired in.
 ]
 
-INC = re.compile(r"\b(intern|internship|summer analyst|summer associate|"
-                 r"co-?op|apprentice)\b", re.I)
+INC = re.compile(r"\b(intern|internship|co-?op|apprentice)\b|"
+                 # "summer analyst"/"summer associate" but many boards interject
+                 # a year in between ("Summer 2027 Analyst") or reverse the
+                 # order ("Analyst, Summer 2027") -- match either shape.
+                 r"summer\s*(?:20\d\d\s*)?(?:analyst|associate)\b|"
+                 r"(?:analyst|associate),?\s*summer\s*20\d\d\b", re.I)
 INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
                     r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
                     r"buyout|secondar|infrastructure|real estate|\brealty\b|fixed income|"
                     r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b|asset manage|"
-                    r"wealth manage|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
+                    r"wealth manage|\bwealth\b|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
                     r"commercial bank|corporate bank|global markets|transaction bank|"
                     r"m&a|merger|valuation|leveraged finance|restructuring|"
                     r"structured finance|underwrit|direct lending|senior lending|"
@@ -353,7 +360,14 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                 else want(t)
             if ok and us_ok(loc) and year_ok:
                 seen_paths.add(path)
-                out.append((f"{label}: {t}", loc, f"https://{host}/{site}{path}"))
+                # multi-brand tenants (e.g. "Prudential / PGIM") often post titles
+                # that already lead with the sub-brand name ("PGIM: ...") -- drop
+                # that so the digest doesn't read "Prudential / PGIM: PGIM: ...".
+                disp_t = t
+                m = re.match(r"^([A-Za-z][A-Za-z &]{2,30}):\s*(.+)$", t)
+                if m and m.group(1).lower() in label.lower():
+                    disp_t = m.group(2)
+                out.append((f"{label}: {disp_t}", loc, f"https://{host}/{site}{path}"))
     return out
 
 
