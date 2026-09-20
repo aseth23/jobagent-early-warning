@@ -231,10 +231,10 @@ WATCHLIST = [
     ("JPMorgan — 2027 Asset Management Client Summer Analyst Program", "New York, NY",
      "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691091",
      "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210691091"),
-    ("Scotiabank — Global Banking and Markets, Equity Research Intern/Co-op, Winter 2027",
-     "Toronto, ON",
-     "https://jobs.scotiabank.com/job/Toronto-Global-Banking-and-Markets-Equity-Research-InternCo-op-Winter-2027-ON/605812817/",
-     "https://jobs.scotiabank.com/job/Toronto-Global-Banking-and-Markets-Equity-Research-InternCo-op-Winter-2027-ON/605812817/"),
+    # Scotiabank — Global Banking and Markets, Equity Research Intern/Co-op,
+    # Winter 2027 (Toronto): removed. It's a Winter term -- conflicts with
+    # the user's spring semester, same reason "winter" is now excluded
+    # everywhere else.
     # NOTE: Putnam (now part of Franklin Templeton) posts these on a Workday
     # site literally named "Invitation-Only" -- pages load fine but the actual
     # application may require a referral/invite code. Included so the user can
@@ -299,7 +299,11 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"financial planner|financial advisor|cybersecurity|"
                      r"software engineer|data engineer|network engineer|"
                      r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
-                     r"externship|communications|\bbrand\b|social media)", re.I)
+                     r"externship|communications|\bbrand\b|social media|"
+                     # User's in school for spring semester -- off-cycle
+                     # "Winter" co-op/intern terms (common at Canadian banks,
+                     # usually 4-8 months) don't fit his calendar.
+                     r"\bwinter\b)", re.I)
 
 # User: no restriction within the US (any state); outside the US, London,
 # Paris, and Canada are fine too -- everywhere further afield is out.
