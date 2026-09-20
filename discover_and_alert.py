@@ -160,6 +160,7 @@ WORKDAY = [
     # Sourced from a campus career-fair company list (2026-09-17).
     ("CIBC", "cibc.wd3.myworkdayjobs.com", "cibc", "campus"),
     ("Prudential / PGIM", "pru.wd5.myworkdayjobs.com", "pru", "Careers"),
+    ("RBC", "rbc.wd3.myworkdayjobs.com", "rbc", "RBCEARLYTALENT1"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -269,10 +270,15 @@ INC = re.compile(r"\b(intern|internship|co-?op|apprentice)\b|"
                  # order ("Analyst, Summer 2027") -- match either shape.
                  r"summer\s*(?:20\d\d\s*)?(?:analyst|associate)\b|"
                  r"(?:analyst|associate),?\s*summer\s*20\d\d\b", re.I)
-INVEST = re.compile(r"(invest|equit|credit|private equity|growth equity|"
+# NOTE: no bare "analyst" here (RBC/BNY's non-investment tracks -- Procurement,
+# QA, Investigation, generic corporate "Data/Business Analyst Intern" -- all
+# have "analyst" in the title too, and INC's own "summer analyst" phrase
+# already covers the case this was meant for). "invest(?!igat)" excludes
+# "Investigation"/"Investigative", which otherwise match plain "invest".
+INVEST = re.compile(r"(invest(?!igat)|equit|credit|private equity|growth equity|"
                     r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
                     r"buyout|secondar|infrastructure|real estate|\brealty\b|fixed income|"
-                    r"\bmacro\b|trading|\bdeal|diligence|\banalyst\b|asset manage|"
+                    r"\bmacro\b|trading|\bdeal|diligence|asset manage|"
                     r"wealth manage|\bwealth\b|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
                     r"commercial bank|corporate bank|global markets|transaction bank|"
                     r"m&a|merger|valuation|leveraged finance|restructuring|"
@@ -419,6 +425,41 @@ ADP_WFN = [
     ("Valuation Research Corporation", "9b136ddc-361a-422a-b03c-668faab57287",
      "19000101_000001"),
 ]
+
+
+ORACLE_HCM = [
+    # (label, host, REST siteNumber, UI slug). BNY runs Oracle Cloud
+    # Recruiting -- same family JPMorgan uses -- and its REST API returns
+    # full requisition JSON with no auth. The REST siteNumber ("CX_1001")
+    # and the candidate UI's friendly slug ("BNY-Careers", found via the
+    # redirect a bare job/<id> URL 302s to) are different values.
+    ("BNY", "eofe.fa.us2.oraclecloud.com", "CX_1001", "BNY-Careers"),
+]
+
+
+def from_oracle_hcm(label, host, site_number, ui_site):
+    url = (f"https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
+           "?onlyData=true&expand=requisitionList.secondaryLocations"
+           f"&finder=findReqs;siteNumber={site_number},facetsList=LOCATIONS%3BWORK_LOCATIONS"
+           "%3BTITLES%3BCATEGORIES%3BORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,limit=100,"
+           "keyword=%222027%20summer%22")
+    code, body, _ = fetch(url)
+    if code != 200:
+        return []
+    try:
+        reqs = json.loads(body)["items"][0].get("requisitionList", [])
+    except Exception:  # noqa: BLE001
+        return []
+    out = []
+    for r in reqs:
+        t = r.get("Title", "")
+        loc = r.get("PrimaryLocation", "")
+        rid = r.get("Id")
+        if not rid or not want(t) or not us_ok(loc):
+            continue
+        out.append((f"{label}: {t}", loc,
+                    f"https://{host}/hcmUI/CandidateExperience/en/sites/{ui_site}/job/{rid}"))
+    return out
 
 
 def from_adp_wfn(label, cid, ccid):
@@ -580,6 +621,8 @@ def main() -> int:
     found += from_sig()
     for label, cid, ccid in ADP_WFN:
         found += from_adp_wfn(label, cid, ccid)
+    for label, host, sn, ui in ORACLE_HCM:
+        found += from_oracle_hcm(label, host, sn, ui)
 
     watch_ok, watch_dead = [], []
     for label, loc, chk, pub in WATCHLIST:
