@@ -538,6 +538,13 @@ def from_adp_wfn(label, cid, ccid):
 
 MASTERS = re.compile(r"(\bmba\b|ph\.?d|master('?s| or)|doctoral)", re.I)
 
+# User: Summer 2027 only. A genuine summer program says "Summer" even when it
+# also states a month count ("Summer 2027 Analyst (4 months)"); a generic
+# undated rotational placement ("12-Month Internship", "6-month contract",
+# common at European banks) never does. So only reject the month-duration
+# pattern when "summer" is absent from the title.
+NON_SUMMER_DURATION = re.compile(r"\b\d{1,2}[\s-]months?\b", re.I)
+
 
 def want(title: str) -> bool:
     if not (INC.search(title) and INVEST.search(title)):
@@ -547,7 +554,11 @@ def want(title: str) -> bool:
     # grad-degree wording before applying EXCLUDE so it doesn't drop them.
     if re.search(r"undergrad", t, re.I):
         t = MASTERS.sub("", t)
-    return not EXCLUDE.search(t)
+    if EXCLUDE.search(t):
+        return False
+    if not re.search(r"\bsummer\b", t, re.I) and NON_SUMMER_DURATION.search(t):
+        return False
+    return True
 
 
 def canon_role(role: str, loc: str) -> str:
