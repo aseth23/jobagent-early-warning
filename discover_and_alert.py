@@ -161,6 +161,9 @@ WORKDAY = [
     ("CIBC", "cibc.wd3.myworkdayjobs.com", "cibc", "campus"),
     ("Prudential / PGIM", "pru.wd5.myworkdayjobs.com", "pru", "Careers"),
     ("RBC", "rbc.wd3.myworkdayjobs.com", "rbc", "RBCEARLYTALENT1"),
+    # Big well-known index/asset-management names the user asked for by name.
+    ("S&P Global", "spgi.wd5.myworkdayjobs.com", "spgi", "spgi_careers"),
+    ("Vanguard", "vanguard.wd5.myworkdayjobs.com", "vanguard", "vanguard_external"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -286,7 +289,7 @@ INVEST = re.compile(r"(invest(?!igat)|equit|credit|private equity|growth equity|
                     r"junior capital|unitranche|mezzanine|middle market|"
                     r"special situations|distressed|capital solutions|"
                     r"asset-based|\bsourcing\b|origination|manager research|"
-                    r"investment strategy|investment analytics)", re.I)
+                    r"investment strategy|investment analytics|\brating)", re.I)
 # require the role to NOT be an old cycle / senior / grad-only; 2027 in the title optional
 EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|"
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
@@ -303,7 +306,7 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      # User's in school for spring semester -- off-cycle
                      # "Winter" co-op/intern terms (common at Canadian banks,
                      # usually 4-8 months) don't fit his calendar.
-                     r"\bwinter\b)", re.I)
+                     r"\bwinter\b|\bit internship\b)", re.I)
 
 # User: no restriction within the US (any state); outside the US, London,
 # Paris, and Canada are fine too -- everywhere further afield is out.
