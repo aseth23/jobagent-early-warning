@@ -19,6 +19,7 @@ Config (env):
 """
 from __future__ import annotations
 
+import html
 import json
 import os
 import re
@@ -469,6 +470,48 @@ def from_oracle_hcm(label, host, site_number, ui_site):
     return out
 
 
+def from_cacib():
+    """Credit Agricole CIB runs on TalentSoft (ASP.NET WebForms, no JSON API),
+    but unlike iCIMS/Schwab/MSCI it server-renders full job cards -- title,
+    contract type, country, and city all sit in plain HTML -- so a page-by-page
+    scrape works without a browser. Each job card looks like:
+      <div class="ts-offer-card Layer" ...>
+        <h3 class="ts-offer-card__title"><a href="...">TITLE</a></h3>
+        ...
+        <ul class="ts-offer-card-content__list">
+          <li>Contract</li><li>Country</li><li>City</li>
+        </ul>
+      </div>
+    """
+    base = "https://jobs.ca-cib.com"
+    out, seen_urls = [], set()
+    for page in range(1, 6):
+        code, body, _ = fetch(f"{base}/job/list-of-all-jobs.aspx?all=1&page={page}&LCID=2057")
+        if code != 200:
+            break
+        cards = body.split('class="ts-offer-card Layer"')[1:]
+        if not cards:
+            break
+        for c in cards:
+            m = re.search(r'href="(/job/[^"]+\.aspx)"[^>]*title="[^"]*">\s*([^<]+?)\s*</a>', c)
+            if not m:
+                continue
+            path, t = m.group(1), html.unescape(m.group(2)).strip()
+            url = base + path
+            if url in seen_urls:
+                continue
+            seen_urls.add(url)
+            loc_m = re.search(r'<ul class="ts-offer-card-content__list[^"]*">(.*?)</ul>', c, re.S)
+            loc = ""
+            if loc_m:
+                items = re.findall(r'<li[^>]*>([^<]+)</li>', loc_m.group(1))
+                loc = ", ".join(html.unescape(x).strip() for x in items)
+            if not want(t) or not us_ok(loc):
+                continue
+            out.append((f"Credit Agricole CIB: {t}", loc, url))
+    return out
+
+
 def from_adp_wfn(label, cid, ccid):
     url = ("https://workforcenow.adp.com/mascsr/default/careercenter/public/"
            f"events/staffing/v1/job-requisitions?cid={cid}&lang=en_US&clientId={ccid}&fromSF=Y")
@@ -626,6 +669,7 @@ def main() -> int:
     for entry in WORKDAY:
         found += from_workday(*entry)
     found += from_sig()
+    found += from_cacib()
     for label, cid, ccid in ADP_WFN:
         found += from_adp_wfn(label, cid, ccid)
     for label, host, sn, ui in ORACLE_HCM:
