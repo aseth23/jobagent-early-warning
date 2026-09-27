@@ -15,9 +15,23 @@
   <key>WorkingDirectory</key>
   <string>/Users/armaanseth/jobagent-early-warning</string>
 
-  <!-- Runs at load, then every 3 hours. Fires on wake if a run was missed. -->
-  <key>StartInterval</key>
-  <integer>10800</integer>
+  <!-- Runs at load, then at fixed clock hours every 3 hours. StartInterval
+       (the old approach) is relative to whenever the job was last loaded,
+       so it drifts and can wander away from covering a given hour entirely;
+       StartCalendarInterval pins it to real wall-clock times and launchd
+       still fires it immediately on wake if the machine was asleep through
+       one of them, instead of just skipping that slot for good. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
   <key>RunAtLoad</key>
   <true/>
 

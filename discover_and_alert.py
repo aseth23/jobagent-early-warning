@@ -27,7 +27,7 @@ import sys
 import urllib.request
 import urllib.error
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 
 REPO_DIR = os.environ.get("REPO_DIR") or os.path.dirname(os.path.abspath(__file__))
 SEEN_PATH = os.path.join(REPO_DIR, "seen_jobs.json")
@@ -654,6 +654,11 @@ def watch_live(check_url: str) -> bool:
 
 
 def main() -> int:
+    # launchd's StandardOutPath log has no per-run markers otherwise, making
+    # it impossible to tell from the log alone when (or whether) a run was
+    # missed -- e.g. because the machine was asleep at the scheduled time.
+    print(f"--- run start {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---")
+
     if not WEBHOOK and not DRY:
         print("no SLACK_WEBHOOK_URL", file=sys.stderr)
         return 2
