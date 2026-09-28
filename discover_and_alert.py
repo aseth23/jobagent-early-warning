@@ -312,7 +312,7 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      # User's in school for spring semester -- off-cycle
                      # "Winter" co-op/intern terms (common at Canadian banks,
                      # usually 4-8 months) don't fit his calendar.
-                     r"\bwinter\b|\bit internship\b|off-?cycle|"
+                     r"\bwinter\b|\bit internship\b|off-?cycle|year-?round|"
                      # explicit non-summer start dates ("January start",
                      # "Feb Start Date") -- same spring-semester conflict as
                      # Winter/off-cycle, just phrased without either word.
