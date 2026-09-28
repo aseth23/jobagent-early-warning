@@ -394,8 +394,8 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                 continue
             # keep 2027 roles, or undated ones; drop anything tagged an older year
             year_ok = "2027" in t or not re.search(r"\b202[0-6]\b", t)
-            ok = (INC.search(t) and not EXCLUDE.search(t)) if pure_investment_firm \
-                else want(t)
+            ok = (INC.search(t) and not EXCLUDE.search(t) and not is_associate_only(t)) \
+                if pure_investment_firm else want(t)
             if ok and us_ok(loc) and year_ok:
                 seen_paths.add(path)
                 # multi-brand tenants (e.g. "Prudential / PGIM") often post titles
@@ -609,7 +609,17 @@ def want(title: str) -> bool:
         return False
     if not re.search(r"\bsummer\b", t, re.I) and NON_SUMMER_DURATION.search(t):
         return False
+    if is_associate_only(t):
+        return False
     return True
+
+
+def is_associate_only(t: str) -> bool:
+    """User graduates May 2028, undergrad -- "Summer Associate" is the
+    industry-standard MBA-track title (vs. "Summer Analyst" for undergrads).
+    Only reject when the title is Associate-only; a combined "Analyst or
+    Associate" posting still has an undergrad track and stays."""
+    return bool(re.search(r"\bassociate\b", t, re.I) and not re.search(r"\banalyst\b", t, re.I))
 
 
 def canon_role(role: str, loc: str) -> str:
