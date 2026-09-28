@@ -165,6 +165,11 @@ WORKDAY = [
     # Big well-known index/asset-management names the user asked for by name.
     ("S&P Global", "spgi.wd5.myworkdayjobs.com", "spgi", "spgi_careers"),
     ("Vanguard", "vanguard.wd5.myworkdayjobs.com", "vanguard", "vanguard_external"),
+    # Elite boutique IBs, sourced from an "already applied to some of these,
+    # find me more" request.
+    ("PJT Partners", "pjtpartners.wd1.myworkdayjobs.com", "pjtpartners", "Students"),
+    ("Piper Sandler", "pipersandler.wd501.myworkdayjobs.com", "pipersandler",
+     "Piper_Sandler_Careers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -296,7 +301,7 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
                      r"\bmba\b|ph\.?d|master('?s| or)|doctoral|full[- ]time|"
                      r"new grad|experienced|\btax\b|sales enablement|"
-                     r"business development operations|\brecruit|\bhr\b|"
+                     r"business development operations|(?<!campus )\brecruit|\bhr\b|"
                      r"human resources|\bmarketing\b|\blegal\b|\bcompliance\b|"
                      r"\baudit|\baccounting\b|payroll|facilities|help ?desk|"
                      r"total rewards|investor services|certified financial planner|"
@@ -307,7 +312,11 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      # User's in school for spring semester -- off-cycle
                      # "Winter" co-op/intern terms (common at Canadian banks,
                      # usually 4-8 months) don't fit his calendar.
-                     r"\bwinter\b|\bit internship\b)", re.I)
+                     r"\bwinter\b|\bit internship\b|off-?cycle|"
+                     # explicit non-summer start dates ("January start",
+                     # "Feb Start Date") -- same spring-semester conflict as
+                     # Winter/off-cycle, just phrased without either word.
+                     r"\((?:january|february|jan|feb)[^)]*start)", re.I)
 
 # User: no restriction within the US (any state); outside the US, London,
 # Paris, and Canada are fine too -- everywhere further afield is out.
@@ -512,6 +521,48 @@ def from_cacib():
     return out
 
 
+# (label, listing_url) for firms on tal.net (StepStone/Oleeo's older ATS --
+# also server-renders full results, like TalentSoft). Deliberately left
+# EMPTY: Jefferies' listing worked fine on first fetch but started serving
+# an "oleeoProtect" JS challenge page (no real content) after a handful of
+# requests in quick succession during testing -- confirmed by re-fetching
+# the exact same URL with curl, which had worked minutes earlier. That's
+# not safe to run unattended 8x/day: a source that can rate-limit itself
+# mid-run risks silently going dark, or worse, getting flagged harder.
+# from_tal_net() is kept for a manual one-off check, just not auto-run.
+TAL_NET = []
+
+
+def from_tal_net(label, listing_url):
+    """Each result tile looks like:
+      <div class="... candidate-opp-tile" data-title="TITLE">
+        ...<a class="subject" href="APPLY_URL">TITLE</a>...
+      </div>
+    No separate location field -- the title itself always ends with the
+    city ("... - New York"), so it doubles as both title and location text.
+    Paginates via ?start=0,50,100...
+    """
+    out, seen_urls = [], set()
+    for start in range(0, 300, 50):
+        code, body, _ = fetch(f"{listing_url}?start={start}")
+        if code != 200:
+            break
+        tiles = re.findall(r'data-title="([^"]+)">.*?href="([^"]+)"', body, re.S)
+        if not tiles:
+            break
+        for title, url in tiles:
+            t = html.unescape(title)
+            if url in seen_urls:
+                continue
+            seen_urls.add(url)
+            if not want(t) or not us_ok(t):
+                continue
+            out.append((f"{label}: {t}", t, url))
+        if len(tiles) < 50:
+            break
+    return out
+
+
 def from_adp_wfn(label, cid, ccid):
     url = ("https://workforcenow.adp.com/mascsr/default/careercenter/public/"
            f"events/staffing/v1/job-requisitions?cid={cid}&lang=en_US&clientId={ccid}&fromSF=Y")
@@ -686,6 +737,8 @@ def main() -> int:
         found += from_workday(*entry)
     found += from_sig()
     found += from_cacib()
+    for label, url in TAL_NET:
+        found += from_tal_net(label, url)
     for label, cid, ccid in ADP_WFN:
         found += from_adp_wfn(label, cid, ccid)
     for label, host, sn, ui in ORACLE_HCM:
