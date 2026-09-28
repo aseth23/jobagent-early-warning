@@ -50,10 +50,12 @@ GREENHOUSE = [
     "llrpartnersjobs", "harrisassociates", "summitpartnerslp", "generalatlantic",
     "gacampus", "alpineinternships", "bvpanalyst", "leadedgecapitalmanagement",
     "levelequity", "accessholdingsmanagementfirm", "uvimco", "weissassetmanagement",
-    "twosigmainvestments", "twosigma", "citadel", "millennium", "balyasny",
+    "citadel", "millennium", "balyasny",
     "squarepointcapital", "verition", "worldquant", "sig", "imc", "drwholdings",
     "janestreet", "genevatrading",
-    "akunacapital", "wolverinetrading", "chicagotrading", "flowtraders",
+    "akunacapital", "xtxmarketstechnologies", "optiverus", "jumptrading",
+    "towerresearchcapital",
+    "wolverinetrading", "chicagotrading", "flowtraders",
     "tekionos", "insightpartnersinternship", "battery", "batteryventures",
     "spectrumequity", "jmi", "greathillpartners", "ta-associates", "psgequity",
     "mainsailpartners", "iconiqgrowth", "volitioncapital", "edisonpartners",
@@ -72,8 +74,8 @@ GREENHOUSE = [
 ]
 LEVER = [
     "harrisonst", "dadavidson", "raine", "beedie", "point72", "citadel",
-    "twosigma", "hudson-river-trading", "voleon", "quantbox", "radix-trading",
-    "tower-research-capital", "de-shaw", "thomabravo", "hig", "starwood",
+    "hudson-river-trading", "voleon", "quantbox", "radix-trading",
+    "de-shaw", "thomabravo", "hig", "starwood",
     "millennium", "exoduspoint", "schonfeld", "verition", "txse",
 ]
 ASHBY = [
@@ -111,10 +113,12 @@ NAMES = {
     "baroncapital": "Baron Capital", "virtu": "Virtu Financial", "worldquant": "WorldQuant",
     "flowtraders": "Flow Traders", "akunacapital": "Akuna Capital", "stepstone": "StepStone",
     "raine": "The Raine Group", "beedie": "Beedie Capital", "point72": "Point72",
-    "twosigma": "Two Sigma", "hudson-river-trading": "Hudson River Trading",
-    "tower-research-capital": "Tower Research Capital", "voleon": "Voleon Group",
+    "hudson-river-trading": "Hudson River Trading",
+    "towerresearchcapital": "Tower Research Capital", "voleon": "Voleon Group",
     "txse": "Texas Stock Exchange (TXSE)", "genevatrading": "Geneva Trading",
-    "janestreet": "Jane Street",
+    "janestreet": "Jane Street", "imc": "IMC Trading",
+    "xtxmarketstechnologies": "XTX Markets", "optiverus": "Optiver",
+    "jumptrading": "Jump Trading",
 }
 # Workday: (label, host, tenant, site) — the CXS /jobs search returns only open reqs,
 # so anything it returns has a working link. Covers banks in secondary US markets
