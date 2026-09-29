@@ -409,7 +409,18 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                 m = re.match(r"^([A-Za-z][A-Za-z &]{2,30}):\s*(.+)$", t)
                 if m and m.group(1).lower() in label.lower():
                     disp_t = m.group(2)
-                out.append((f"{label}: {disp_t}", loc, f"https://{host}/{site}{path}"))
+                # one extra fetch per already-qualifying job (small set) to
+                # check its full description for an SIE mention -- Workday's
+                # search results don't include description text.
+                tag = ""
+                dcode, dbody, _ = fetch(f"https://{host}/wday/cxs/{tenant}/{site}{path}")
+                if dcode == 200:
+                    try:
+                        desc = json.loads(dbody).get("jobPostingInfo", {}).get("jobDescription", "")
+                        tag = sie_tag(desc)
+                    except Exception:  # noqa: BLE001
+                        pass
+                out.append((f"{label}: {disp_t}{tag}", loc, f"https://{host}/{site}{path}"))
     return out
 
 
@@ -626,6 +637,17 @@ def is_associate_only(t: str) -> bool:
     return bool(re.search(r"\bassociate\b", t, re.I) and not re.search(r"\banalyst\b", t, re.I))
 
 
+SIE_TAG = " \U0001F3AF[SIE mentioned]"
+
+
+def sie_tag(description_text: str) -> str:
+    """User already passed the SIE (Securities Industry Essentials exam) --
+    a real edge on postings that name it (usually broker-dealer sales/
+    trading/wealth roles that require interns to sit for it). Flag it in
+    the digest so these sort out for extra attention."""
+    return SIE_TAG if re.search(r"\bSIE\b", description_text) else ""
+
+
 def canon_role(role: str, loc: str) -> str:
     """Role title with the location stripped, so 'X Intern - Chicago, IL' and
     'X Intern - Atlanta, GA' collapse to the same group key across runs/days."""
@@ -645,7 +667,9 @@ def canon_role(role: str, loc: str) -> str:
 
 
 def from_greenhouse(token):
-    code, body, _ = fetch(f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs")
+    # content=true pulls the full HTML description in the same call (no
+    # extra per-job fetch needed) so we can flag SIE mentions for free.
+    code, body, _ = fetch(f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true")
     if code != 200:
         return []
     try:
@@ -657,7 +681,7 @@ def from_greenhouse(token):
         t = j.get("title", "")
         loc = (j.get("location") or {}).get("name", "")
         if want(t) and us_ok(loc):
-            out.append((t, loc, j["absolute_url"]))
+            out.append((t + sie_tag(j.get("content", "")), loc, j["absolute_url"]))
     return out
 
 
