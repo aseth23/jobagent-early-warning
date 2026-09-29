@@ -181,6 +181,12 @@ WORKDAY = [
     ("Harris Williams", "pnc.wd5.myworkdayjobs.com", "pnc", "HarrisWilliams"),
     ("Capital Group", "capgroup.wd1.myworkdayjobs.com", "capgroup",
      "capitalgroupcareers"),
+    # User already passed the SIE and wants US broker-dealer / wealth
+    # roles specifically -- these two explicitly reference it (LPL's
+    # Wealth Advisory Group intern track has interns sit for the SIE;
+    # Ameriprise's branch network does the same for its advisor interns).
+    ("LPL Financial", "lplfinancial.wd1.myworkdayjobs.com", "lplfinancial", "University"),
+    ("Ameriprise", "ameriprise.wd5.myworkdayjobs.com", "ameriprise", "Ameriprise"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -745,6 +751,13 @@ def watch_live(check_url: str) -> bool:
                               "posting is not available", "error=true")):
         return False
     if re.search(r"[?&]error=true", final):
+        return False
+    # tal.net/Oleeo (Jefferies, Morgan Stanley) can serve a bot-check
+    # challenge page instead of the real posting -- HTTP 200, no dead-marker
+    # text, so it was silently read as "confirmed live" regardless of the
+    # posting's actual status. Treat "can't verify" as not-live rather than
+    # assume live.
+    if "quick check needed" in low or "oleeoprotect" in low:
         return False
     return True
 
