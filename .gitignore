@@ -3,5 +3,6 @@ __pycache__/
 .DS_Store
 
 launchd/verifier.log
+launchd/verifier-sie.log
 seen_jobs.json
 __pycache__/

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.armaanseth.internship-verifier-sie</string>
+
+  <!-- Supplementary hourly run: same discovery pipeline as the main 3-hour
+       job, but SIE_ONLY=1 makes it post (and mark seen) only postings that
+       mention the SIE exam, leaving everything else unseen for the main
+       job to pick up and post normally on its own schedule. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>SIE_ONLY</key>
+    <string>1</string>
+  </dict>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/armaanseth/jobagent-early-warning/discover_and_alert.py</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/armaanseth/jobagent-early-warning</string>
+
+  <!-- Every hour on the clock (offset :30 from the main job's :00 marks so
+       the two never fire at the exact same second). -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Minute</key><integer>30</integer></dict>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/armaanseth/jobagent-early-warning/launchd/verifier-sie.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/armaanseth/jobagent-early-warning/launchd/verifier-sie.log</string>
+</dict>
+</plist>

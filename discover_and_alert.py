@@ -32,6 +32,11 @@ from datetime import date, datetime
 REPO_DIR = os.environ.get("REPO_DIR") or os.path.dirname(os.path.abspath(__file__))
 SEEN_PATH = os.path.join(REPO_DIR, "seen_jobs.json")
 DRY = os.environ.get("DRY_RUN") == "1"
+# Hourly supplementary run: only post postings that mention the SIE exam,
+# and -- critically -- only mark THOSE as seen. A non-SIE posting found
+# during an SIE_ONLY run must stay unseen so the regular full run still
+# catches and posts it normally; this run is additive, not a replacement.
+SIE_ONLY = os.environ.get("SIE_ONLY") == "1"
 TODAY = date.today().isoformat()
 
 _WF = os.path.expanduser("~/.config/internship-verifier/webhook")
@@ -827,10 +832,18 @@ def main() -> int:
              if not any(a in u for a in APPLIED)]
 
     new = [(t, l, u) for (t, l, u) in found if u not in seen]
-    for t, l, u in new:
-        seen[u] = {"title": t, "first_seen": TODAY}
     # keep watchlist live ones in seen too (so they aren't "new" every run)
     fresh_watch = [(lab, loc, pub) for lab, loc, pub in watch_ok if pub not in seen]
+
+    if SIE_ONLY:
+        # Watchlist entries aren't description-checked for SIE, so they
+        # can't qualify here -- leave them untouched (unseen) for the
+        # regular run to pick up and post as usual.
+        new = [r for r in new if SIE_TAG in r[0]]
+        fresh_watch = []
+
+    for t, l, u in new:
+        seen[u] = {"title": t, "first_seen": TODAY}
     for lab, loc, pub in fresh_watch:
         seen[pub] = {"title": lab, "first_seen": TODAY}
 
@@ -838,7 +851,8 @@ def main() -> int:
         json.dump(seen, open(SEEN_PATH, "w"), indent=2)
 
     if not new and not fresh_watch:
-        print(f"no new roles ({len(found)} board hits, {len(watch_ok)} watchlist live).")
+        label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
+        print(f"no {label} ({len(found)} board hits, {len(watch_ok)} watchlist live).")
         return 0
 
     # bank / IB / AM / ER / PE summer-analyst roles first, everything else after
@@ -868,8 +882,11 @@ def main() -> int:
                 out.append(f"  …+{len(items) - 6} more (in seen_jobs.json)")
         return out
 
-    lines = [f":mag: {len(new) + len(fresh_watch)} new live internship(s) — "
-             f"links checked {TODAY}"]
+    header = (f":dart: {len(new)} live internship(s) mentioning the SIE exam — "
+              f"links checked {TODAY}") if SIE_ONLY else (
+             f":mag: {len(new) + len(fresh_watch)} new live internship(s) — "
+             f"links checked {TODAY}")
+    lines = [header]
     if pri:
         lines.append("\n*Bank / IB / AM / research / PE:*")
         lines += render_group(pri)
@@ -886,7 +903,8 @@ def main() -> int:
     urllib.request.urlopen(urllib.request.Request(
         WEBHOOK, data=json.dumps({"text": text}).encode(),
         headers={"Content-Type": "application/json"}), timeout=20).read()
-    print(f"posted {len(new) + len(fresh_watch)} new roles.")
+    label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
+    print(f"posted {len(new) + len(fresh_watch)} {label}.")
     return 0
 
 
