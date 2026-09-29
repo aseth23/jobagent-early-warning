@@ -187,6 +187,10 @@ WORKDAY = [
     # Ameriprise's branch network does the same for its advisor interns).
     ("LPL Financial", "lplfinancial.wd1.myworkdayjobs.com", "lplfinancial", "University"),
     ("Ameriprise", "ameriprise.wd5.myworkdayjobs.com", "ameriprise", "Ameriprise"),
+    # Vault 2026 Most Prestigious Banking Firms cross-reference (2026-09-29).
+    ("Guggenheim Securities", "guggenheim.wd1.myworkdayjobs.com", "guggenheim",
+     "Guggenheim_Careers_Campus"),
+    ("Deutsche Bank", "db.wd3.myworkdayjobs.com", "db", "DBWebsite"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -624,6 +628,14 @@ MASTERS = re.compile(r"(\bmba\b|ph\.?d|master('?s| or)|doctoral)", re.I)
 # pattern when "summer" is absent from the title.
 NON_SUMMER_DURATION = re.compile(r"\b\d{1,2}[\s-]months?\b", re.I)
 
+# Same idea, different phrasing: a rotational-track title can spell out its
+# actual window ("January - June", "September - December") instead of using
+# a month-count or the words winter/off-cycle. Any named non-summer month
+# means the track doesn't run purely June-August -- reject unless "summer"
+# is also in the title (covers "Summer 2027 (June - August)"-style ones).
+NON_SUMMER_MONTH = re.compile(
+    r"\b(january|february|march|april|september|october|november|december)\b", re.I)
+
 
 def want(title: str) -> bool:
     if not (INC.search(title) and INVEST.search(title)):
@@ -636,6 +648,8 @@ def want(title: str) -> bool:
     if EXCLUDE.search(t):
         return False
     if not re.search(r"\bsummer\b", t, re.I) and NON_SUMMER_DURATION.search(t):
+        return False
+    if not re.search(r"\bsummer\b", t, re.I) and NON_SUMMER_MONTH.search(t):
         return False
     if is_associate_only(t):
         return False
