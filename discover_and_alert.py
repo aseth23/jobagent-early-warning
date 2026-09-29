@@ -174,6 +174,13 @@ WORKDAY = [
     ("PJT Partners", "pjtpartners.wd1.myworkdayjobs.com", "pjtpartners", "Students"),
     ("Piper Sandler", "pipersandler.wd501.myworkdayjobs.com", "pipersandler",
      "Piper_Sandler_Careers"),
+    # "go find new companies" sweep (2026-09-28).
+    ("Barclays", "barclays.wd3.myworkdayjobs.com", "barclays",
+     "External_Career_Site_Barclays"),
+    # Harris Williams is a PNC subsidiary and posts on PNC's own Workday tenant.
+    ("Harris Williams", "pnc.wd5.myworkdayjobs.com", "pnc", "HarrisWilliams"),
+    ("Capital Group", "capgroup.wd1.myworkdayjobs.com", "capgroup",
+     "capitalgroupcareers"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
