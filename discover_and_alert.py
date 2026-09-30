@@ -47,6 +47,11 @@ if not WEBHOOK and os.path.exists(_WF):
 UA = {"User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                      "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36")}
 
+# Defined early so WATCHLIST entries (below) can embed it directly for firms
+# manually confirmed to mention the SIE exam, same as sie_tag() applies
+# automatically for description-checked sources.
+SIE_TAG = " \U0001F3AF[SIE mentioned]"
+
 # ---- firm -> ATS board token -------------------------------------------------
 GREENHOUSE = [
     "readystate", "drweng", "virtu", "walleyecapital-external-students",
@@ -152,8 +157,11 @@ WORKDAY = [
      "americancentury", "AmericanCenturyInvestments", True),
     ("TD Bank", "td.wd3.myworkdayjobs.com", "td", "TD_Bank_Careers"),
     ("Northern Trust", "ntrs.wd1.myworkdayjobs.com", "ntrs", "northerntrust"),
+    # "alliancebernsteincareers" (the original site slug here) is a dead/empty
+    # board -- always returns 0 jobs. The real, active campus board is
+    # "abcampuscareers", found 2026-09-29 from a user-supplied posting link.
     ("AllianceBernstein", "abglobal.wd1.myworkdayjobs.com", "abglobal",
-     "alliancebernsteincareers"),
+     "abcampuscareers"),
     ("Invesco", "invesco.wd1.myworkdayjobs.com", "invesco", "IVZ"),
     ("Neuberger Berman", "nb.wd1.myworkdayjobs.com", "nb", "NBCareers"),
     ("Leerink Partners", "leerink.wd5.myworkdayjobs.com", "leerink", "leerinkpartners"),
@@ -209,6 +217,12 @@ PRIORITY = re.compile(
 
 # ---- specific postings on ATSes without a clean board API ------------------
 WATCHLIST = [
+    # UBS runs on Taleo (jobs.ubs.com/TGnewUI/...) -- not a platform with a
+    # clean JSON API like the others, so this specific user-found posting is
+    # watchlisted individually rather than built out as a full scraper.
+    (f"UBS — 2027 Summer Internship Program, Wealth Advice Center{SIE_TAG}", "Weehawken, NJ",
+     "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&jobid=350294&partnerid=25008&siteid=5131",
+     "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&jobid=350294&partnerid=25008&siteid=5131"),
     ("PGIM — 2027 Public Credit Summer Investment Analyst (PAG)", "Newark, NJ",
      "https://pru.wd5.myworkdayjobs.com/wday/cxs/pru/Careers/job/Newark-NJ-USA/PGIM--2027-Public-Credit--Summer-Investment-Analyst-Program--Portfolio-Analysis-Group-_R-124835-2",
      "https://pru.wd5.myworkdayjobs.com/Careers/job/Newark-NJ-USA/PGIM--2027-Public-Credit--Summer-Investment-Analyst-Program--Portfolio-Analysis-Group-_R-124835-2"),
@@ -669,9 +683,6 @@ def is_associate_only(t: str) -> bool:
     return bool(re.search(r"\bassociate\b", t, re.I) and not re.search(r"\banalyst\b", t, re.I))
 
 
-SIE_TAG = " \U0001F3AF[SIE mentioned]"
-
-
 def sie_tag(description_text: str) -> str:
     """User already passed the SIE (Securities Industry Essentials exam) --
     a real edge on postings that name it (usually broker-dealer sales/
@@ -730,7 +741,8 @@ def from_lever(token):
         t = p.get("text", "")
         loc = (p.get("categories") or {}).get("location", "")
         if want(t) and us_ok(loc):
-            out.append((t, loc, p["hostedUrl"]))
+            desc = p.get("descriptionPlain", "") or p.get("description", "")
+            out.append((t + sie_tag(desc), loc, p["hostedUrl"]))
     return out
 
 
@@ -836,11 +848,13 @@ def main() -> int:
     fresh_watch = [(lab, loc, pub) for lab, loc, pub in watch_ok if pub not in seen]
 
     if SIE_ONLY:
-        # Watchlist entries aren't description-checked for SIE, so they
-        # can't qualify here -- leave them untouched (unseen) for the
-        # regular run to pick up and post as usual.
+        # Watchlist entries aren't description-checked for SIE automatically,
+        # but a few are manually confirmed and carry SIE_TAG in their label
+        # already (see WATCHLIST) -- those still qualify here. Any watchlist
+        # entry without the tag is left untouched (unseen) for the regular
+        # run to pick up and post as usual.
         new = [r for r in new if SIE_TAG in r[0]]
-        fresh_watch = []
+        fresh_watch = [r for r in fresh_watch if SIE_TAG in r[0]]
 
     for t, l, u in new:
         seen[u] = {"title": t, "first_seen": TODAY}
