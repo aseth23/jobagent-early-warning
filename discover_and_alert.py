@@ -227,6 +227,20 @@ WORKDAY = [
     # reasoning as Ares/American Century: bypass the INVEST keyword check.
     ("Texas Capital Bank", "texascapitalbank.wd12.myworkdayjobs.com",
      "texascapitalbank", "Careers", True),
+    # Found via a broad myworkdayjobs.com-scoped search across the user's
+    # interest categories rather than researching one firm at a time
+    # (2026-10-03).
+    ("Arrowstreet Capital", "arrowstreetcapital.wd5.myworkdayjobs.com",
+     "arrowstreetcapital", "Campus_Careers"),
+    ("JLL", "jll.wd1.myworkdayjobs.com", "jll", "jllcareers"),
+    # NOTE: NY Fed's own board ("rb.wd5.myworkdayjobs.com/FRS") also covers
+    # several other regional Federal Reserve Banks (St. Louis postings show
+    # up on the same tenant). Their flagship "Markets Group" internship
+    # (open-market-operations desk -- exactly the kind of role the user
+    # wants) doesn't match INVEST because the title only says "Markets
+    # Group", not "capital markets"/"global markets". Not broadening INVEST
+    # for one tenant's naming quirk; "Research Group" postings still match.
+    ("Federal Reserve", "rb.wd5.myworkdayjobs.com", "rb", "FRS"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
