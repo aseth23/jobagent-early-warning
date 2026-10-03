@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 import urllib.error
 from collections import defaultdict
@@ -867,14 +868,6 @@ def main() -> int:
         new = [r for r in new if SIE_TAG in r[0]]
         fresh_watch = [r for r in fresh_watch if SIE_TAG in r[0]]
 
-    for t, l, u in new:
-        seen[u] = {"title": t, "first_seen": TODAY}
-    for lab, loc, pub in fresh_watch:
-        seen[pub] = {"title": lab, "first_seen": TODAY}
-
-    if not DRY:
-        json.dump(seen, open(SEEN_PATH, "w"), indent=2)
-
     if not new and not fresh_watch:
         label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
         print(f"no {label} ({len(found)} board hits, {len(watch_ok)} watchlist live).")
@@ -925,9 +918,39 @@ def main() -> int:
     if DRY:
         print(text)
         return 0
-    urllib.request.urlopen(urllib.request.Request(
-        WEBHOOK, data=json.dumps({"text": text}).encode(),
-        headers={"Content-Type": "application/json"}), timeout=20).read()
+
+    # Mark these seen ONLY after a confirmed successful post. A transient
+    # failure here (classic case: DNS isn't back up yet right after the
+    # machine wakes from sleep) must never silently swallow roles -- if we
+    # marked them seen before posting and the post then failed, they'd be
+    # gone for good (seen forever, delivered never). Retry a couple of
+    # times for transient blips; if it still fails, leave everything unseen
+    # so the next scheduled run picks these back up instead of losing them.
+    posted = False
+    last_err = None
+    for attempt in range(3):
+        try:
+            urllib.request.urlopen(urllib.request.Request(
+                WEBHOOK, data=json.dumps({"text": text}).encode(),
+                headers={"Content-Type": "application/json"}), timeout=20).read()
+            posted = True
+            break
+        except Exception as e:  # noqa: BLE001
+            last_err = e
+            if attempt < 2:
+                time.sleep(5 * (attempt + 1))
+
+    if not posted:
+        print(f"ERROR: Slack post failed after 3 attempts, nothing marked seen: "
+              f"{last_err}", file=sys.stderr)
+        return 1
+
+    for t, l, u in new:
+        seen[u] = {"title": t, "first_seen": TODAY}
+    for lab, loc, pub in fresh_watch:
+        seen[pub] = {"title": lab, "first_seen": TODAY}
+    json.dump(seen, open(SEEN_PATH, "w"), indent=2)
+
     label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
     print(f"posted {len(new) + len(fresh_watch)} {label}.")
     return 0
