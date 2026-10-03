@@ -204,6 +204,17 @@ WORKDAY = [
     ("Guggenheim Securities", "guggenheim.wd1.myworkdayjobs.com", "guggenheim",
      "Guggenheim_Careers_Campus"),
     ("Deutsche Bank", "db.wd3.myworkdayjobs.com", "db", "DBWebsite"),
+    # Regional banks + TIAA/Nuveen (2026-10-02 sweep).
+    ("US Bank", "usbank.wd1.myworkdayjobs.com", "usbank", "US_Bank_Careers"),
+    ("Huntington", "huntington.wd12.myworkdayjobs.com", "huntington", "HNBcareers"),
+    ("M&T Bank", "mtb.wd5.myworkdayjobs.com", "mtb", "Campus"),
+    # NOTE: TIAA/Nuveen titles its internship cohort "20XX Early Talent
+    # Rotational Program" with no "intern"/"internship" word anywhere in the
+    # title, so it doesn't match INC even though the underlying program is a
+    # real 10-week undergrad summer internship. Wired in anyway for whatever
+    # non-rotational-program postings it does catch; the rotational-program
+    # titles are a known, disclosed gap, not a silent miss.
+    ("TIAA/Nuveen", "tiaa.wd1.myworkdayjobs.com", "tiaa", "Search"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
