@@ -23,6 +23,7 @@ import html
 import json
 import os
 import re
+import signal
 import sys
 import time
 import urllib.request
@@ -956,5 +957,25 @@ def main() -> int:
     return 0
 
 
+class _Watchdog(Exception):
+    pass
+
+
+def _alarm_handler(signum, frame):  # noqa: ARG001
+    raise _Watchdog("run exceeded the 15-minute hard limit")
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    # Per-request timeouts (fetch()/post_json()) don't always cover every
+    # hang mode -- seen twice in one day: a single request stalling for
+    # over an hour despite its stated timeout (once on an RBC call, once on
+    # a scheduled run that had to be killed by hand). A hard wall-clock
+    # ceiling on the whole run means a future hang fails loud and fast
+    # instead of silently blocking every scheduled run after it.
+    signal.signal(signal.SIGALRM, _alarm_handler)
+    signal.alarm(900)
+    try:
+        sys.exit(main())
+    except _Watchdog as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)
