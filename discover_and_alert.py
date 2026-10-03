@@ -219,6 +219,14 @@ WORKDAY = [
     # non-rotational-program postings it does catch; the rotational-program
     # titles are a known, disclosed gap, not a silent miss.
     ("TIAA/Nuveen", "tiaa.wd1.myworkdayjobs.com", "tiaa", "Search"),
+    ("Brookfield", "brookfield.wd5.myworkdayjobs.com", "brookfield", "brookfield"),
+    # Texas Capital Bank's one Summer Analyst posting is titled generically
+    # ("2027 Summer Analyst (Internship)", no department named) but its
+    # description is credit analysis / commercial banking / transaction
+    # structuring -- the bank's whole business, not a side function. Same
+    # reasoning as Ares/American Century: bypass the INVEST keyword check.
+    ("Texas Capital Bank", "texascapitalbank.wd12.myworkdayjobs.com",
+     "texascapitalbank", "Careers", True),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
