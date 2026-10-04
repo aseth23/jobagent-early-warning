@@ -73,7 +73,7 @@ GREENHOUSE = [
     "mainsailpartners", "iconiqgrowth", "volitioncapital", "edisonpartners",
     "vistaequitypartners", "thomabravo", "kkr", "carlyle", "apollo",
     "warburgpincus", "silverlake", "hgcapital", "generalcatalyst", "bain",
-    "tpgcareers",
+    "tpgcareers", "aquaticcapitalmanagement",
     # long-only / fundamental asset management, equity & fixed-income research
     "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
     "adamsstreetpartners", "mangroup",
@@ -128,7 +128,7 @@ NAMES = {
     "raine": "The Raine Group", "beedie": "Beedie Capital", "point72": "Point72",
     "hudson-river-trading": "Hudson River Trading",
     "towerresearchcapital": "Tower Research Capital", "voleon": "Voleon Group",
-    "tpgcareers": "TPG",
+    "tpgcareers": "TPG", "aquaticcapitalmanagement": "Aquatic Capital Management",
     "txse": "Texas Stock Exchange (TXSE)", "genevatrading": "Geneva Trading",
     "janestreet": "Jane Street", "imc": "IMC Trading",
     "xtxmarketstechnologies": "XTX Markets", "optiverus": "Optiver",
@@ -241,6 +241,9 @@ WORKDAY = [
     # Group", not "capital markets"/"global markets". Not broadening INVEST
     # for one tenant's naming quirk; "Research Group" postings still match.
     ("Federal Reserve", "rb.wd5.myworkdayjobs.com", "rb", "FRS"),
+    # Found via a Handshake public-posting search (2026-10-04).
+    ("Western Alliance Bank", "westernalliancebank.wd5.myworkdayjobs.com",
+     "westernalliancebank", "WAB"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
