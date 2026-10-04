@@ -76,6 +76,8 @@ GREENHOUSE = [
     "vistaequitypartners", "thomabravo", "kkr", "carlyle",
     "warburgpincus", "silverlake", "hgcapital", "generalcatalyst", "bain",
     "robinhood",
+    # Variety sweep (2026-10-04): deliberately many firms, few roles each.
+    "capstoneinvestmentadvisors", "harrisprivatejobboard", "brileysecurities",
     "tpgcareers", "aquaticcapitalmanagement",
     # long-only / fundamental asset management, equity & fixed-income research
     "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
@@ -89,6 +91,7 @@ GREENHOUSE = [
     "solomonpartnersstudentsgraduates", "lincolninternational",
 ]
 LEVER = [
+    "hcvt", "brightonjones", "bellwetheram-2", "cimgroup",
     "harrisonst", "dadavidson", "raine", "beedie", "point72", "citadel",
     "hudson-river-trading", "voleon", "quantbox", "radix-trading",
     "de-shaw", "thomabravo", "hig", "starwood",
@@ -132,6 +135,10 @@ NAMES = {
     "hudson-river-trading": "Hudson River Trading",
     "towerresearchcapital": "Tower Research Capital", "voleon": "Voleon Group",
     "tpgcareers": "TPG", "aquaticcapitalmanagement": "Aquatic Capital Management",
+    "capstoneinvestmentadvisors": "Capstone Investment Advisors",
+    "harrisprivatejobboard": "Harris Associates", "brileysecurities": "B. Riley Securities",
+    "hcvt": "HCVT", "brightonjones": "Brighton Jones",
+    "bellwetheram-2": "Bellwether Asset Management", "cimgroup": "CIM Group",
     "txse": "Texas Stock Exchange (TXSE)", "genevatrading": "Geneva Trading",
     "janestreet": "Jane Street", "imc": "IMC Trading",
     "xtxmarketstechnologies": "XTX Markets", "optiverus": "Optiver",
@@ -758,16 +765,26 @@ def canon_role(role: str, loc: str) -> str:
     """Role title with the location stripped, so 'X Intern - Chicago, IL' and
     'X Intern - Atlanta, GA' collapse to the same group key across runs/days."""
     t = role
-    frags = [f.strip() for f in re.split(r"[,/]", loc or "") if f.strip()]
-    city = next((f for f in frags if len(f) > 2
-                and f.upper() not in ("USA", "US", "UK")), None)
-    if city:
-        state = next((f for f in frags if re.fullmatch(r"[A-Z]{2}", f)), None)
-        pat = re.escape(city) + (rf"(\s*,\s*{re.escape(state)})?" if state else "")
-        t = re.sub(rf"[\s,\-–—(]*{pat}[\s,)]*", " ", t, flags=re.I)
+    # Split on hyphens too: some boards report a raw facility string rather
+    # than a clean city ("US-IL-Chicago-10 SWacker-3100"), which otherwise
+    # matches nothing in the title and fragments one role into many lines.
+    frags = [f.strip() for f in re.split(r"[,/\-]", loc or "") if f.strip()]
+    cands = [f for f in frags if len(f) > 2 and f.upper() not in ("USA", "US", "UK")
+             and not re.fullmatch(r"[\d\s]+", f)]
+    for c in sorted(set(cands), key=len, reverse=True):  # longest first
+        t = re.sub(rf"[\s,\-–—(]*{re.escape(c)}[\s,)]*", " ", t, flags=re.I)
+    # a city named only in the title's trailing parenthetical
+    t = re.sub(r",\s*[A-Z][A-Za-z .]+(?=\s*\))", "", t)
+    # state codes left stranded by a stripped city
+    for st in [f for f in frags if re.fullmatch(r"[A-Z]{2}", f)]:
+        t = re.sub(rf"[\s,\-–—(]*\b{st}\b[\s,)]*", " ", t)
+    # a parenthetical reduced to just a season/year carries no grouping signal
+    t = re.sub(r"\(\s*(summer|fall|spring|winter)?\s*20\d\d\s*\)", "", t, flags=re.I)
     t = re.sub(r"\(\s*\)", "", t)
     if t.count("(") > t.count(")"):
         t = re.sub(r"\([^()]*$", "", t)  # drop an unmatched trailing "("
+    if t.count(")") > t.count("("):
+        t = re.sub(r"\s*\)\s*$", "", t)  # ...or a stranded trailing ")"
     t = re.sub(r"\s{2,}", " ", t).strip(" ,-–—")
     return t or role
 
