@@ -148,15 +148,21 @@ WORKDAY = [
     ("Blackstone", "blackstone.wd1.myworkdayjobs.com", "blackstone",
      "Blackstone_Campus_Careers"),
     ("Barings", "barings.wd1.myworkdayjobs.com", "barings", "Barings"),
-    ("PGIM / Prudential", "pru.wd5.myworkdayjobs.com", "pru", "Careers"),
+    # (Prudential/PGIM is listed once further down -- this duplicate of the
+    # same tenant+site was scanning the identical board twice every run.)
     ("Fifth Third", "fifththird.wd5.myworkdayjobs.com", "fifththird", "53careers"),
     ("Citi", "citi.wd5.myworkdayjobs.com", "citi", "2"),
+    # "RaymondJamesCareers" is their experienced-hire board and returns 0
+    # student roles -- the campus postings live on a separate site. Same
+    # trap as AllianceBernstein's dead "alliancebernsteincareers" slug.
     ("Raymond James", "raymondjames.wd1.myworkdayjobs.com", "raymondjames",
-     "RaymondJamesCareers"),
+     "RaymondJamesEarlyCareers"),
     ("Dimensional Fund Advisors", "dimensional.wd5.myworkdayjobs.com",
      "dimensional", "DFA_Careers"),
     ("Ares Management", "aresmgmt.wd1.myworkdayjobs.com", "aresmgmt", "External", True),
-    ("Houlihan Lokey", "hl.wd1.myworkdayjobs.com", "hl", "External"),
+    # "External" is the experienced-hire board (0 postings); all 22 of their
+    # student roles sit on "Campus".
+    ("Houlihan Lokey", "hl.wd1.myworkdayjobs.com", "hl", "Campus"),
     ("American Century Investments", "americancentury.wd5.myworkdayjobs.com",
      "americancentury", "AmericanCenturyInvestments", True),
     ("TD Bank", "td.wd3.myworkdayjobs.com", "td", "TD_Bank_Careers"),
@@ -244,6 +250,9 @@ WORKDAY = [
     # Found via a Handshake public-posting search (2026-10-04).
     ("Western Alliance Bank", "westernalliancebank.wd5.myworkdayjobs.com",
      "westernalliancebank", "WAB"),
+    # Earlier "capitalone" guess for the Workday portal was never verified;
+    # real tenant found via the login-page redirect on capitalonecareers.com.
+    ("Capital One", "capitalone.wd12.myworkdayjobs.com", "capitalone", "Capital_One"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
@@ -357,7 +366,12 @@ INC = re.compile(r"\b(intern|internship|co-?op|apprentice)\b|"
                  # "summer analyst"/"summer associate" but many boards interject
                  # a year in between ("Summer 2027 Analyst") or reverse the
                  # order ("Analyst, Summer 2027") -- match either shape.
-                 r"summer\s*(?:20\d\d\s*)?(?:analyst|associate)\b|"
+                 # ...and one optional word may sit between: Houlihan Lokey
+                 # posts "Summer Financial Analyst", Baird "Summer Equity
+                 # Analyst". INVEST + EXCLUDE still gate relevance, so this
+                 # stays tight (Summer Marketing/HR/Technology Analyst all
+                 # still fail).
+                 r"summer\s*(?:20\d\d\s*)?(?:\w+\s+)?(?:analyst|associate)\b|"
                  r"(?:analyst|associate),?\s*summer\s*20\d\d\b", re.I)
 # NOTE: no bare "analyst" here (RBC/BNY's non-investment tracks -- Procurement,
 # QA, Investigation, generic corporate "Data/Business Analyst Intern" -- all
