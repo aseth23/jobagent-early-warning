@@ -71,8 +71,11 @@ GREENHOUSE = [
     "tekionos", "insightpartnersinternship", "battery", "batteryventures",
     "spectrumequity", "jmi", "greathillpartners", "ta-associates", "psgequity",
     "mainsailpartners", "iconiqgrowth", "volitioncapital", "edisonpartners",
-    "vistaequitypartners", "thomabravo", "kkr", "carlyle", "apollo",
+    # ("apollo" removed -- valid Greenhouse board but permanently empty;
+    #  Apollo actually recruits on Workday, wired below.)
+    "vistaequitypartners", "thomabravo", "kkr", "carlyle",
     "warburgpincus", "silverlake", "hgcapital", "generalcatalyst", "bain",
+    "robinhood",
     "tpgcareers", "aquaticcapitalmanagement",
     # long-only / fundamental asset management, equity & fixed-income research
     "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
@@ -253,6 +256,12 @@ WORKDAY = [
     # Earlier "capitalone" guess for the Workday portal was never verified;
     # real tenant found via the login-page redirect on capitalonecareers.com.
     ("Capital One", "capitalone.wd12.myworkdayjobs.com", "capitalone", "Capital_One"),
+    # US-focused sweep (2026-10-04).
+    ("Corient", "ci.wd3.myworkdayjobs.com", "ci", "CORIENT_EXTERNAL_CAREER-SITE"),
+    # Apollo runs on Athene's Workday tenant; "Apollo_Careers" is empty, the
+    # live campus postings are on "apollononpubliccareersite".
+    ("Apollo", "athene.wd5.myworkdayjobs.com", "athene", "apollononpubliccareersite"),
+    ("Oaktree Capital", "oaktree.wd1.myworkdayjobs.com", "oaktree", "Oaktree"),
 ]
 
 # Roles like the user wants front-and-centre: bank / IB / credit / equity research /
