@@ -460,7 +460,12 @@ def us_ok(loc: str) -> bool:
 def fetch(url, timeout=15):
     try:
         r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout)
-        return r.status, r.read(1500000).decode("utf-8", "replace"), r.geturl()
+        # 8MB: Greenhouse boards fetched with content=true carry every job
+        # description inline and several (Optiver 2.8MB, Robinhood 2.0MB,
+        # Point72 1.8MB, DRW 1.6MB) blew past the old 1.5MB cap -- the
+        # truncated JSON then failed to parse and the broad except below
+        # turned it into a silent empty result for those whole firms.
+        return r.status, r.read(8_000_000).decode("utf-8", "replace"), r.geturl()
     except urllib.error.HTTPError as e:
         return e.code, "", url
     except Exception as e:  # noqa: BLE001
