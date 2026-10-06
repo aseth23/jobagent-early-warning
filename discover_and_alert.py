@@ -1061,7 +1061,12 @@ def main() -> int:
     return 0
 
 
-class _Watchdog(Exception):
+# BaseException, NOT Exception: the per-source fetch loops are wrapped in
+# broad `except Exception` handlers (12 of them) so one dead board can't kill
+# a whole run. An Exception-derived watchdog gets swallowed by whichever fetch
+# is in flight when SIGALRM fires, so the alarm did nothing and runs could
+# still hang for 50+ minutes. BaseException passes straight through them.
+class _Watchdog(BaseException):
     pass
 
 
