@@ -6,3 +6,4 @@ launchd/verifier.log
 launchd/verifier-sie.log
 seen_jobs.json
 __pycache__/
+.run.lock
