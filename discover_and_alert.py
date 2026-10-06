@@ -78,6 +78,10 @@ GREENHOUSE = [
     "robinhood",
     # Variety sweep (2026-10-04): deliberately many firms, few roles each.
     "capstoneinvestmentadvisors", "harrisprivatejobboard", "brileysecurities",
+    # Non-quant buy-side sweep (2026-10-06) -- the Point72 "Investment
+    # Services" / DRW "Venture Capital Analyst" profile he liked.
+    "dforeferrals", "freestonecapitalmanagement", "g2vp",
+    "bridgewatercampusrecruiting", "aqtechnologypartners",
     "tpgcareers", "aquaticcapitalmanagement",
     # long-only / fundamental asset management, equity & fixed-income research
     "aqr", "stepstone", "williamblair", "artisanpartners", "baroncapital",
@@ -139,6 +143,10 @@ NAMES = {
     "harrisprivatejobboard": "Harris Associates", "brileysecurities": "B. Riley Securities",
     "hcvt": "HCVT", "brightonjones": "Brighton Jones",
     "bellwetheram-2": "Bellwether Asset Management", "cimgroup": "CIM Group",
+    "dforeferrals": "Dalio Family Office", "g2vp": "G2 Venture Partners",
+    "freestonecapitalmanagement": "Freestone Capital Management",
+    "bridgewatercampusrecruiting": "Bridgewater Associates",
+    "aqtechnologypartners": "AQ Technology Partners",
     "txse": "Texas Stock Exchange (TXSE)", "genevatrading": "Geneva Trading",
     "janestreet": "Jane Street", "imc": "IMC Trading",
     "xtxmarketstechnologies": "XTX Markets", "optiverus": "Optiver",
@@ -924,7 +932,9 @@ def main() -> int:
 
     # already applied — never re-surface (match on gh_jid / stable URL fragment)
     APPLIED = ("gh_jid=7895583", "gh_jid=7895562", "gh_jid=8041362",  # AQR SA roles
-               "joinhandshake.com/public/jobs/11015271")               # StepStone PE Infra
+               "joinhandshake.com/public/jobs/11015271",               # StepStone PE Infra
+               "point72/jobs/8811167002",   # Point72 Investment Services (applied Sep)
+               "drweng/jobs/7993004")       # DRW Venture Capital Analyst (applied Sep)
     found = [(t, l, u) for (t, l, u) in found
              if not any(a in u for a in APPLIED)]
 
