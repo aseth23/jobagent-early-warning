@@ -93,6 +93,10 @@ GREENHOUSE = [
     "kayneanderson", "bayviewassetmanagement", "citadel", "millennium",
     "balyasny", "verition", "hbk", "elliottmanagement", "d1capital",
     "solomonpartnersstudentsgraduates", "lincolninternational",
+    # multi-family offices / outsourced CIO + VC & growth equity
+    "pathstone", "bbrpartners", "bessemerventurepartners", "eqtpartners",
+    # university endowments / insurance asset management
+    "yaleinvestmentsoffice", "rothesaygraduates", "focuspartnerswealth",
 ]
 LEVER = [
     "hcvt", "brightonjones", "bellwetheram-2", "cimgroup",
@@ -151,6 +155,12 @@ NAMES = {
     "janestreet": "Jane Street", "imc": "IMC Trading",
     "xtxmarketstechnologies": "XTX Markets", "optiverus": "Optiver",
     "jumptrading": "Jump Trading",
+    "uvimco": "UVIMCO (UVA Investment Management Co.)",
+    "pathstone": "Pathstone", "bbrpartners": "BBR Partners",
+    "bessemerventurepartners": "Bessemer Venture Partners",
+    "eqtpartners": "EQT Partners",
+    "yaleinvestmentsoffice": "Yale Investments Office",
+    "rothesaygraduates": "Rothesay", "focuspartnerswealth": "Focus Partners Wealth",
 }
 # Workday: (label, host, tenant, site) — the CXS /jobs search returns only open reqs,
 # so anything it returns has a working link. Covers banks in secondary US markets
@@ -396,7 +406,7 @@ INC = re.compile(r"\b(intern|internship|co-?op|apprentice)\b|"
                  # stays tight (Summer Marketing/HR/Technology Analyst all
                  # still fail).
                  r"summer\s*(?:20\d\d\s*)?(?:\w+\s+)?(?:analyst|associate)\b|"
-                 r"(?:analyst|associate),?\s*summer\s*20\d\d\b", re.I)
+                 r"(?:analyst|associate)[\s,–—-]*summer\s*20\d\d\b", re.I)
 # NOTE: no bare "analyst" here (RBC/BNY's non-investment tracks -- Procurement,
 # QA, Investigation, generic corporate "Data/Business Analyst Intern" -- all
 # have "analyst" in the title too, and INC's own "summer analyst" phrase
@@ -406,7 +416,7 @@ INVEST = re.compile(r"(invest(?!igat)|equit|credit|private equity|growth equity|
                     r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
                     r"buyout|secondar|infrastructure|real estate|\brealty\b|fixed income|"
                     r"\bmacro\b|trading|\bdeal|diligence|asset manage|"
-                    r"wealth manage|\bwealth\b|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
+                    r"wealth manage|\bwealth\b|\badvisor|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
                     r"commercial bank|corporate bank|global markets|transaction bank|"
                     r"m&a|merger|valuation|leveraged finance|restructuring|"
                     r"structured finance|underwrit|direct lending|senior lending|"
@@ -747,7 +757,19 @@ def want(title: str) -> bool:
     # grad-degree wording before applying EXCLUDE so it doesn't drop them.
     if re.search(r"undergrad", t, re.I):
         t = MASTERS.sub("", t)
+    # co-op is EXCLUDEd wholesale because co-op terms are normally 4-6 months
+    # off-cycle (Weiss posts "Investment Operations Co-op" = Jan-June), but an
+    # explicitly *summer* co-op is just a summer internship -- keep those.
+    if re.search(r"\bsummer\b", t, re.I):
+        t = re.sub(r"\bco-?op\b", "", t, flags=re.I)
     if EXCLUDE.search(t):
+        return False
+    # A multi-month term is disqualifying even when the title says "Summer":
+    # BMO posts "... Summer 2027 (Co-op/Internship) - 12 months", which is a
+    # year-long placement, not a summer break. 4-month Canadian co-ops
+    # (May-Aug) do fit the summer, so only >=6 months is rejected outright.
+    mo = re.search(r"\b(\d{1,2})[\s-]months?\b", t, re.I)
+    if mo and int(mo.group(1)) >= 6:
         return False
     if not re.search(r"\bsummer\b", t, re.I) and NON_SUMMER_DURATION.search(t):
         return False
