@@ -19,6 +19,7 @@ Config (env):
 """
 from __future__ import annotations
 
+import fcntl
 import html
 import json
 import os
@@ -745,6 +746,14 @@ NON_SUMMER_DURATION = re.compile(r"\b\d{1,2}[\s-]months?\b", re.I)
 # a month-count or the words winter/off-cycle. Any named non-summer month
 # means the track doesn't run purely June-August -- reject unless "summer"
 # is also in the title (covers "Summer 2027 (June - August)"-style ones).
+# "Class of 2028" / "2028 Grads" / "Grad Year 2028" name the *graduation*
+# year, not the program year -- D.A. Davidson titles its Summer 2027 analyst
+# roles this way, and the user graduates May 2028, so these are exactly the
+# postings he wants. Distinguish them from a program that *runs* in 2028.
+GRAD_YEAR = re.compile(r"class of\s*20\d\d|20\d\d\s*grad|"
+                       r"grad(?:uation)?\s*year\s*20\d\d|"
+                       r"graduating\s*(?:in\s*)?20\d\d", re.I)
+
 NON_SUMMER_MONTH = re.compile(
     r"\b(january|february|march|april|september|october|november|december)\b", re.I)
 
@@ -770,6 +779,15 @@ def want(title: str) -> bool:
     # (May-Aug) do fit the summer, so only >=6 months is rejected outright.
     mo = re.search(r"\b(\d{1,2})[\s-]months?\b", t, re.I)
     if mo and int(mo.group(1)) >= 6:
+        return False
+    # User graduates May 2028, so a program that *runs* in summer 2028 or
+    # later is post-graduation and useless (Rothesay's New York posting is
+    # titled "Summer Internship - 2028" and runs June-Aug 2028). Only reject
+    # when no 2027 is present, so "Summer 2027 Internship (Class of 2028)"
+    # -- where 2028 is the graduation year, not the program year -- stays.
+    if (re.search(r"\b20(?:2[89]|[3-9]\d)\b", t)
+            and not re.search(r"\b2027\b", t)
+            and not GRAD_YEAR.search(t)):
         return False
     if not re.search(r"\bsummer\b", t, re.I) and NON_SUMMER_DURATION.search(t):
         return False
@@ -908,11 +926,29 @@ def watch_live(check_url: str) -> bool:
     return True
 
 
+_LOCK_FH = None
+
+
 def main() -> int:
     # launchd's StandardOutPath log has no per-run markers otherwise, making
     # it impossible to tell from the log alone when (or whether) a run was
     # missed -- e.g. because the machine was asleep at the scheduled time.
     print(f"--- run start {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---")
+
+    # Only one run at a time. Roles are posted *before* seen_jobs.json is
+    # written (so a crash never silently swallows them), which means two
+    # overlapping runs both compute the same "new" list and both post it --
+    # that duplicated a 13-role digest when a slow launchd run was still
+    # going as the next one started. The lock is held for the whole run and
+    # released when the process exits; a second run exits quietly rather
+    # than queueing, since the next scheduled run covers the same ground.
+    global _LOCK_FH
+    _LOCK_FH = open(os.path.join(REPO_DIR, ".run.lock"), "w")
+    try:
+        fcntl.flock(_LOCK_FH, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        print("another run is already in progress -- exiting", file=sys.stderr)
+        return 0
 
     if not WEBHOOK and not DRY:
         print("no SLACK_WEBHOOK_URL", file=sys.stderr)
