@@ -16,6 +16,7 @@ Config (env):
   SLACK_WEBHOOK_URL   required (or ~/.config/internship-verifier/webhook)
   REPO_DIR            optional (default: this file's dir)
   DRY_RUN=1           print instead of posting / writing
+  FIXED_INCOME_ONLY=1 only post newly discovered fixed-income / credit roles
 """
 from __future__ import annotations
 
@@ -40,6 +41,7 @@ DRY = os.environ.get("DRY_RUN") == "1"
 # during an SIE_ONLY run must stay unseen so the regular full run still
 # catches and posts it normally; this run is additive, not a replacement.
 SIE_ONLY = os.environ.get("SIE_ONLY") == "1"
+FIXED_INCOME_ONLY = os.environ.get("FIXED_INCOME_ONLY") == "1"
 TODAY = date.today().isoformat()
 
 _WF = os.path.expanduser("~/.config/internship-verifier/webhook")
@@ -290,8 +292,19 @@ WORKDAY = [
     ("Oaktree Capital", "oaktree.wd1.myworkdayjobs.com", "oaktree", "Oaktree"),
 ]
 
-# Roles like the user wants front-and-centre: bank / IB / credit / equity research /
-# wealth / PE / AM summer-analyst internships. These sort to the top of the digest.
+# Fixed-income and closely related credit roles receive the first section of
+# each digest, ahead of the broader investment internship matches.
+FIXED_INCOME = re.compile(
+    r"\bfixed[\s-]?income\b|\bcredit\b|\bbonds?\b|\brates?\b|"
+    r"securiti[sz]ed|structured (?:credit|products)|mortgage[- ]backed|"
+    r"municipal (?:bond|credit|finance)|\bmunis?\b|debt capital markets|"
+    # Credit-ratings work is fixed-income analysis under another name: S&P /
+    # Moody's / Fitch rate bond issuers, so "Ratings Analytical Intern" belongs
+    # in this section even though it never says "fixed income".
+    r"\bratings?\b|credit research|high[- ]yield|investment grade|\bCLO\b|"
+    r"\bABS\b|\bCMBS\b|\bRMBS\b|leveraged loan|private credit", re.I)
+
+# Other banking / investment roles still sort ahead of the remaining matches.
 PRIORITY = re.compile(
     r"(investment bank|\bib\b|summer analyst|credit analyst|equity research|"
     r"wealth manage|asset manage|private equity|capital markets|"
@@ -415,7 +428,9 @@ INC = re.compile(r"\b(intern|internship|co-?op|apprentice)\b|"
 # "Investigation"/"Investigative", which otherwise match plain "invest".
 INVEST = re.compile(r"(invest(?!igat)|equit|credit|private equity|growth equity|"
                     r"\bventure\b|portfolio|\bresearch\b|quant|capital markets|"
-                    r"buyout|secondar|infrastructure|real estate|\brealty\b|fixed income|"
+                    r"buyout|secondar|infrastructure|real estate|\brealty\b|"
+                    r"fixed[\s-]?income|\bbonds?\b|\brates?\b|securiti[sz]ed|"
+                    r"structured products|mortgage[- ]backed|debt capital markets|"
                     r"\bmacro\b|trading|\bdeal|diligence|asset manage|"
                     r"wealth manage|\bwealth\b|\badvisor|\brisk\b|\bfund\b|multi-?asset|\bpe\b|\bvc\b|"
                     r"commercial bank|corporate bank|global markets|transaction bank|"
@@ -510,7 +525,13 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
     Intern" are relevant even without an investment keyword in the title."""
     seen_paths, out = set(), []
     for term in ("2027 summer analyst internship", "2027 intern investment",
-                 "2027 credit analyst internship", "2027 intern", "summer intern 2027"):
+                 "2027 credit analyst internship", "2027 fixed income internship",
+                 "2027 fixed income analyst", "2027 credit research internship",
+                 "2027 intern", "summer intern 2027",
+                 # Credit-ratings and securitization roles are titled without a
+                 # year or the word "investment" -- S&P posts "Ratings
+                 # Analytical Intern", which none of the queries above reach.
+                 "ratings analytical intern"):
         code, body = post_json(
             f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
             {"searchText": term, "limit": 20, "offset": 0})
@@ -798,6 +819,18 @@ def want(title: str) -> bool:
     return True
 
 
+def role_priority(title: str) -> int:
+    # Discovery rows prefix titles with "Company: ". Do not treat words in
+    # the company name (e.g. Credit Agricole) as evidence about the role.
+    if ": " in title:
+        title = title.split(": ", 1)[1]
+    if FIXED_INCOME.search(title):
+        return 0
+    if PRIORITY.search(title):
+        return 1
+    return 2
+
+
 def is_associate_only(t: str) -> bool:
     """User graduates May 2028, undergrad -- "Summer Associate" is the
     industry-standard MBA-track title (vs. "Summer Analyst" for undergrads).
@@ -992,7 +1025,8 @@ def main() -> int:
     APPLIED = ("gh_jid=7895583", "gh_jid=7895562", "gh_jid=8041362",  # AQR SA roles
                "joinhandshake.com/public/jobs/11015271",               # StepStone PE Infra
                "point72/jobs/8811167002",   # Point72 Investment Services (applied Sep)
-               "drweng/jobs/7993004")       # DRW Venture Capital Analyst (applied Sep)
+               "drweng/jobs/7993004",       # DRW Venture Capital Analyst (applied Sep)
+               "R0120649")                  # Truist 2027 Structured Credit SA (applied Oct)
     found = [(t, l, u) for (t, l, u) in found
              if not any(a in u for a in APPLIED)]
 
@@ -1009,15 +1043,23 @@ def main() -> int:
         new = [r for r in new if SIE_TAG in r[0]]
         fresh_watch = [r for r in fresh_watch if SIE_TAG in r[0]]
 
+    if FIXED_INCOME_ONLY:
+        new = [r for r in new if role_priority(r[0]) == 0]
+        fresh_watch = [r for r in fresh_watch if role_priority(r[0]) == 0]
+
     if not new and not fresh_watch:
-        label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
+        label = ("new fixed-income / credit roles" if FIXED_INCOME_ONLY
+                 else "SIE-mentioned roles" if SIE_ONLY else "new roles")
         print(f"no {label} ({len(found)} board hits, {len(watch_ok)} watchlist live).")
         return 0
 
-    # bank / IB / AM / ER / PE summer-analyst roles first, everything else after
-    new_sorted = sorted(new, key=lambda r: (not PRIORITY.search(r[0]), r[0].lower()))
-    pri = [r for r in new_sorted if PRIORITY.search(r[0])]
-    rest = [r for r in new_sorted if not PRIORITY.search(r[0])]
+    # Fixed-income / credit roles lead the digest, followed by other investment roles.
+    new_sorted = sorted(new, key=lambda r: (role_priority(r[0]), r[0].lower()))
+    fixed_income = [r for r in new_sorted if role_priority(r[0]) == 0]
+    pri = [r for r in new_sorted if role_priority(r[0]) == 1]
+    rest = [r for r in new_sorted if role_priority(r[0]) == 2]
+    fixed_income_watch = [r for r in fresh_watch if role_priority(r[0]) == 0]
+    other_watch = [r for r in fresh_watch if role_priority(r[0]) != 0]
 
     def render_group(rows: list[tuple[str, str, str]]) -> list[str]:
         # Same firm posting the same role title in many cities (BMO Credit Analyst
@@ -1041,15 +1083,24 @@ def main() -> int:
                 out.append(f"  …+{len(items) - 6} more (in seen_jobs.json)")
         return out
 
-    header = (f":dart: {len(new)} live internship(s) mentioning the SIE exam — "
-              f"links checked {TODAY}") if SIE_ONLY else (
+    header = (f":chart_with_upwards_trend: {len(new) + len(fresh_watch)} newly found "
+              f"Fixed Income / Credit internship(s) — currently open links checked "
+              f"{TODAY}; posting dates are not consistently exposed by employer boards"
+              ) if FIXED_INCOME_ONLY else (
+             f":dart: {len(new)} live internship(s) mentioning the SIE exam — "
+             f"links checked {TODAY}") if SIE_ONLY else (
              f":mag: {len(new) + len(fresh_watch)} new live internship(s) — "
              f"links checked {TODAY}")
     lines = [header]
+    if fixed_income or fixed_income_watch:
+        lines.append("\n*Fixed Income / Credit — priority:*")
+        lines += render_group(fixed_income)
+        for lab, loc, pub in fixed_income_watch:
+            lines.append(f"• {lab}{f' ({loc})' if loc else ''}\n  {pub}")
     if pri:
         lines.append("\n*Bank / IB / AM / research / PE:*")
         lines += render_group(pri)
-    for lab, loc, pub in fresh_watch:
+    for lab, loc, pub in other_watch:
         lines.append(f"• {lab}{f' ({loc})' if loc else ''}\n  {pub}")
     if rest:
         lines.append("\n*Other:*")
@@ -1092,7 +1143,8 @@ def main() -> int:
         seen[pub] = {"title": lab, "first_seen": TODAY}
     json.dump(seen, open(SEEN_PATH, "w"), indent=2)
 
-    label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
+    label = ("new fixed-income / credit roles" if FIXED_INCOME_ONLY
+             else "SIE-mentioned roles" if SIE_ONLY else "new roles")
     print(f"posted {len(new) + len(fresh_watch)} {label}.")
     return 0
 
