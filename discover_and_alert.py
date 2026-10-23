@@ -314,6 +314,14 @@ WORKDAY = [
     ("Thrivent", "thrivent.wd5.myworkdayjobs.com", "thrivent", "External"),
     ("Barings", "barings.wd1.myworkdayjobs.com", "barings", "Barings"),
     ("T. Rowe Price", "troweprice.wd5.myworkdayjobs.com", "troweprice", "TRowePrice"),
+    # Agencies and rating agencies -- pure mortgage-credit / ratings shops, so
+    # worth watching even though neither has a qualifying US fixed-income
+    # internship open today. Fannie Mae's site slug is "FannieMaeCareers";
+    # the bare tenant root answers 406 rather than 404, which is what gave it
+    # away after the usual "External"/"Careers" guesses missed.
+    ("Fannie Mae", "fanniemae.wd1.myworkdayjobs.com", "fanniemae", "FannieMaeCareers"),
+    ("Morningstar", "morningstar.wd5.myworkdayjobs.com", "morningstar", "Morningstar"),
+    ("Freddie Mac", "freddiemac.wd5.myworkdayjobs.com", "freddiemac", "External"),
 ]
 
 # Other banking / investment roles still sort ahead of the remaining matches.
