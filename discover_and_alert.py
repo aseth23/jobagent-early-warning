@@ -590,8 +590,20 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                 dcode, dbody, _ = fetch(f"https://{host}/wday/cxs/{tenant}/{site}{path}")
                 if dcode == 200:
                     try:
-                        desc = json.loads(dbody).get("jobPostingInfo", {}).get("jobDescription", "")
-                        tag = sie_tag(desc)
+                        info = json.loads(dbody).get("jobPostingInfo", {})
+                        tag = sie_tag(info.get("jobDescription", ""))
+                        # Some tenants omit postedOn from the search payload
+                        # (Blackstone returns None), leaving the role undated
+                        # and so dropped by the 30-day gate. This detail
+                        # response is already being fetched for the SIE check,
+                        # so take a date from it at no extra request cost.
+                        # jobPostingInfo.startDate is when the posting went
+                        # live, not the job's start: Blackstone's reads
+                        # 2026-08-20 next to "Posted 30+ Days Ago", and a
+                        # job-start date would read 2027 for a summer role.
+                        if job_url not in POSTED_DATES:
+                            record_posted_date(
+                                job_url, info.get("startDate"), info.get("postedOn"))
                     except Exception:  # noqa: BLE001
                         pass
                 out.append((f"{label}: {disp_t}{tag}", loc, job_url))
@@ -705,12 +717,11 @@ def from_sig():
         if not req_id or not want(t) or not us_ok(loc):
             continue
         job_url = f"https://careers.sig.com/job/{req_id}"
-        record_posted_date(
-            job_url,
-            d.get("datePosted"),
-            d.get("postedDate"),
-            d.get("postingDate"),
-        )
+        # SIG's feed uses snake_case: "posted_date" (falling back to
+        # "create_date"), not the camelCase names. "update_date" is
+        # deliberately unused -- it is a last-modified stamp, not a posting
+        # date, and would make stale postings look new.
+        record_posted_date(job_url, d.get("posted_date"), d.get("create_date"))
         out.append((f"Susquehanna (SIG): {t}", loc, job_url))
     return out
 
@@ -756,12 +767,10 @@ def from_oracle_hcm(label, host, site_number, ui_site):
         if not rid or not want(t) or not us_ok(loc):
             continue
         job_url = f"https://{host}/hcmUI/CandidateExperience/en/sites/{ui_site}/job/{rid}"
+        # This finder returns "PostedDate" (e.g. "2026-10-16"); other Oracle
+        # site configurations expose "PostingStartDate" instead, so try both.
         record_posted_date(
-            job_url,
-            r.get("PostedDate"),
-            r.get("PostedDateTime"),
-            r.get("PostingDate"),
-        )
+            job_url, r.get("PostedDate"), r.get("PostingStartDate"))
         out.append((f"{label}: {t}", loc,
                     job_url))
     return out
@@ -1017,12 +1026,13 @@ def from_greenhouse(token):
         loc = (j.get("location") or {}).get("name", "")
         if want(t) and us_ok(loc):
             url = j["absolute_url"]
-            record_posted_date(
-                url,
-                j.get("first_published_at"),
-                j.get("datePosted"),
-                j.get("date_posted"),
-            )
+            # Greenhouse's field is "first_published" -- there is no
+            # "first_published_at", "datePosted" or "date_posted" on this
+            # payload, so every Greenhouse role recorded no date at all and
+            # was dropped by the 30-day gate. "updated_at" is deliberately
+            # NOT used as a fallback: it is a last-modified stamp, so a
+            # months-old posting edited yesterday would look brand new.
+            record_posted_date(url, j.get("first_published"))
             out.append((t + sie_tag(j.get("content", "")), loc, url))
     return out
 

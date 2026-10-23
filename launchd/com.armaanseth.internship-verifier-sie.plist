@@ -6,13 +6,34 @@
   <key>Label</key>
   <string>com.armaanseth.internship-verifier-sie</string>
 
-  <!-- Supplementary hourly run: same discovery pipeline as the main 3-hour
-       job, but SIE_ONLY=1 makes it post (and mark seen) only postings that
-       mention the SIE exam, leaving everything else unseen for the main
-       job to pick up and post normally on its own schedule. -->
+  <!-- DISABLED.
+
+       This job ran the whole discovery pipeline every hour (300+ sources,
+       all 58 Workday boards) purely so it could post the subset of
+       postings that mention the SIE exam, discarding everything else. That
+       made it an hourly duplicate of the main 3-hourly job rather than a
+       cheap extra check.
+
+       It is redundant now that alerting is fixed-income-only: the main job
+       applies the same FIXED_INCOME_ONLY filter and already carries the
+       SIE marker on any role whose description mentions the exam, so
+       nothing is lost by not running this. Keeping it would mean eight
+       extra full scans a day competing with the main job for the run lock
+       (verifier.log shows 12 "another run is already in progress" exits
+       caused by exactly this overlap).
+
+       Disabled rather than deleted so the SIE_ONLY wiring stays documented
+       and can be brought back if SIE-only alerting is ever wanted again on
+       its own schedule. To re-enable: set Disabled to false, then
+       `launchctl unload` and `launchctl load -w` this file. -->
+  <key>Disabled</key>
+  <true/>
+
   <key>EnvironmentVariables</key>
   <dict>
     <key>SIE_ONLY</key>
+    <string>1</string>
+    <key>FIXED_INCOME_ONLY</key>
     <string>1</string>
   </dict>
 
@@ -26,13 +47,16 @@
   <string>/Users/armaanseth/jobagent-early-warning</string>
 
   <!-- Every hour on the clock (offset :30 from the main job's :00 marks so
-       the two never fire at the exact same second). -->
+       the two never fire at the exact same second). Inert while Disabled. -->
   <key>StartCalendarInterval</key>
   <array>
     <dict><key>Minute</key><integer>30</integer></dict>
   </array>
+
+  <!-- RunAtLoad deliberately false: with Disabled set this should never
+       fire, and a stray load must not kick off a full scan. -->
   <key>RunAtLoad</key>
-  <true/>
+  <false/>
 
   <key>StandardOutPath</key>
   <string>/Users/armaanseth/jobagent-early-warning/launchd/verifier-sie.log</string>
