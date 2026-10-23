@@ -1,9 +1,12 @@
 # jobagent-early-warning
 
 Persistent memory for a recurring cloud agent (Claude Code routine) whose job is
-early discovery of Summer 2027 undergraduate growth-equity / investment
-internships — before they close, the way Lead Edge Capital's and Radian
-Capital's postings did.
+early discovery of Summer 2027 undergraduate investment internships — before
+they close, the way Lead Edge Capital's and Radian Capital's postings did.
+The routine should alert on fixed-income and closely related credit internships
+only. Include roles with an explicit employer-posted date in the past 30 days,
+and list postings from the past 7 days first. Do not treat first discovery as
+the posting date; omit candidates whose actual posting date cannot be established.
 
 This repo is intentionally separate from the main `jobagent` project (a local
 cron pipeline that hits ATS JSON APIs directly). This one exists purely so a
@@ -26,7 +29,9 @@ write back at the end, giving it memory across runs.
   `DEADLINE_CHANGED`, `REOPENED`) plus discovery metadata (`date_first_discovered`,
   `recruitment_began`, `date_posted`, `application_deadline`, `date_last_verified`,
   `discovery_source`, `official_application_url`). The routine must read this
-  before alerting and only surface genuinely new or changed entries.
+  before alerting and only surface genuinely new or changed fixed-income /
+  credit entries with a known `date_posted` in the past 30 days. Prioritize
+  entries posted in the past 7 days; omit entries with no reliable posting date.
 
 ## Posting policy — READ BEFORE SENDING ANYTHING TO SLACK
 

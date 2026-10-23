@@ -26,6 +26,12 @@ import urllib.request
 import urllib.error
 import urllib.parse
 from datetime import date
+from job_filters import (
+    is_fixed_income_role,
+    is_recent_posting,
+    parse_posted_date,
+    posting_age_days,
+)
 
 REPO_DIR = os.environ.get("REPO_DIR") or os.path.dirname(os.path.abspath(__file__))
 LEDGER = os.path.join(REPO_DIR, "early_warning_state.json")
@@ -71,6 +77,8 @@ ATS_HOSTS = ("job-boards.greenhouse.io", "boards.greenhouse.io", "jobs.lever.co"
 
 # statuses we skip: already resolved, or intentionally parked by the routine
 SKIP_STATUS = {"LIVE", "DEAD", "APPLIED", "CLOSED", "ALREADY_REPORTED", "CARRIED_OVER"}
+MAX_POSTING_AGE_DAYS = 30
+PRIORITY_POSTING_AGE_DAYS = 7
 
 
 def run_git(*args: str) -> str:
@@ -224,6 +232,10 @@ def main() -> int:
         role = (entry.get("title") or entry.get("role")
                 or (parts[1].replace("_", " ") if len(parts) > 1 else key))
         loc = entry.get("location") or (parts[2] if len(parts) > 2 else "")
+        posted_date = parse_posted_date(entry.get("date_posted"))
+        if not is_fixed_income_role(str(role)) or not is_recent_posting(
+                posted_date, MAX_POSTING_AGE_DAYS, date.fromisoformat(TODAY)):
+            continue
         if loc.lower().startswith(("not confirmed", "multiple", "us ", "united states")):
             loc = ""
 
@@ -239,7 +251,7 @@ def main() -> int:
         if verdict == "LIVE":
             entry["official_application_url"] = used_url
             entry["verify_alerted"] = True
-            live.append((company, role, loc, used_url))
+            live.append((company, role, loc, used_url, posted_date))
         elif verdict == "DEAD":
             entry["verify_alerted"] = True
             dead.append((company, role))
@@ -263,11 +275,28 @@ def main() -> int:
         sync()
         return 0
 
-    lines = [f":white_check_mark: Link check {TODAY} — {len(live)} live, {len(dead)} dead"]
+    lines = [
+        f":white_check_mark: Fixed Income / Credit link check {TODAY} — "
+        f"{len(live)} live, {len(dead)} dead (posted within {MAX_POSTING_AGE_DAYS} days; "
+        f"last {PRIORITY_POSTING_AGE_DAYS} days first)"
+    ]
     if live:
-        lines.append("\n*Live — apply:*")
-        for c, r, l, u in live:
-            lines.append(f"• {c} — {r}{f' ({l})' if l else ''} — {u}")
+        fixed_income_live = sorted(
+            live,
+            key=lambda row: (
+                posting_age_days(row[4], date.fromisoformat(TODAY))
+                > PRIORITY_POSTING_AGE_DAYS,
+                posting_age_days(row[4], date.fromisoformat(TODAY)),
+                row[0].lower(),
+                row[1].lower(),
+            ),
+        )
+        lines.append("\n*Fixed Income / Credit — last 7 days first:*")
+        for c, r, l, u, posted_date in fixed_income_live:
+            lines.append(
+                f"• {c} — {r}{f' ({l})' if l else ''} — posted "
+                f"{posted_date.isoformat()} — {u}"
+            )
     if dead:
         lines.append("\n*Dead / closed — skip:*")
         for c, r in dead:

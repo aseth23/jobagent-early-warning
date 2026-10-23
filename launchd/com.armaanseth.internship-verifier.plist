@@ -12,6 +12,12 @@
     <string>/Users/armaanseth/jobagent-early-warning/discover_and_alert.py</string>
   </array>
 
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>FIXED_INCOME_ONLY</key>
+    <string>1</string>
+  </dict>
+
   <key>WorkingDirectory</key>
   <string>/Users/armaanseth/jobagent-early-warning</string>
 
