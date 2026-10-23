@@ -30,6 +30,7 @@ import sys
 import time
 import urllib.request
 import urllib.error
+import urllib.parse
 from collections import defaultdict
 from datetime import date, datetime
 
@@ -452,7 +453,7 @@ EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|
                      r"financial planner|financial advisor|cybersecurity|"
                      r"software engineer|data engineer|network engineer|"
                      r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
-                     r"externship|communications|\bbrand\b|social media|"
+                     r"externship|communications|\bbrand\b|social media|multimedia|"
                      # User's in school for spring semester -- off-cycle
                      # "Winter" co-op/intern terms (common at Canadian banks,
                      # usually 4-8 months) don't fit his calendar.
@@ -572,6 +573,90 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                     except Exception:  # noqa: BLE001
                         pass
                 out.append((f"{label}: {disp_t}{tag}", loc, f"https://{host}/{site}{path}"))
+    return out
+
+
+# Moody's and Fitch both run SAP SuccessFactors behind a Radancy front end:
+# results load via JS with a CSRF token (not scrapable), and Moody's
+# robots.txt disallows /search-jobs/. Both publish a sitemap listing every
+# job URL, which is exactly what sitemaps are for, so that is the polite and
+# reliable way in. Titles/locations in the slug are only good enough for a
+# first pass -- "san-jose" in a Moody's slug is San Jose, COSTA RICA, not
+# California -- so the few that pass want() are confirmed against the page's
+# JSON-LD JobPosting, which carries the real title and addressCountry.
+SITEMAP_BOARDS = [
+    ("Moody's", "https://careers.moodys.com/sitemap.xml"),
+    ("Fitch Ratings", "https://careers.fitch.group/sitemap.xml"),
+]
+
+# Checked against JSON-LD addressCountry, not the city-name heuristics in
+# us_ok(), because a country code is unambiguous where a city name is not.
+SITEMAP_COUNTRY_OK = re.compile(
+    r"^\s*(US|USA|United States(?: of America)?|GB|UK|United Kingdom|"
+    r"FR|FRA|France|CA|CAN|Canada)\s*$", re.I)
+
+
+def _jsonld_jobposting(body: str) -> dict:
+    """Pull the JobPosting out of a page's JSON-LD, if present."""
+    for blob in re.findall(
+            r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+            body, re.S | re.I):
+        try:
+            data = json.loads(html.unescape(blob.strip()))
+        except Exception:
+            continue
+        for item in (data if isinstance(data, list) else [data]):
+            if isinstance(item, dict) and item.get("@type") == "JobPosting":
+                return item
+    return {}
+
+
+def from_sitemap(label: str, sitemap_url: str, max_detail: int = 40):
+    code, body, _ = fetch(sitemap_url, timeout=30)
+    if code != 200 or not body:
+        return []
+    urls = [urllib.parse.unquote(u.replace("&amp;", "&"))
+            for u in re.findall(r"<loc>\s*([^<]+?)\s*</loc>", body)]
+
+    # cheap first pass on the slug: 300+ jobs down to a handful
+    cands = []
+    for u in urls:
+        if "/job/" not in u.lower():
+            continue
+        m = re.search(r"/job/([^/]+)/([^/]+?)/\d", u)
+        slug = m.group(2) if m else None
+        if slug is None:
+            m = re.search(r"/job/([^/]+?)/\d", u)
+            slug = m.group(1) if m else None
+        if not slug:
+            continue
+        if want(slug.replace("-", " ")):
+            cands.append(u)
+
+    out = []
+    for u in sorted(set(cands))[:max_detail]:
+        code, page, _ = fetch(u, timeout=20)
+        if code != 200 or not page:
+            continue
+        post = _jsonld_jobposting(page)
+        title = (post.get("title") or "").strip()
+        if not title or not want(title):
+            continue
+        locs = post.get("jobLocation")
+        locs = locs if isinstance(locs, list) else [locs]
+        parts, allowed = [], False
+        for L in locs:
+            addr = (L or {}).get("address") or {}
+            country = str(addr.get("addressCountry") or "")
+            if isinstance(addr.get("addressCountry"), dict):
+                country = str(addr["addressCountry"].get("name") or "")
+            if SITEMAP_COUNTRY_OK.search(country):
+                allowed = True
+            bits = [addr.get("addressLocality"), addr.get("addressRegion"), country]
+            parts.append(", ".join(b for b in bits if b))
+        if not allowed:
+            continue
+        out.append((title, "; ".join(p for p in parts if p), u))
     return out
 
 
@@ -1010,6 +1095,8 @@ def main() -> int:
         found += from_workday(*entry)
     found += from_sig()
     found += from_cacib()
+    for label, sm_url in SITEMAP_BOARDS:
+        found += [(f"{label}: {t}", l, u) for t, l, u in from_sitemap(label, sm_url)]
     for label, url in TAL_NET:
         found += from_tal_net(label, url)
     for label, cid, ccid in ADP_WFN:
