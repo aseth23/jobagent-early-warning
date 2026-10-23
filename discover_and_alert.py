@@ -16,7 +16,7 @@ Config (env):
   SLACK_WEBHOOK_URL   required (or ~/.config/internship-verifier/webhook)
   REPO_DIR            optional (default: this file's dir)
   DRY_RUN=1           print instead of posting / writing
-  FIXED_INCOME_ONLY=1 only post newly discovered fixed-income / credit roles
+  FIXED_INCOME_ONLY=0 opt out of the default fixed-income / credit-only filter
 """
 from __future__ import annotations
 
@@ -31,8 +31,15 @@ import time
 import urllib.request
 import urllib.error
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 from collections import defaultdict
 from datetime import date, datetime
+from job_filters import (
+    is_fixed_income_role,
+    is_recent_posting,
+    parse_posted_date,
+    posting_age_days,
+)
 
 REPO_DIR = os.environ.get("REPO_DIR") or os.path.dirname(os.path.abspath(__file__))
 SEEN_PATH = os.path.join(REPO_DIR, "seen_jobs.json")
@@ -42,8 +49,20 @@ DRY = os.environ.get("DRY_RUN") == "1"
 # during an SIE_ONLY run must stay unseen so the regular full run still
 # catches and posts it normally; this run is additive, not a replacement.
 SIE_ONLY = os.environ.get("SIE_ONLY") == "1"
-FIXED_INCOME_ONLY = os.environ.get("FIXED_INCOME_ONLY") == "1"
+FIXED_INCOME_ONLY = os.environ.get("FIXED_INCOME_ONLY", "1") != "0"
+POSTED_DATES: dict[str, date] = {}
+MAX_POSTING_AGE_DAYS = 30
+PRIORITY_POSTING_AGE_DAYS = 7
 TODAY = date.today().isoformat()
+
+
+def record_posted_date(url: str, *values: object) -> None:
+    for value in values:
+        posted_date = parse_posted_date(value)
+        if posted_date:
+            POSTED_DATES[url] = posted_date
+            return
+
 
 _WF = os.path.expanduser("~/.config/internship-verifier/webhook")
 WEBHOOK = os.environ.get("SLACK_WEBHOOK_URL", "").strip()
@@ -291,19 +310,11 @@ WORKDAY = [
     # live campus postings are on "apollononpubliccareersite".
     ("Apollo", "athene.wd5.myworkdayjobs.com", "athene", "apollononpubliccareersite"),
     ("Oaktree Capital", "oaktree.wd1.myworkdayjobs.com", "oaktree", "Oaktree"),
+    # fixed-income managers / insurance general accounts
+    ("Thrivent", "thrivent.wd5.myworkdayjobs.com", "thrivent", "External"),
+    ("Barings", "barings.wd1.myworkdayjobs.com", "barings", "Barings"),
+    ("T. Rowe Price", "troweprice.wd5.myworkdayjobs.com", "troweprice", "TRowePrice"),
 ]
-
-# Fixed-income and closely related credit roles receive the first section of
-# each digest, ahead of the broader investment internship matches.
-FIXED_INCOME = re.compile(
-    r"\bfixed[\s-]?income\b|\bcredit\b|\bbonds?\b|\brates?\b|"
-    r"securiti[sz]ed|structured (?:credit|products)|mortgage[- ]backed|"
-    r"municipal (?:bond|credit|finance)|\bmunis?\b|debt capital markets|"
-    # Credit-ratings work is fixed-income analysis under another name: S&P /
-    # Moody's / Fitch rate bond issuers, so "Ratings Analytical Intern" belongs
-    # in this section even though it never says "fixed income".
-    r"\bratings?\b|credit research|high[- ]yield|investment grade|\bCLO\b|"
-    r"\bABS\b|\bCMBS\b|\bRMBS\b|leveraged loan|private credit", re.I)
 
 # Other banking / investment roles still sort ahead of the remaining matches.
 PRIORITY = re.compile(
@@ -440,16 +451,19 @@ INVEST = re.compile(r"(invest(?!igat)|equit|credit|private equity|growth equity|
                     r"junior capital|unitranche|mezzanine|middle market|"
                     r"special situations|distressed|capital solutions|"
                     r"asset-based|\bsourcing\b|origination|manager research|"
-                    r"investment strategy|investment analytics|\brating)", re.I)
+                    r"investment strategy|investment analytics|\brating|high[- ]yield|investment grade)", re.I)
 # require the role to NOT be an old cycle / senior / grad-only; 2027 in the title optional
 EXCLUDE = re.compile(r"(\bsenior\b|vice president|\bvp\b|\bdirector\b|principal|"
                      r"\bmanager\b|\blead\b|\bstaff\b|head of|\b202[0-6]\b|"
                      r"\bmba\b|ph\.?d|master('?s| or)|doctoral|full[- ]time|"
+                     r"graduate (?:degree|program|student)|\bgraduate intern|"
                      r"new grad|experienced|\btax\b|sales enablement|"
                      r"business development operations|(?<!campus )\brecruit|\bhr\b|"
                      r"human resources|\bmarketing\b|\blegal\b|\bcompliance\b|"
-                     r"\baudit|\baccounting\b|payroll|facilities|help ?desk|"
+                     r"\baudit|\baccounting\b|\baccountant\b|application engineer|payroll|facilities|help ?desk|"
                      r"total rewards|investor services|certified financial planner|"
+                     r"\bsurety\b|specialty insurance|insurance underwrit|"
+                     r"\bactuarial\b|claim professional|"
                      r"financial planner|financial advisor|cybersecurity|"
                      r"software engineer|data engineer|network engineer|"
                      r"client support|help ?desk|\bcoop\b|co-?op|\bfraud\b|"
@@ -554,6 +568,14 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                 if pure_investment_firm else want(t)
             if ok and us_ok(loc) and year_ok:
                 seen_paths.add(path)
+                job_url = f"https://{host}/{site}{path}"
+                record_posted_date(
+                    job_url,
+                    p.get("postedOn"),
+                    p.get("datePosted"),
+                    p.get("postedDate"),
+                    p.get("postingDate"),
+                )
                 # multi-brand tenants (e.g. "Prudential / PGIM") often post titles
                 # that already lead with the sub-brand name ("PGIM: ...") -- drop
                 # that so the digest doesn't read "Prudential / PGIM: PGIM: ...".
@@ -572,7 +594,7 @@ def from_workday(label, host, tenant, site, pure_investment_firm=False):
                         tag = sie_tag(desc)
                     except Exception:  # noqa: BLE001
                         pass
-                out.append((f"{label}: {disp_t}{tag}", loc, f"https://{host}/{site}{path}"))
+                out.append((f"{label}: {disp_t}{tag}", loc, job_url))
     return out
 
 
@@ -656,6 +678,7 @@ def from_sitemap(label: str, sitemap_url: str, max_detail: int = 40):
             parts.append(", ".join(b for b in bits if b))
         if not allowed:
             continue
+        record_posted_date(u, post.get("datePosted"))
         out.append((title, "; ".join(p for p in parts if p), u))
     return out
 
@@ -681,7 +704,14 @@ def from_sig():
         req_id = d.get("req_id")
         if not req_id or not want(t) or not us_ok(loc):
             continue
-        out.append((f"Susquehanna (SIG): {t}", loc, f"https://careers.sig.com/job/{req_id}"))
+        job_url = f"https://careers.sig.com/job/{req_id}"
+        record_posted_date(
+            job_url,
+            d.get("datePosted"),
+            d.get("postedDate"),
+            d.get("postingDate"),
+        )
+        out.append((f"Susquehanna (SIG): {t}", loc, job_url))
     return out
 
 
@@ -725,8 +755,15 @@ def from_oracle_hcm(label, host, site_number, ui_site):
         rid = r.get("Id")
         if not rid or not want(t) or not us_ok(loc):
             continue
+        job_url = f"https://{host}/hcmUI/CandidateExperience/en/sites/{ui_site}/job/{rid}"
+        record_posted_date(
+            job_url,
+            r.get("PostedDate"),
+            r.get("PostedDateTime"),
+            r.get("PostingDate"),
+        )
         out.append((f"{label}: {t}", loc,
-                    f"https://{host}/hcmUI/CandidateExperience/en/sites/{ui_site}/job/{rid}"))
+                    job_url))
     return out
 
 
@@ -834,6 +871,12 @@ def from_adp_wfn(label, cid, ccid):
             continue
         apply_url = ("https://workforcenow.adp.com/mascsr/default/mdf/recruitment/"
                      f"recruitment.html?cid={cid}&ccId={ccid}&type=JS&lang=en_US&jobId={item_id}")
+        record_posted_date(
+            apply_url,
+            r.get("datePosted"),
+            r.get("postingDate"),
+            r.get("requisitionPostingDate"),
+        )
         out.append((f"{label}: {t}", loc, apply_url))
     return out
 
@@ -907,9 +950,7 @@ def want(title: str) -> bool:
 def role_priority(title: str) -> int:
     # Discovery rows prefix titles with "Company: ". Do not treat words in
     # the company name (e.g. Credit Agricole) as evidence about the role.
-    if ": " in title:
-        title = title.split(": ", 1)[1]
-    if FIXED_INCOME.search(title):
+    if is_fixed_income_role(title):
         return 0
     if PRIORITY.search(title):
         return 1
@@ -975,7 +1016,14 @@ def from_greenhouse(token):
         t = j.get("title", "")
         loc = (j.get("location") or {}).get("name", "")
         if want(t) and us_ok(loc):
-            out.append((t + sie_tag(j.get("content", "")), loc, j["absolute_url"]))
+            url = j["absolute_url"]
+            record_posted_date(
+                url,
+                j.get("first_published_at"),
+                j.get("datePosted"),
+                j.get("date_posted"),
+            )
+            out.append((t + sie_tag(j.get("content", "")), loc, url))
     return out
 
 
@@ -993,7 +1041,9 @@ def from_lever(token):
         loc = (p.get("categories") or {}).get("location", "")
         if want(t) and us_ok(loc):
             desc = p.get("descriptionPlain", "") or p.get("description", "")
-            out.append((t + sie_tag(desc), loc, p["hostedUrl"]))
+            url = p["hostedUrl"]
+            record_posted_date(url, p.get("createdAt"), p.get("datePosted"))
+            out.append((t + sie_tag(desc), loc, url))
     return out
 
 
@@ -1011,7 +1061,9 @@ def from_ashby(token):
         t = p.get("title", "")
         loc = p.get("location", "")
         if want(t) and us_ok(loc):
-            out.append((t, loc, p.get("jobUrl", "")))
+            url = p.get("jobUrl", "")
+            record_posted_date(url, p.get("publishedAt"), p.get("datePosted"))
+            out.append((t, loc, url))
     return out
 
 
@@ -1034,6 +1086,7 @@ def watch_live(check_url: str) -> bool:
         return False
     if re.search(r"[?&]error=true", final):
         return False
+    record_posted_date(check_url, _jsonld_jobposting(body).get("datePosted"))
     # tal.net/Oleeo (Jefferies, Morgan Stanley) can serve a bot-check
     # challenge page instead of the real posting -- HTTP 200, no dead-marker
     # text, so it was silently read as "confirmed live" regardless of the
@@ -1091,8 +1144,11 @@ def main() -> int:
         found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_lever(tok)]
     for tok in ASHBY:
         found += [(f"{nice(tok)}: {t}", l, u) for t, l, u in from_ashby(tok)]
-    for entry in WORKDAY:
-        found += from_workday(*entry)
+    # 6 at a time: each board is a different employer host, so this adds no
+    # per-host load, and it keeps the run clear of the 900s watchdog.
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for rows in pool.map(lambda e: from_workday(*e), WORKDAY):
+            found += rows
     found += from_sig()
     found += from_cacib()
     for label, sm_url in SITEMAP_BOARDS:
@@ -1106,7 +1162,12 @@ def main() -> int:
 
     watch_ok, watch_dead = [], []
     for label, loc, chk, pub in WATCHLIST:
-        (watch_ok if watch_live(chk) else watch_dead).append((label, loc, pub))
+        if watch_live(chk):
+            if chk in POSTED_DATES:
+                POSTED_DATES[pub] = POSTED_DATES[chk]
+            watch_ok.append((label, loc, pub))
+        else:
+            watch_dead.append((label, loc, pub))
 
     # already applied — never re-surface (match on gh_jid / stable URL fragment)
     APPLIED = ("gh_jid=7895583", "gh_jid=7895562", "gh_jid=8041362",  # AQR SA roles
@@ -1130,18 +1191,54 @@ def main() -> int:
         new = [r for r in new if SIE_TAG in r[0]]
         fresh_watch = [r for r in fresh_watch if SIE_TAG in r[0]]
 
+    fixed_income_candidates = [r for r in found if role_priority(r[0]) == 0]
+    recent_fixed_income_candidates = [
+        r for r in fixed_income_candidates
+        if is_recent_posting(
+            POSTED_DATES.get(r[2]), MAX_POSTING_AGE_DAYS, date.fromisoformat(TODAY))
+    ]
+    undated_fixed_income_candidates = sum(
+        POSTED_DATES.get(r[2]) is None for r in fixed_income_candidates
+    )
+
     if FIXED_INCOME_ONLY:
-        new = [r for r in new if role_priority(r[0]) == 0]
-        fresh_watch = [r for r in fresh_watch if role_priority(r[0]) == 0]
+        new = [
+            r for r in new
+            if role_priority(r[0]) == 0
+            and is_recent_posting(
+                POSTED_DATES.get(r[2]), MAX_POSTING_AGE_DAYS, date.fromisoformat(TODAY))
+        ]
+        fresh_watch = [
+            r for r in fresh_watch
+            if role_priority(r[0]) == 0
+            and is_recent_posting(
+                POSTED_DATES.get(r[2]), MAX_POSTING_AGE_DAYS, date.fromisoformat(TODAY))
+        ]
 
     if not new and not fresh_watch:
-        label = ("new fixed-income / credit roles" if FIXED_INCOME_ONLY
-                 else "SIE-mentioned roles" if SIE_ONLY else "new roles")
-        print(f"no {label} ({len(found)} board hits, {len(watch_ok)} watchlist live).")
+        if FIXED_INCOME_ONLY:
+            print(
+                f"no new fixed-income / credit roles: "
+                f"{len(fixed_income_candidates)} candidates, "
+                f"{len(recent_fixed_income_candidates)} posted within "
+                f"{MAX_POSTING_AGE_DAYS} days, "
+                f"{undated_fixed_income_candidates} without a usable posting date."
+            )
+        else:
+            label = "SIE-mentioned roles" if SIE_ONLY else "new roles"
+            print(f"no {label} ({len(found)} board hits, {len(watch_ok)} watchlist live).")
         return 0
 
     # Fixed-income / credit roles lead the digest, followed by other investment roles.
-    new_sorted = sorted(new, key=lambda r: (role_priority(r[0]), r[0].lower()))
+    new_sorted = sorted(
+        new,
+        key=lambda r: (
+            role_priority(r[0]),
+            posting_age_days(POSTED_DATES.get(r[2]), date.fromisoformat(TODAY))
+            if POSTED_DATES.get(r[2]) else MAX_POSTING_AGE_DAYS,
+            r[0].lower(),
+        ),
+    )
     fixed_income = [r for r in new_sorted if role_priority(r[0]) == 0]
     pri = [r for r in new_sorted if role_priority(r[0]) == 1]
     rest = [r for r in new_sorted if role_priority(r[0]) == 2]
@@ -1161,17 +1258,23 @@ def main() -> int:
         for (firm, role_key), items in groups.items():
             if len(items) == 1:
                 role, l, u = items[0]
-                out.append(f"• {firm}: {role}{f' ({l})' if l else ''}\n  {u}")
+                posted = POSTED_DATES.get(u)
+                date_label = f" — posted {posted.isoformat()}" if posted else ""
+                out.append(f"• {firm}: {role}{f' ({l})' if l else ''}{date_label}\n  {u}")
                 continue
             out.append(f"• {firm}: {role_key} — {len(items)} locations")
             for role, l, u in items[:6]:
-                out.append(f"  {l or role}: {u}")
+                posted = POSTED_DATES.get(u)
+                date_label = f" — posted {posted.isoformat()}" if posted else ""
+                out.append(f"  {l or role}: {u}{date_label}")
             if len(items) > 6:
                 out.append(f"  …+{len(items) - 6} more (in seen_jobs.json)")
         return out
 
     header = (f":chart_with_upwards_trend: {len(new) + len(fresh_watch)} newly found "
-              f"Fixed Income / Credit internship(s) — currently open links checked "
+              f"Fixed Income / Credit internship(s) posted in the last "
+              f"{MAX_POSTING_AGE_DAYS} days — last {PRIORITY_POSTING_AGE_DAYS} days first; "
+              f"open links checked "
               f"{TODAY}; posting dates are not consistently exposed by employer boards"
               ) if FIXED_INCOME_ONLY else (
              f":dart: {len(new)} live internship(s) mentioning the SIE exam — "
